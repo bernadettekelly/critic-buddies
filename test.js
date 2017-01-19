@@ -29,7 +29,7 @@ function seedBlogData() {
       },
       movieTitle: faker.lorem.sentence(),
       text: faker.lorem.text(),
-      ///publidhedOn: faker.x.x()
+      publidhedOn: faker.date.()
     });
   }
   return BlogPost.insertMany(seedData);
