@@ -23,6 +23,7 @@ router.post('/', jsonParser, (req, res) => {
 	res.status(201).json(item);
 });
 
+///Will comments and comments name show even if they're not required?
 router.put('/:id', jsonParser, (req, res) => {
 	const requiredFields = [
 	'id', 'movieTitle', 'name', 'text', 'publishedOn'];

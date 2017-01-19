@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const blogPostSchema = mongoose.Schema({
+const movieReviewsSchema = mongoose.Schema({
 	movieTitle: {type: String},
 	text: {type: String},
 	publishedOn: {type: Date, default: Date.now},
