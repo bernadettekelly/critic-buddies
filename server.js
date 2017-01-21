@@ -1,6 +1,10 @@
-var express = require('express');
+const express = require('express');
 
-var app = express();
+const app = express();
+
+const reviewPostsRouter = require(./reviewPostsRouter);
+
+app.use('/review-posts', reviewPostsRouter);
 
 app.use(express.static('public'));
 
