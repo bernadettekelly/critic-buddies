@@ -4,6 +4,14 @@ const app = express();
 
 const reviewPostsRouter = require('./reviewPostsRouter');
 
+const morgan = require('morgan');
+
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+
+app.use(morgan('common'));
+
 app.use('/review-posts', reviewPostsRouter);
 
 app.use(express.static('public'));

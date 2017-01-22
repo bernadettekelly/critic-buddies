@@ -1,23 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
 const {movieReviews} = require('./models')
 const mongoose = require('mongoose');
-const morgan = require('morgan');
 const {DATABASE_URL, PORT} = require('./config');
 
-app.use(morgan('common'));
-app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
 
-router.get('/review-posts', (req, res) => {
+router.get('/', (req, res) => {
 	movieReviews
 	.find()
 	.exec()
 	.then(posts => {
-	res.json(review-posts.map(post => post.apiRepr()));
+	res.status(200).json({reviewPosts:posts});
 })
 	.catch(err => {
 		console.error(err);
@@ -25,8 +20,9 @@ router.get('/review-posts', (req, res) => {
 	});
 });
 
-router.post('/review-posts', jsonParser, (req, res) => {
+router.post('/', (req, res) => {
 	const requiredFields = ['movieTitle', 'name', 'text', 'publishedOn'];
+	console.log(req.body);
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -49,8 +45,7 @@ router.post('/review-posts', jsonParser, (req, res) => {
         });
 });
 
-///Will comments and comments name show even if they're not required?
-router.put('/review-posts/:id', jsonParser, (req, res) => {
+router.put('/:id', (req, res) => {
 	const requiredFields = [
 	'id', 'movieTitle', 'name', 'text', 'publishedOn'];
 	for (let i=0; i<requiredFields.length; i++) {
@@ -72,11 +67,11 @@ router.put('/review-posts/:id', jsonParser, (req, res) => {
 	const updatedItem = reviewPosts.update({
 		id: req.params.id,
 		movieTitle: req.body.movieTitle,
+		text: req.body.text,
 		name: req.body.name,
 		publishedOn: req.body.publishedOn
 	});
 	res.status(204).json(updatedItem); 
-	});
 
     movieReviews
     .findByIdAndUpdate(req.params.id, {$set: toUpdate})
@@ -84,8 +79,10 @@ router.put('/review-posts/:id', jsonParser, (req, res) => {
     .then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 
+});
 
-router.delete('/reviewPosts/:id', (req, res) => {
+
+router.delete('/:id', (req, res) => {
 	movieReviews
 	.findByIdAndRemove(req.params.id)
 	.exec()
@@ -102,7 +99,7 @@ let server;
 
 function runServer(databaseURL=DATABASE_URL, port=PORT) {
 	return new Promise((resolve, reject) => {
-		mongoose.connect((databaseUrl, err => {
+		mongoose.connect((databaseUrl, err) => {
 			if (err) {
 				return reject(err);
 			}
@@ -113,9 +110,9 @@ function runServer(databaseURL=DATABASE_URL, port=PORT) {
 			.on('error', err => {
 				mongoose.disconnect();
 				reject(err);
+			});
 		});
-	}));
-});
+	});
 }
 
 function closeServer() {
@@ -128,11 +125,12 @@ function closeServer() {
 						return reject(err);
 					}
 					resolve();
+				});
 			});
 		});
 	});
 }
-if {require.main === module) {
+if (require.main === module) {
 	runServer().catch(err => console.error(err));
-);
+}
 module.exports = router;
