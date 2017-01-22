@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const {movieReviews} = require('./models')
 const mongoose = require('mongoose');
-///const morgan = require('morgan');
+const morgan = require('morgan');
+const {DATABASE_URL, PORT} = require('./config');
 
 app.use(morgan('common'));
 app.use(bodyParser.json());
@@ -97,4 +98,41 @@ router.delete('/reviewPosts/:id', (req, res) => {
     });
 });
 
+let server;
+
+function runServer(databaseURL=DATABASE_URL, port=PORT) {
+	return new Promise((resolve, reject) => {
+		mongoose.connect((databaseUrl, err => {
+			if (err) {
+				return reject(err);
+			}
+			server = app.listen(port, () => {
+				console.log(`Your app is listening on port ${port}`);
+				resolve();
+			})
+			.on('error', err => {
+				mongoose.disconnect();
+				reject(err);
+		});
+	}));
+});
+}
+
+function closeServer() {
+	return mongoose.disconnect().then(() => {
+		return new Promise((resolve, reject) => {
+			return new Promise((resolve, reject) => {
+				console.log('Closing server');
+				server.close(err => {
+					if (err) {
+						return reject(err);
+					}
+					resolve();
+			});
+		});
+	});
+}
+if {require.main === module) {
+	runServer().catch(err => console.error(err));
+);
 module.exports = router;
