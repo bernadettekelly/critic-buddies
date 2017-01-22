@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-const reviewPostsRouter = require(./reviewPostsRouter);
+const reviewPostsRouter = require('./reviewPostsRouter');
 
 app.use('/review-posts', reviewPostsRouter);
 

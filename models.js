@@ -23,6 +23,6 @@ movieReviewsSchema.methods.apiRepr = function() {
 	};
 }
 
-const movieReviews = mongoose.model('movieReviews', movieReviews);
+const movieReviews = mongoose.model('movieReviews', movieReviewsSchema);
 
 module.exports = {movieReviews};

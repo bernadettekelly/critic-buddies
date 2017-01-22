@@ -2,13 +2,29 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-const {reviewPosts} = require('./models')
+const {movieReviews} = require('./models')
+const mongoose = require('mongoose');
+///const morgan = require('morgan');
 
-router.get('/', (req, res) => {
-	res.json(BlogPosts.get());
+app.use(morgan('common'));
+app.use(bodyParser.json());
+
+mongoose.Promise = global.Promise;
+
+router.get('/review-posts', (req, res) => {
+	movieReviews
+	.find()
+	.exec()
+	.then(posts => {
+	res.json(review-posts.map(post => post.apiRepr()));
+})
+	.catch(err => {
+		console.error(err);
+		res.status(500).json({error: 'something went wrong'});
+	});
 });
 
-router.post('/', jsonParser, (req, res) => {
+router.post('/review-posts', jsonParser, (req, res) => {
 	const requiredFields = ['movieTitle', 'name', 'text', 'publishedOn'];
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
@@ -18,13 +34,22 @@ router.post('/', jsonParser, (req, res) => {
 			return res.status(400).send(message);
 		}
 	}
-	const item = reviewPosts.create(
-		req.body.movieTitle, req.body.name, req.body.text, req.body.publishedOn);
-	res.status(201).json(item);
+        movieReviews
+        .create({
+        	movieTitle: req.body.movieTitle,
+        	name: req.body.name,
+        	text: req.body.text,
+        	publishedOn: req.body.publishedOn
+       })
+        .then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
+        .catch(err => {
+        	console.error(err);
+        	res.status(500).json({error: 'Something went wrong'});
+        });
 });
 
 ///Will comments and comments name show even if they're not required?
-router.put('/:id', jsonParser, (req, res) => {
+router.put('/review-posts/:id', jsonParser, (req, res) => {
 	const requiredFields = [
 	'id', 'movieTitle', 'name', 'text', 'publishedOn'];
 	for (let i=0; i<requiredFields.length; i++) {
@@ -52,10 +77,24 @@ router.put('/:id', jsonParser, (req, res) => {
 	res.status(204).json(updatedItem); 
 	});
 
-router.delete('/:id', (req, res) => {
-	reviewPosts.delete(req.params.id);
-	console.log(`Deleted blog post with id \`$req.params.ID}\``);
-	res.status(204).end();
+    movieReviews
+    .findByIdAndUpdate(req.params.id, {$set: toUpdate})
+    .exec()
+    .then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
+    .catch(err => res.status(500).json({message: 'Internal server error'}));
+
+
+router.delete('/reviewPosts/:id', (req, res) => {
+	movieReviews
+	.findByIdAndRemove(req.params.id)
+	.exec()
+	.then(() => {
+	res.status(204).json({message: 'success'});
+})
+    .catch(err => {
+    	console.error(err);
+    	res.status(500).json({error: 'something went wrong'});
+    });
 });
 
 module.exports = router;
