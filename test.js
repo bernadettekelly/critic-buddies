@@ -35,7 +35,8 @@ function seedReviewPostData() {
   return reviewPost.insertMany(seedData);
 }
 describe('review posts API resource', function() {
-	before(function();
+	before(function() {
+		return runServer();
 });
 
 	beforeEach(function() {
