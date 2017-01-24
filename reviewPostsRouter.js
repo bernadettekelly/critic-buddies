@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const {movieReviews} = require('./models')
-const mongoose = require('mongoose');
-const {DATABASE_URL, PORT} = require('./config');
-
-
-mongoose.Promise = global.Promise;
 
 router.get('/', (req, res) => {
 	movieReviews
@@ -95,42 +90,5 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-let server;
 
-function runServer(databaseURL=DATABASE_URL, port=PORT) {
-	return new Promise((resolve, reject) => {
-		mongoose.connect((databaseUrl, err) => {
-			if (err) {
-				return reject(err);
-			}
-			server = app.listen(port, () => {
-				console.log(`Your app is listening on port ${port}`);
-				resolve();
-			})
-			.on('error', err => {
-				mongoose.disconnect();
-				reject(err);
-			});
-		});
-	});
-}
-
-function closeServer() {
-	return mongoose.disconnect().then(() => {
-		return new Promise((resolve, reject) => {
-			return new Promise((resolve, reject) => {
-				console.log('Closing server');
-				server.close(err => {
-					if (err) {
-						return reject(err);
-					}
-					resolve();
-				});
-			});
-		});
-	});
-}
-if (require.main === module) {
-	runServer().catch(err => console.error(err));
-}
 module.exports = router;
