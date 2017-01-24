@@ -121,7 +121,7 @@ describe('review posts API resource', function() {
           res.body.name.should.equal(
             `${newPost.name.firstName} ${newPost.author.lastName}`);
           res.body.text.should.equal(newPost.text);
-          res.body.publidhedOn.should.equal.(newPost.publidhedOn);
+          res.body.publidhedOn.should.equal(newPost.publidhedOn);
           return reviewPost.findById(res.body.id).exec();
         })
         .then(function(post) {
