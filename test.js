@@ -64,7 +64,7 @@ describe('review posts API resource', function() {
 
 			return reviewPost.count();
 		});
-		.then(count => {
+		then(count => {
 			res.body.should.have.length.of(count);
 		});
 	});
