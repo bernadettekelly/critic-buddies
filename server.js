@@ -22,15 +22,17 @@ app.use('/review-posts', reviewPostsRouter);
 
 app.use(express.static('public'));
 
-app.listen(process.env.PORT || 8080);
+///app.listen(process.env.PORT || 8080);
 
-exports.app = app
+//exports.app = app
 
 let server;
+console.log(DATABASE_URL, PORT);
 
 function runServer(databaseURL=DATABASE_URL, port=PORT) {
 	return new Promise((resolve, reject) => {
-		mongoose.connect((databaseUrl, err) => {
+     console.log(databaseURL, port);
+		mongoose.connect(databaseURL, (err) => {
 			if (err) {
 				return reject(err);
 			}
@@ -64,3 +66,5 @@ function closeServer() {
 if (require.main === module) {
 	runServer().catch(err => console.error(err));
 }
+
+module.exports = {app, runServer, closeServer}
