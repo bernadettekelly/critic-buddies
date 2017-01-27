@@ -7,7 +7,7 @@ const {DATABASE_URL} = require('./config');
 const {BlogPost} = require('./models');
 const {closeServer, runServer, app} = require('./server');
 
-chai.use(chaiHTTP);
+chai.use(chaiHttp);
 
 function tearDownDB() {
 	return new Promise((resolve, reject) => {
