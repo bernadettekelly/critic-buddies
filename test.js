@@ -104,7 +104,7 @@ describe('review posts API resource', function() {
             lastName: faker.name.lastName(),
           },
           text: faker.lorem.text(),
-          publidhedOn: faker.date()
+          publidhedOn: faker.date.past()
       };
 
       return chai.request(app)
