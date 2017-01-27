@@ -56,7 +56,7 @@ describe('review posts API resource', function() {
 
 		let res;
 		return chai.request(app)
-		.get('/posts')
+		.get('/review-posts')
 		.then(_res => {
 			res = _res;
 			res.should.have.status(200);
@@ -72,7 +72,7 @@ describe('review posts API resource', function() {
 	it('should return posts with right fields', function() {
 		let resPost;
 		return chai.request(app)
-			.get('/posts')
+			.get('/review-posts')
 			.then(function(res) {
 			  res.should.have.status(200);
 			  res.should.be.json;
@@ -108,7 +108,7 @@ describe('review posts API resource', function() {
       };
 
       return chai.request(app)
-        .post('/posts')
+        .post('/review-posts')
         .send(newPost)
         .then(function(res) {
           res.should.have.status(201);
@@ -153,7 +153,7 @@ describe('review posts API resource', function() {
           updateData.id = post.id;
 
           return chai.request(app)
-            .put(`/posts/${post.id}`)
+            .put(`/review-posts/${post.id}`)
             .send(updateData);
         })
         .then(res => {
@@ -188,7 +188,7 @@ describe('review posts API resource', function() {
         .exec()
         .then(_post => {
           post = _post;
-          return chai.request(app).delete(`/posts/${post.id}`);
+          return chai.request(app).delete(`/review-posts/${post.id}`);
         })
         .then(res => {
           res.should.have.status(204);
