@@ -76,8 +76,8 @@ describe('review posts API resource', function() {
 			.then(function(res) {
 			  res.should.have.status(200);
 			  res.should.be.json;
-			  res.body.should.be.a('array');
-			  res.body.should.have.length.of.at.least(1);
+			  res.body.reviewPosts.should.be.a('array');
+			  res.body.reviewPosts.should.have.length.of.at.least(1);
 			  res.body.forEach(function(post) {
 			  	post.should.be.a('object');
 			  	post.should.include.keys('id', 'movieTitle', 'name', 'text', 'publidhedOn');
@@ -146,7 +146,7 @@ describe('review posts API resource', function() {
         }
       };
 
-      return reviewPost
+      return reviewPosts
         .findOne()
         .exec()
         .then(post => {
@@ -183,7 +183,7 @@ describe('review posts API resource', function() {
 
       let post;
 
-      return BlogPost
+      return reviewPosts
         .findOne()
         .exec()
         .then(_post => {
