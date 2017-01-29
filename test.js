@@ -146,7 +146,7 @@ describe('review posts API resource', function() {
         }
       };
 
-      return reviewPosts
+      return reviewPost
         .findOne()
         .exec()
         .then(post => {
