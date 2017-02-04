@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-	const requiredFields = ['movieTitle', 'name', 'text', 'publishedOn'];
+	const requiredFields = ['movieTitle', 'firstName', 'lastName', 'text'];
 	console.log(req.body);
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
@@ -29,9 +29,10 @@ router.post('/', (req, res) => {
         movieReviews
         .create({
         	movieTitle: req.body.movieTitle,
-        	name: req.body.name,
+        	firstName: req.body.firstName,
+        	lastName: req.body.lastName,
         	text: req.body.text,
-        	publishedOn: req.body.publishedOn
+        	
        })
         .then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
         .catch(err => {
@@ -42,7 +43,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
 	const requiredFields = [
-	'id', 'movieTitle', 'name', 'text', 'publishedOn'];
+	'id', 'movieTitle', 'firstName', 'lastName', 'text', 'publishedOn'];
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -59,11 +60,12 @@ router.put('/:id', (req, res) => {
 		return res.status(400).send(message);
 	}
 	console.log(`Updating review post with id \`${req.params.id}\``);
-	const updatedItem = reviewPosts.update({
+	const updatedItem = movieReviews.update({
 		id: req.params.id,
 		movieTitle: req.body.movieTitle,
 		text: req.body.text,
-		name: req.body.name,
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
 		publishedOn: req.body.publishedOn
 	});
 	res.status(204).json(updatedItem); 
