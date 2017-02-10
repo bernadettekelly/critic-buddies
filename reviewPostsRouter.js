@@ -67,8 +67,15 @@ router.put('/:id', (req, res) => {
         lastName: req.body.lastName,
         publishedOn: new Date()
     }})
-    .exec()
-    .then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
+
+    .then(movieReview =>
+    	   		movieReviews.findById(req.params.id)
+    	   		 .exec()
+    	   		 .then(movieReview => res.status(201).json(movieReview.apiRepr()))
+    	  )
+
+    //.exec()
+    //.then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
   .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 

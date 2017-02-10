@@ -113,7 +113,7 @@ describe('review posts API resource', function() {
    			const updateData = {
    			  movieTitle: 'Sing Street',
    			  text: 'abc',
-   			  publishedOn: '10/5/16',
+   			  publishedOn: new Date(),
    			  firstName: 'Jay',
    			  lastName: 'Peters'
    			};
@@ -136,15 +136,15 @@ describe('review posts API resource', function() {
     	     	res.body.name.should.equal(
     	       `${updateData.firstName} ${updateData.lastName}`);
     	     	res.body.text.should.equal(updateData.text);
-    	     	res.body.publishedOn.should.equal(updateData.publishedOn)
+    	     	res.body.publishedOn.should.be.a('date');
     	     	return reviewPosts.findById(res.body.id).exec();
     	   	})
     	   	.then(post => {
     	     	post.movieTitle.should.equal(updateData.movieTitle);
     	     	post.text.should.equal(updateData.text);
-    	     	post.name.firstName.should.equal(updateData.name.firstName);
-    	     	post.name.lastName.should.equal(updateData.name.lastName);
-    	     	post.publishedOn.should.equal(update.name.publishedOn);
+    	     	post.firstName.should.equal(updateData.firstName);
+    	     	post.lastName.should.equal(updateData.lastName);
+    	     	post.publishedOn.should.equal(updateData.publishedOn);
     	   	});
     	});
  	})
