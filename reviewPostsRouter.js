@@ -66,6 +66,7 @@ router.put('/:id', (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         publishedOn: new Date()
+        
     }})
 
     .then(movieReview =>
