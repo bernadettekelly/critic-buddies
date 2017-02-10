@@ -3,11 +3,68 @@
 <link rel="stylesheet" type="text/css" href="main.css">
 <head>
 	<title>
-		
+		Critic Buddies
 	</title>
 </head>
 <body>
-	<p>Hello World</p>
+<div class="Page Page1">
+<header><h1>Critic Buddies</h1></header>
+<main>
+<div class="container container2">
+<form id="Post-Search"><form action="#" method="post">
+	<div class="Search">
+		<section class="MovieTitle">
+			<label for="MovieTitle-entry">Movie Title</label>
+			<input type="text" name="MovieTitle-entry" id="MovieTitle">
+		</section>
+		<section class="FirstName">
+			<label for="FirstName-entry">First Name</label>
+			<input type="text" name="FirstName-entry" id="FirstName">
+		</section>
+		<section class="LastName">
+		    <label for="LastName-entry">Last Name</label>
+			<input type="text" name="LastName-entry" id="LastName">
+		</section>
+		<section class="SearchSubmit">
+		<button type="submit" class="submit">Search</button>
+		</section>
+	</div>
+	<div class="Post">
+	<button type="PostButton" class="PostButton">New Post</button>
+	</div>
+	</div>
+</form>
+	<div class="container container2">
+	<div class="CurrentPosts">
+	    <p><div class="RecentPosts">Recent Posts</div></p>
+		<p>Movie Title: La La Land<br> 
+	   	Name: Nora Kelly</br>
+	   	<br>12/13/16</br><br>
+        "I adored La La Land. It's probably my favorite film of the year. 
+	   	The music is wonderful and Gosling and Stone are a pleasure to watch."</br>
+		</p>
+	</div>
+	</div>
+</div>
+<div class="Page Page2">
+	<form class="container3" action="#" method="post">
+		<ul>
+			<li><div class="PostReview">Post Your Movie Review</div></li>
+			<li><label for="MovieTitle" required>Movie Title</label>
+			<input type="Title" name="Title" id="MovieTitle" /></li>
+			<li><label for="FirstName" required>First Name</label>
+			<input type="FirstName" name="FirstName" id="FirstName" /></li>
+			<li><label for="LastName" required>Last Name</label>
+			<input type="LastName" name="LastName" id="LastName" /></li>
+			<textarea name="ReviewText" id="ReviewText" 
+			   rows="20" cols="70"></textarea></li>
+		</ul>
+		<button type="button" class="PostReviewButton">
+		<span class="button-label">Post Review</span></button>
+	</form>
+</div>
+</main>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Mr+Bedfort');
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-family: 'Mr Bedfort', cursive;
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	background-color: none;
+}
+
+header {
+	margin-top: 0;
+	margin-bottom: 0;
+	height: 250px;
+	background-image:url("https://c1.staticflickr.com/9/8152/7631995834_05257af933_b.jpg");
+	text-align: center;
+	background-color: none;
+}
+
+body {
+	font-family: 'Quicksand', sans-serif;
+}
+
+main {
+	margin-top: 0px;
+	background-color: #DA70D6;
+}
+
+.CurrentPosts {
+	text-align: center;
+	margin-top: 0;
+}
+
+.MovieTitle {
+	margin-bottom: 10px;
+}
+
+.FirstName {
+	margin-bottom: 10px;
+}
+
+.LastName {
+	margin-bottom: 10px;
+}
+
+.Search {
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+.Post {
+	margin-left: 10px;
+}
+
+.submit {
+	width: 70px;
+	height: 20px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	background-color: gray;
+}
+
+.PostButton {
+	width: 90px;
+	height: 30px;
+	border-radius: 5px;
+	color: white;
+	font-family: 'Mr Bedfort', cursive;
+	font-size: 20px;
+	background-color: gray;
+}
+
+.RecentPosts {
+	font-family: 'Mr Bedfort', cursive;
+	color: white;
+	font-size: 30px;
+}
+
+.Page2 {
+	background-color: #DA70D6;
+}
+
+.container3 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.PostReview {
+	font-family: 'Mr Bedfort', cursive;
+	color: white;
+	font-size: 30px;
+}
+
+.PostReviewButton {
+	font-family: 'Mr Bedfort', cursive;
+	color: white;
+	background-color: gray;
+	font-size: 20px;
+}
+
+#MovieTitle {
+	margin-bottom: 10px;
+}
+
+#FirstName {
+	margin-bottom: 10px;
+}
+
+#LastName {
+	margin-bottom: 10px;
+}
+
+#ReviewText {
+	margin-bottom: 10px;
+	width: 100px;
+	height: 100px;
+}
+
+.container {
+	display: inline-block;
+}
+
+.container2 {
+	width: 500px;
+}

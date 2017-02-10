@@ -108,46 +108,46 @@ describe('review posts API resource', function() {
 	    });
 	});
 	
-//  	describe('PUT endpoint', function() {
-//    	it('should update fields you send over', function() {
-//   			const updateData = {
-//   			  movieTitle: 'Gone with the Wind',
-//   			  text: 'abc',
-//   			  publishedOn: '1/22/17',
-//   			  firstName: 'Mary',
-//   			  lastName: 'Smith'
-//   			};
-//    	
-//    	 	return movieReviews
-//    	   	.findOne()
-//    	   	.exec()
-//    	   	.then(post => {
-//    	     	updateData.id = post.id
-//    	     	return chai.request(app)
-//    	       	.put(`/review-posts/${post.id}`)
-//    	       	.send(updateData);
-//    	   	})
-//    	   	.then(res => {
-//    	     	res.should.have.status(201);
-//    	     	res.should.be.json;
-//    	     	res.body.should.be.a('object');
-//    	     	res.body.movieTitle.should.equal(updateData.title);
-//    	     	res.body.name.should.equal(
-//    	       `${updateData.firstName} ${updateData.lastName}`);
-//    	     	res.body.text.should.equal(updateData.text);
-//    	     	res.body.publishedOn.should.equal(updateData.publishedOn)
-//    	     	return reviewPosts.findById(res.body.id).exec();
-//    	   	})
-//    	   	.then(post => {
-//    	     	post.movieTitle.should.equal(updateData.title);
-//    	     	post.text.should.equal(updateData.text);
-//    	     	post.name.firstName.should.equal(updateData.name.firstName);
-//    	     	post.name.lastName.should.equal(updateData.name.lastName);
-//    	     	post.publishedOn.should.equal(update.name.publishedOn);
-//    	   	});
-//    	});
-// 	});
-
+  	describe('PUT endpoint', function() {
+    	it('should update fields you send over', function() {
+   			const updateData = {
+   			  movieTitle: 'Sing Street',
+   			  text: 'abc',
+   			  publishedOn: '10/5/16',
+   			  firstName: 'Jay',
+   			  lastName: 'Peters'
+   			};
+    	
+    	 	return movieReviews
+    	   	.findOne()
+    	   	.exec()
+    	   	.then(post => {
+    	     	updateData.id = post.id
+    	     	return chai.request(app)
+    	       	.put(`/review-posts/${post.id}`)
+    	       	.send(updateData);
+    	   	})
+    	   	.then(res => {
+    	     	res.should.have.status(201);
+    	     	res.should.be.json;
+    	     	res.body.should.be.a('object');
+    	     	console.log(updateData);
+    	     	res.body.movieTitle.should.equal(updateData.movieTitle);
+    	     	res.body.name.should.equal(
+    	       `${updateData.firstName} ${updateData.lastName}`);
+    	     	res.body.text.should.equal(updateData.text);
+    	     	res.body.publishedOn.should.equal(updateData.publishedOn)
+    	     	return reviewPosts.findById(res.body.id).exec();
+    	   	})
+    	   	.then(post => {
+    	     	post.movieTitle.should.equal(updateData.movieTitle);
+    	     	post.text.should.equal(updateData.text);
+    	     	post.name.firstName.should.equal(updateData.name.firstName);
+    	     	post.name.lastName.should.equal(updateData.name.lastName);
+    	     	post.publishedOn.should.equal(update.name.publishedOn);
+    	   	});
+    	});
+ 	})
   describe('DELETE endpoint', function() {
   	it('should delete a post by id', function() {
      let post;

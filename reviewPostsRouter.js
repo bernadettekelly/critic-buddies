@@ -42,40 +42,34 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-	const requiredFields = [
-	'id', 'movieTitle', 'firstName', 'lastName', 'text', 'publishedOn'];
-	for (let i=0; i<requiredFields.length; i++) {
-		const field = requiredFields[i];
-		if (!(field in req.body)) {
-			const message = `Missing \`${field}\` in request body`
-			console.error(message);
-			return res.status(400).send(message); 
-		}
-	}
-	if (req.params.id !== req.body.id) {
-		const message = (
-			`Request path id (${req.params.id}) and request body id `
-			`(${req.body.id}) must match`);
-		console.log(message);
-		return res.status(400).send(message);
-	}
-	console.log(`Updating review post with id \`${req.params.id}\``);
-	const updatedItem = movieReviews.update({
-		id: req.params.id,
-		movieTitle: req.body.movieTitle,
-		text: req.body.text,
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
-		publishedOn: req.body.publishedOn
-	});
-	res.status(204).json(updatedItem); 
-
+    const requiredFields = ['id', 'movieTitle', 'firstName', 'lastName', 'text'];
+    for (let i=0; i<requiredFields.length; i++) {
+        const field = requiredFields[i];
+        if (!(field in req.body)) {
+            const message = `Missing \`${field}\` in request body`
+            console.error(message);
+            return res.status(400).send(message); 
+        }
+    }
+    if (req.params.id !== req.body.id) {
+        const message = (
+            `Request path id (${req.params.id}) and request body id `
+            `(${req.body.id}) must match`);
+        console.log(message);
+        return res.status(400).send(message);
+    }
+    console.log(`Updating review post with id \`${req.params.id}\``);
     movieReviews
-    .findByIdAndUpdate(req.params.id, {$set: toUpdate})
+    .findByIdAndUpdate(req.params.id, {$set: {
+        movieTitle: req.body.movieTitle,
+        text: req.body.text,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        publishedOn: new Date()
+    }})
     .exec()
     .then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
-    .catch(err => res.status(500).json({message: 'Internal server error'}));
-
+  .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
 
