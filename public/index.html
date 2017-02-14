@@ -29,8 +29,16 @@
 		<button type="submit" class="submit">Search</button>
 		</section>
 	</div>
-	<div class="Post">
-	<button type="PostButton" class="PostButton">New Post</button>
+	<div class="HomeButtons">
+	<div class="SignUp">
+		<button type="button" class="SignUpButton">Sign Up</button>
+	</div>
+	<div class="SignIn">
+		<button type="button" class="SignInButton">Sign In</button>
+	</div>
+	<div class="MyProfile">
+		<button type="button" class="MyProfile">My Profile</button>
+	</div>
 	</div>
 	</div>
 </form>
@@ -59,10 +67,42 @@
 			<textarea name="ReviewText" id="ReviewText" 
 			   rows="20" cols="70"></textarea></li>
 		</ul>
-		<button type="button" class="PostReviewButton">
+		<button type="submit" class="PostReviewButton">
 		<span class="button-label">Post Review</span></button>
+		<div class="PreviousPosts">Previous Posts</div>
 	</form>
 </div>
+<div class="Page Page3">
+<div class="SignUpTitle">Sign Up</div>
+	<form class="container4" action="#" method="post">
+		<ul>
+		    <li><label for="FirstName" required>First Name</label>
+			<input type="FirstName" name="FirstName" id="FirstName" /></li>
+			<li><label for="LastName" required>Last Name</label>
+			<input type="LastName" name="LastName" id="LastName" /></li>
+			<li><label for="username" required>Username</label>
+			<input type="username" name="username" id="username" /></li>
+			<li><label for="password" required>Password</label>
+			<input type="password" name="username" id="password" /></li>
+		</ul>
+		<button type="submit" class="SubmitSignUp">
+		<span class="button-label">Submit</span></button>
+	</form>
+</div>
+<div class="Page Page4">
+<div class="SignInTitle">Sign In</div>
+	<form class="container5" action="#" method="post">
+		<ul>
+			<li><label for="username" required>Username</label>
+			<input type="username" name="username" id="username" /></li>
+			<li><label for="password" required>Password</label>
+			<input type="password" name="username" id="password" /></li>
+		</ul>
+		<button type="submit" class="SignIn">
+		<span class="button-label">Sign In</span></button>
+	</form>
+</div>
+
 </main>
 
 

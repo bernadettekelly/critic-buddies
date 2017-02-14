@@ -1,141 +1,115 @@
-var URL = "/review-posts"
+var URL = "http://localhost:8080/review-posts"
+var URL = "http://localhost:8080/UsersModels"
+
+//$.getJSON(url, query, callback)
 
 $(document).ready(function() {
 	$('.Page').hide();
 	$('.Page1').show();
 });
 
-$('.PostButton').click(function(e) {
+$('.MyProfile').click(function(e) {
 	e.preventDefault();
 	$('.Page').hide();
 	$('.Page2').show();
 });
 
-//var mock_movie_posts = {
-//	"moviePosts": [
-//		{
-//			"id": "1",
-//            "movieTitle": "La La Land",
-//            "name": "Nora Kelly",
-//            "text": "I adored 'La La Land. It's probably my favorite film of the year. The music is wonderful and Gosling and Stone are a pleasure to watch.",
-//            "publishedOn": 12/11/16,
-//            "comments": "I agree!",
-//            "commentsName": "Bernadette Kelly"
-//		},
-//			"id": "2",
-//			"movieTitle": "Moana",
-//			"name": "Seamus Kelly",
-//			"text": "Moana's story line is sweet and inspirational, but the best part of thid film is the music. Miranda and team created fun, well crafted songs. The cast did an excellent job performing the songs, as well as the funny and heartfelt dialogue.",
-//			"publishedOn": 12/1/16,
-//			"comments": "Yeah, the music was awesome.",
-//			"commentsName": "Tom Smith"
-//		},
-//			"id": "3",
-//			"movieTitle": "Sing Street",
-//			"name": "Jay Peters",
-//			"text": "This film is delightful. The young cast is talented and fresh, and the songs are great. It's a charming boy meets girl story that demonstrates the power of passion and kindness.",
-//			"publishedOn": 10/5/16,
-//			"comments": "I haven't seen it yet, but now I really want to."
-//		}
-//	]
+$('.SignUpButton').click(function(e) {
+	e.preventDefault();
+	$('.Page').hide();
+	$('.Page3').show();
+});
+
+$('.SignInButton').click(function(e) {
+	e.preventDefault();
+	$('.Page').hide();
+	$('.Page4').show();
+});
+
+//$('.SubmitSignUp').click(function(e) {
+//	$post("http://localhost:8080/UsersModels", {},
+		//JSON.stringify({username: 'johnDoe', password: 'password'})
+//	function(response){
+//		console.log(response)});
+//	}
+//      $('.Page').hide();
+//      $('.Page1').show();
+//};
+
+  //$('.SignIn').click(function(e) {
+  	//$post("http://localhost:8080/UsersModels", {},
+		//JSON.stringify({username: 'johnDoe', password: 'password'})
+//	function(response){
+//		console.log(response)});
+//  }
+//      $('.Page').hide();
+//      $('.Page1').show();
+//};
+
+//$('.submit).click(function(e) {
+	//$get("http://localhost:8080/review-posts", {}, function(response) {
+//	console.log(response)});
+//}
+//function displayMovieReviews(data) {
+//	var result = '';
+//	if (index in data.movieReviews) {
+//		$('body').append(
+//			'<p>' + data.movieReviews[index].text + '</p>');
+//	}
+//	else {
+//		result = '<p>No results found</p>';
+//	}
+//	$('.CurrentPosts').html(result);
+//
 //};
 //
-//function getRecentMoviePosts(callbackFn) {
-//	setTimeout(function(){callbackFn(mock_movie_posts)}, 1);
-//}
-//
-//function displayMoviePosts(data) {
-//	for (index in data.moviePosts) {
-//		$('body').append(
-//			'<p>' + data.moviePosts[index].text + '</p>');
+//$('.PostReviewButton).click(function(e) {
+	//$post("http://localhost:8080/review-posts", {},
+//	JSON.stringify({username: 'johnDoe', password: 'password', FirstName: 'Nora', LastName: 'Kelly, ReviewText: 'abc'})
+//	function(response){
+//		console.log(response)});
 //	}
-//}
 //
-//function getAndDisplayMoviePosts() {
-//	getRecentMovePosts(displayMoviePosts);
-//}
-//
-//$(function() {
-//	getAndDisplayMoviePosts();
-//});
-//
-//var mock_comments = {
-//	"moviePostsComments": [
-//		{
-//			"id": "1",
-//            "movieTitle": "La La Land",
-//            "name": "Nora Kelly",
-//            "text": "I adored 'La La Land. It's probably my favorite film of the year. The music is wonderful and Gosling and Stone are a pleasure to watch.",
-//            "publishedOn": 12/11/16,
-//            "comments": "I agree!",
-//            "commentsName": "Bernadette Kelly"
-//		},
-//			"id": "2",
-//			"movieTitle": "Moana",
-//			"name": "Seamus Kelly",
-//			"text": "Moana's story line is sweet and inspirational, but the best part of thid film is the music. Miranda and team created fun, well crafted songs. The cast did an excellent job performing the songs, as well as the funny and heartfelt dialogue.",
-//			"publishedOn": 12/1/16,
-//			"comments": "Yeah, the music was awesome.",
-//			"commentsName": "Tom Smith"
-//		},
-//			"id": "3",
-//			"movieTitle": "Sing Street",
-//			"name": "Jay Peters",
-//			"text": "This film is delightful. The young cast is talented and fresh, and the songs are great. It's a charming boy meets girl story that demonstrates the power of passion and kindness.",
-//			"publishedOn": 10/5/16,
-//			"comments": "I haven't seen it yet, but now I really want to."
-//		}
-//	]
+//function displayNewMovieReviews(data) {
+//	var result = '';
+//	if (index in data.movieReviews) {
+//		$('body').append(
+//			'<p>' + data.movieReviews[index].text + '<p>');
+//	}
+//    $('.CurrentPosts', '.Page2').html(result);
+//    
 //};
 //
-//function postRecentMoviePostsComments(callbackFn) {
-//	setTimeout(function(){callbackFn(mock_comments)}, 1);
-//}
-//
-//function displayMoviePostsComments(data) {
-//	for (index in data.moviePostsComments) {
-//		$('body').append(
-//			'<p>' + data.moviePostsComments[index].text + '</p>');
+//$put("http://localhost:8080/review-posts", {},
+//    	JSON.stringify({username: 'johnDoe', password: 'password', id: '1'})
+//    	function(response){
+//		console.log(response)});
 //	}
-//}
 //
-//function getAndDisplayMoviePostsComments() {
-//	getRecentMovePostsComments(displayMoviePostsComments);
-//}
+//function displayUpdatedMoviePosts(data) {
+//	var result = '';
+//	if (index in data.movieReviews) {
+//		$('body').append(
+//			'<p>' + data.movieReviews[index].text + '</p>');
+//	}
+//	$('.CurrentPosts', '.Page2').html(result);
 //
-//$(function() {
-//	postAndDisplayMoviePostsComments();
-//});
-//
-//var mock_make_new_movie_post = {
-//	"makeNewMoviePost": [
-//		{
-//			"id": "4",
-//            "movieTitle": "North by Northwest",
-//            "name": "Bernadette Kelly",
-//            "text": "If someone has yet to sit down and watch a Hitchcock film, I recommend this a a great starting point. It's thrilling, funny, romantic, and suspensful, as most Hitchcock films are, but also features his 50s glamorous look that I enjoy so much. The setting brings you unlikely places around the country, and the the chemisty between Grant and Saint is perfect.",
-//            "publishedOn": 1/13/17,
-//            "comments": "",
-//            "commentsName": ""
-//		}
-//	]
 //};
 //
-//function postMakeNewMoviePost(callbackFn) {
-//	setTimeout(function(){callbackFn(makeNewMoviePost)}, 1);
-//}
+//$delete("http://localhost:8080/review-posts", {},
+//	({username: 'johnDoe', password: 'password', id: '1'})
+//    function(response){
+//    	console.log(response)});
+//    }
 //
-//function displayMakeNewMoviePost(data) {
-//	for (index in data.makeNewMoviePost) {
+//function dislplayMovieReviews(data) {
+//	var result = '';
+//	if (index in data.movieReviews) {
 //		$('body').append(
-//			'<p>' + data.makeNewMoviePost[index].text + '</p>');
+//			'<p>' + data.movieReviews[index].text + '</p>');
 //	}
-//}
+//    $('.CurrentPosts', 'Page2').html(result);
 //
-//function getMakeNewMoviePost() {
-//	getMakeNewMoviePost(displayMakeNewMoviePost);
-//}
+//};
 //
-//$(function() {
-//	postAndDisplaymakeNewMoviePost();
-//});//
+//
