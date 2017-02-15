@@ -2,6 +2,10 @@ var URL = "http://localhost:8080/review-posts"
 var URL = "http://localhost:8080/UsersModels"
 
 //$.getJSON(url, query, callback)
+//.fail(function() {
+	//var result = '<p>No results found</p>';
+	//$('.CurrentPosts').html(result);
+//});
 
 $(document).ready(function() {
 	$('.Page').hide();
@@ -44,13 +48,26 @@ $('.SignInButton').click(function(e) {
 //  }
 //      $('.Page').hide();
 //      $('.Page1').show();
-//};
-
-//$('.submit).click(function(e) {
+//    }
+//    $get("http://localhost:8080/review-posts/User", {}, function(response) {
+//	console.log(response)});
+//    function displayPersonalMovieReviews(data) {
+//      var result = '';
+//      if (index in data.movieReviews) {
+//      		$('body').append(
+//      			'<p>' + data.movieReviews[index].text + '</p>');
+//      }
+//      else {
+//      	result = '<p>Sign in or sign up on the home page to view your profile.</p>';
+//      }
+//      $('.Page2').html(result);
+//    };
+// };
+// $('.submit).click(function(e) {
 	//$get("http://localhost:8080/review-posts", {}, function(response) {
 //	console.log(response)});
-//}
-//function displayMovieReviews(data) {
+// }
+// function displayMovieReviews(data) {
 //	var result = '';
 //	if (index in data.movieReviews) {
 //		$('body').append(
@@ -61,9 +78,9 @@ $('.SignInButton').click(function(e) {
 //	}
 //	$('.CurrentPosts').html(result);
 //
-//};
+// };
 //
-//$('.PostReviewButton).click(function(e) {
+// $('.PostReviewButton).click(function(e) {
 	//$post("http://localhost:8080/review-posts", {},
 //	JSON.stringify({username: 'johnDoe', password: 'password', FirstName: 'Nora', LastName: 'Kelly, ReviewText: 'abc'})
 //	function(response){
@@ -111,5 +128,6 @@ $('.SignInButton').click(function(e) {
 //    $('.CurrentPosts', 'Page2').html(result);
 //
 //};
+
 //
 //
