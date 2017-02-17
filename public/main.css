@@ -73,7 +73,7 @@ main {
 	font-size: 20px;
 }
 
-.MyProfile, .SignInButton, .SignUpButton, .submit {
+.MyProfile, .SignInButton, .SignUpButton, .submit, .SignOutButton {
 	width: 90px;
 	height: 30px;
 	border-radius: 5px;
@@ -94,6 +94,10 @@ main {
 	margin-bottom: 10px;
 	width: 70px;
 	height: 30px;
+}
+
+.SignOutButton {
+	margin-top: 10px;
 }
 
 .MyProfile {

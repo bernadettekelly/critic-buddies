@@ -1,5 +1,5 @@
 var URL = "http://localhost:8080/review-posts"
-var URL = "http://localhost:8080/UsersModels"
+var URL = "http://localhost:8080/users"
 
 //$.getJSON(url, query, callback)
 //.fail(function() {
@@ -31,8 +31,8 @@ $('.SignInButton').click(function(e) {
 });
 
 //$('.SubmitSignUp').click(function(e) {
-//	$post("http://localhost:8080/UsersModels", {},
-		//JSON.stringify({username: 'johnDoe', password: 'password'})
+//	$.post("/users", {},
+		//JSON.stringify({username: 'johnDoe', password: 'password', firstName: 'John', lastName: 'Doe'})
 //	function(response){
 //		console.log(response)});
 //	}
@@ -41,19 +41,26 @@ $('.SignInButton').click(function(e) {
 //};
 
   //$('.SignIn').click(function(e) {
-  	//$post("http://localhost:8080/UsersModels", {},
-		//JSON.stringify({username: 'johnDoe', password: 'password'})
-//	function(response){
-//		console.log(response)});
-//  }
+  	//$.post("/users", {},
+//		const users = '/users';
+//	    for(i = 0; i < '/users'.length; i++) {
+//	    	if(username == username[i] && password == password[i]) {
+//	    		console.log(username + "is logged in.")
+//                return
+//	    	}
+//	    else {
+//	    	return res.status(404).send();
+//	    }
+//	    }
+//
 //      $('.Page').hide();
 //      $('.Page1').show();
-//    }
-//    $get("http://localhost:8080/review-posts/User", {}, function(response) {
-//	console.log(response)});
-//    function displayPersonalMovieReviews(data) {
-//      var result = '';
-//      if (index in data.movieReviews) {
+//}
+//    	$.get("/users/login", {}, function(response) {
+//		console.log(response)});
+//    	function displayPersonalMovieReviews(data) {
+//      	var result = '';
+//      	if (index in data.movieReviews) {
 //      		$('body').append(
 //      			'<p>' + data.movieReviews[index].text + '</p>');
 //      }

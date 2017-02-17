@@ -10,6 +10,8 @@ mongoose.Promise = global.Promise;
 
 const reviewPostsRouter = require('./reviewPostsRouter');
 
+const UsersRouter = require('./UsersRouter');
+
 const morgan = require('morgan');
 
 const bodyParser = require('body-parser');
@@ -19,6 +21,8 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 
 app.use('/review-posts', reviewPostsRouter);
+
+app.use('/users', UsersRouter);
 
 app.use(express.static('public'));
 
