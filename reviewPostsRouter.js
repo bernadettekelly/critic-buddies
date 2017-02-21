@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {movieReviews} = require('./models')
+const {User} = require('./UsersModels');
 
 router.get('/', (req, res) => {
 	movieReviews
@@ -14,6 +15,37 @@ router.get('/', (req, res) => {
 		res.status(500).json({error: 'something went wrong'});
 	});
 });
+
+router.get('/:username', (req, res) => {
+    if(! req.session.userId) {
+		res.status(500).send();
+    }
+	User.findOne({username: req.params.username}, function (err, user) {
+    		console.log(user, req.session);
+    		if(err) {
+    			console.log(err);
+    			return res.status(500).send();
+    		}
+    		if(!user) {
+    			return res.status(404).send();
+    		}
+    		if(req.session.userId != user._id) {
+    			return res.status(404).send();
+    		}
+    		movieReviews
+        .find({
+        	firstName: user.firstName,
+        	lastName: user.lastName
+        	
+       })
+        .then(movieReviews => res.status(201).json(movieReviews))
+        .catch(err => {
+        	console.error(err);
+        	res.status(500).json({error: 'Something went wrong'});
+        });
+    });
+});
+
 
 router.post('/', (req, res) => {
 	const requiredFields = ['movieTitle', 'firstName', 'lastName', 'text'];

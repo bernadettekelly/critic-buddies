@@ -12,9 +12,27 @@ const reviewPostsRouter = require('./reviewPostsRouter');
 
 const UsersRouter = require('./UsersRouter');
 
+const session = require('express-session');
+
 const morgan = require('morgan');
 
 const bodyParser = require('body-parser');
+
+var MongoStore = require('connect-mongo')(session);
+
+var sess = {
+  store: new MongoStore({ url: DATABASE_URL }),
+  secret: '12345abcde',
+  name: "SessionMgmt",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { 
+    path: '/',
+    maxAge: 10000
+  }
+};
+
+app.use(session(sess));
 
 app.use(bodyParser.json());
 
