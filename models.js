@@ -5,7 +5,8 @@ const movieReviewsSchema = mongoose.Schema({
 	text: {type: String},
 	publishedOn: {type: Date, default: Date.now},
 	firstName: String,
-	lastName: String
+	lastName: String,
+	user: {type: mongoose.Schema.Types.ObjectId, ref: 'UserSchema'}
 });
 
 movieReviewsSchema.virtual('fullName').get(function() {

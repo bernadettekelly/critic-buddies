@@ -73,7 +73,7 @@ main {
 	font-size: 20px;
 }
 
-.MyProfile, .SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .Delete {
+.MyProfile, .SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .Delete, .LogIn {
 	width: 90px;
 	height: 30px;
 	border-radius: 5px;
@@ -89,7 +89,7 @@ main {
 	margin-bottom: 10px;
 }
 
-.SignIn {
+.LogIn {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	width: 70px;
@@ -98,6 +98,11 @@ main {
 
 .SignOutButton {
 	margin-top: 10px;
+}
+
+.SignInButton {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .MyProfile {
@@ -147,7 +152,7 @@ main {
 	font-size: 30px;
 }
 
-.PostReviewButton, .submit, .SignIn {
+.PostReviewButton, .submit, .LogIn {
 	font-family: 'Mr Bedfort', cursive;
 	color: white;
 	background-color: gray;
