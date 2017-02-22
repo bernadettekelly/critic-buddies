@@ -1,5 +1,44 @@
 var URL = "http://localhost:8080/review-posts"
-var URL = "http://localhost:8080/users"
+var LOGOUT_URL = "http://localhost:8080/users/logout"
+var LOGIN_URL = "http://localhost:8080/users/login"
+var USERS_URL = "http://localhost:8080/users/";
+
+/* JQuery PUT and DELETE Methods */
+$.put = function(url, data, callback, type){
+ 
+  if ( $.isFunction(data) ){
+    type = type || callback,
+    callback = data,
+    data = {}
+  }
+ 
+  return $.ajax({
+    url: url,
+    type: 'PUT',
+    success: callback,
+    data: data,
+    contentType: type
+  });
+}
+
+$.delete = function(url, data, callback, type){
+ 
+  if ( $.isFunction(data) ){
+    type = type || callback,
+        callback = data,
+        data = {}
+  }
+ 
+  return $.ajax({
+    url: url,
+    type: 'DELETE',
+    success: callback,
+    data: data,
+    contentType: type
+  });
+}
+/* ======================= */
+
 
 //$.getJSON(url, query, callback)
 //.fail(function() {
@@ -46,7 +85,7 @@ $('.SignInButton').click(function(e) {
 //  TO LOG IN
 
   $('.SignIn').click(function(e) {	
-  	$.post("/users/login", function (req, res) {
+  	$.post(LOGIN_URL, function (req, res) {
   		if(!user) {
     		return res.status(404).json({error: 'Sign in or sign up on the home page to view your profile.'});
     	
@@ -140,7 +179,9 @@ $('.SignInButton').click(function(e) {
 //};
 // TO LOG OUT
 
-//$('.SignOut').click(function(e) {
-//	$.delete("/users/logout")
-//};
-//
+$('.SignOut').click(function(e) {
+	$.delete(LOGOUT_URL, function(){
+		$('.Page').show();
+    $('.Page1').hide();
+	});
+};
