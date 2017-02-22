@@ -45,25 +45,26 @@ $('.SignInButton').click(function(e) {
 //});
 //  TO LOG IN
 
-//  $('.SignIn').click(function(e) {	
-//  	$.post("/users/login", function (req, res) {
-//  		if(!user) {
-//    		return res.status(404).json({error: 'Sign in or sign up on the home page to view your profile.'});
-//    	
-//      $('.Page').hide();
-//      $('.Page1').show();
-//   }
-//    		$.get("/users/login", {}, function(response) {
-//			console.log(response)});
-//    		function displayPersonalMovieReviews(data) {
-//      		var result = '';
-//      		if (index in data.movieReviews) {
-//      			$('body').append(
-//      				'<p>' + data.movieReviews[index].text + '</p>');
-//      }
-//      $('.Page2').html(result);
-//    };
-// });
+  $('.SignIn').click(function(e) {	
+  	$.post("/users/login", function (req, res) {
+  		if(!user) {
+    		return res.status(404).json({error: 'Sign in or sign up on the home page to view your profile.'});
+    	
+      $('.Page').hide();
+      $('.Page1').show();
+   }
+    		$.get("/users/login", {}, function(response) {
+			console.log(response)});
+    		function displayPersonalMovieReviews(data) {
+      		var result = '';
+      		if (index in data.movieReviews) {
+      			$('body').append(
+      				'<p>' + data.movieReviews[index].text + '</p>');
+      		}
+      }
+      $('.Page2').html(result);
+    });
+ });
 // TO SEARCH ON HOME PAGE
 
 // $('.submit').click(function(e) {
