@@ -1,7 +1,8 @@
 var URL = "http://localhost:8080/review-posts"
-var USERS_URL = "http://localhost:8080/users"
+var LOGOUT_URL = "http://localhost:8080/users/logout"
 var LOGIN_URL = "http://localhost:8080/users/login"
-var LOGOUT_URL = "http://localhost:8080/users/logout";
+var USERS_URL = "http://localhost:8080/users/";
+
 
 /* JQuery PUT and DELETE Methods */
 $.put = function(url, data, callback, type){
@@ -37,6 +38,7 @@ $.delete = function(url, data, callback, type){
     contentType: type
   });
 }
+
 
 //$.getJSON(url, query, callback)
 //.fail(function() {
@@ -80,7 +82,6 @@ $('.SignInButton').click(function(e) {
 //      $('.Page1').show();
 //
 //  TO LOG IN
-
   $('.LogIn').click(function(e) {	
  		console.log('Login click');
    $.post(LOGIN_URL, JSON.stringify({username: 'jane1', password: 'password'}),function (user) {
@@ -103,7 +104,6 @@ $('.SignInButton').click(function(e) {
        }
     })
    });
-  
 // TO SEARCH ON HOME PAGE
 
 // $('.submit').click(function(e) {
@@ -182,10 +182,12 @@ $('.SignInButton').click(function(e) {
 //
 //};
 // TO LOG OUT
-
 //$('.SignOut').click(function(e) {
 //	$.delete(LOGOUT_URL, function(){
 //  	$('.Page').hide();
 //      $('.Page1').show();
-//};
+//  });
 //
+
+//};
+
