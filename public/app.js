@@ -1,5 +1,5 @@
-var URL = "http://localhost:8080/review-posts"
-var URL = "http://localhost:8080/users"
+var REVIEWS_URL = "http://localhost:8080/review-posts";
+var USERS_URL = "http://localhost:8080/users";
 
 //$.getJSON(url, query, callback)
 //.fail(function() {
@@ -45,26 +45,28 @@ $('.SignInButton').click(function(e) {
 //});
 //  TO LOG IN
 
-  $('.SignIn').click(function(e) {	
-  	$.post("/users/login", function (req, res) {
+ $('.SignIn').click(function(e) {	
+ 	console.log('Signin click');
+  $.post("/users/login", JSON.stringify({username: 'johnDoe', password: 'password'}),function (user) {
+  		console.log('Successful post');
   		if(!user) {
-    		return res.status(404).json({error: 'Sign in or sign up on the home page to view your profile.'});
-    	
-      $('.Page').hide();
-      $('.Page1').show();
-   }
-    		$.get("/users/login", {}, function(response) {
-			console.log(response)});
-    		function displayPersonalMovieReviews(data) {
-      		var result = '';
-      		if (index in data.movieReviews) {
-      			$('body').append(
-      				'<p>' + data.movieReviews[index].text + '</p>');
-      		}
-      }
-      $('.Page2').html(result);
-    });
- });
+    		alert('Sign in or sign up on the home page to view your profile.');
+    	}else{
+    		$('.Page').hide();
+      	$('.Page2').show();
+      	//$.get("/review-posts/", {}, function(data) {
+      	////	console.log(data);
+      	//	var result = '';
+      	//	for(var index = 0; index < data.length; index++){
+      	//		if (index in data.movieReviews) {
+      	//			result += '<p>' + data.movieReviews[index].text + '</p>';
+      	//		}
+      	//	}
+      	//	$('.Page2').html(result);
+      	//});
+    	}
+  });
+
 // TO SEARCH ON HOME PAGE
 
 // $('.submit').click(function(e) {
