@@ -81,13 +81,21 @@ $('.SignInButton').click(function(e) {
 //TO CREATE LOGIN
 
 //$('.SubmitSignUp').click(function(e) {
-//	$.post("USERS_URL", {}, JSON.stringify({username: 'johnDoe', password: 'password', firstName: 'John', lastName: 'Doe'}), function(response){
-//		console.log(response)});
-//	});
+//	$.ajax({
+//    type: "POST",
+//    url: USERS_URL, 
+//    data: JSON.stringify({username: 'jane1', password: 'password', firstName: 'Jane', lastName: 'Dashwood'}),
+//    contentType: "application/json; charset=utf-8",
+//    dataType: "json",
+//    success: function (user) {
+//      console.log('Successful new user')
 //      $('.Page').hide();
 //      $('.Page1').show();
-//
-//  TO LOG IN
+//    }
+//   })
+//  });
+
+  //TO LOG IN
   $('.LogIn').click(function(e) {	
  		e.preventDefault(); 
  		console.log('Login click');
@@ -104,16 +112,15 @@ $('.SignInButton').click(function(e) {
         }else{
           $('.Page').hide();
           $('.Page2').show();
-      	  //$.get("/review-posts/", {}, function(data) {
-      	  //	console.log(data);
-      	  //	var result = '';
-      	  //	for(var index = 0; index < data.length; index++){
-      	  //		if (index in data.movieReviews) {
-      	  //			result += '<p>' + data.movieReviews[index].text + '</p>';
-      	  //		}
-      	  //	}
-      	  //	$('.Page2').html(result);
-      	  //});
+//      	// function displayPersonalMovieReviews(data) {
+//      	// 	var result = '';
+//      	// 	for(var index = 0; index < data.length; index++){
+//      	// 		if (index in data.movieReviews) {
+//      	// 			result += '<p>' + data.movieReviews[index].text + '</p>';
+//      	// 		}
+//      	// 	}
+//      	// 	$('.Page2').html(result);
+//      	// }
         }
       }
     });
@@ -121,6 +128,15 @@ $('.SignInButton').click(function(e) {
 // TO SEARCH ON HOME PAGE
 
 // $('.submit').click(function(e) {
+// 	$.ajax({
+//      type: "GET",
+//      url: URL, 
+//      data: JSON.stringify({firstName: 'Jane', lastName: 'Dashwood', movieTitle: 'Sing Street'}),
+//      contentType: "application/json; charset=utf-8",
+//      dataType: "json",
+//      success: function (data) {
+//        console.log('Successful request');
+//       }
 // 	$.get("/review-posts", {}, function(response) {
 //	console.log(response)});
 // }
@@ -128,38 +144,54 @@ $('.SignInButton').click(function(e) {
 //	var result = '';
 //  for(var index = 0; index < data.length; index++){ 
 //		if (index in data.movieReviews) {
-//		    result += '<p>' + data.movieReviews[index].text + '</p>');
+//		    result += '<p>' + data.movieReviews[index].text + '</p>';
 //	    }
 //  }
 //	else {
 //		result = '<p>No results found</p>';
 //	}
 //	$('.CurrentPosts').html(result);
-//   
-// };
+//  
+//  }) 
+// });
 // TO POST NEW REVIEWS
 
-// $('.PostReviewButton').click(function(e) {
-	//$.post("/review-posts", {},
-//	JSON.stringify({username: 'johnDoe', password: 'password', FirstName: 'Nora', LastName: 'Kelly', text: 'abc'})
-//	function(response){
-//		console.log(response)});
-//	}
-//
-//function displayNewMovieReviews(data) {
+ $('.PostReviewButton').click(function(e) {
+	  $.ajax({
+      type: "POST",
+      url: URL, 
+      data: JSON.stringify({username: 'jane1', password: 'password', firstName: 'Jane', lastName: 'Dashwood', text: 'abc', movieTitle: 'The Wizard of Oz'}),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function (data) {
+        console.log('Successful new post');
+    }
+ })
+
+
+// function displayNewMovieReviews(data) {
 //	var result = '';
 //  for(var index = 0; index < data.length; index++){
 //		if (index in data.movieReviews) {
-//		result += '<p>' + data.movieReviews[index].text + '<p>');
+//		result += '<p>' + data.movieReviews[index].text + '<p>';
 //      }
 //	}
-//    $('.CurrentPosts', '.Page2').html(result);
-//      $('.Edit').show();
-//      $('.Delete').show();
-//    
-//};
+//    $('.CurrentPosts').html(result);
+//    $('.Page2').html(result);
+//    $('.Edit').show();
+//    $('.Delete').show();
+//    }
+  });
 //EDIT POSTS
 //$('.Edit').click(function(e) {
+//	$.ajax({
+//      type: "PUT",
+//      url: URL, 
+//      data: JSON.stringify({text: 'abc'}),
+//      contentType: "application/json; charset=utf-8",
+//      dataType: "json",
+//      success: function (data) {
+//        console.log('Successful edit');
 //	$.put("/review-posts", {},
 //    	JSON.stringify({username: 'johnDoe', password: 'password', id: '1'})
 //    	function(response){
@@ -173,13 +205,14 @@ $('.SignInButton').click(function(e) {
 //		result += '<p>' + data.movieReviews[index].text + '<p>');
 //      }
 //	}
-//	$('.CurrentPosts', '.Page2').html(result);
+//	$('.CurrentPosts').html(result);
+//  $('.Page2').html(result);
 //
 //};
 // TO DELETE POSTS
 
 //$('.Delete').click(function(e) {
-//$.delete("/review-posts", {},
+//$.delete(URL, {},
 //	({username: 'johnDoe', password: 'password', id: '1'})
 //    function(response){
 //    	console.log(response)});
@@ -192,7 +225,8 @@ $('.SignInButton').click(function(e) {
 //		result += '<p>' + data.movieReviews[index].text + '<p>');
 //      }
 //	}
-//    $('.CurrentPosts', 'Page2').html(result);
+//    $('.CurrentPosts').html(result);
+//    $('.Page2').html(result);
 //
 //};
 // TO LOG OUT
