@@ -3,7 +3,12 @@ var LOGOUT_URL = "http://localhost:8080/users/logout"
 var LOGIN_URL = "http://localhost:8080/users/login"
 var USERS_URL = "http://localhost:8080/users/";
 
-
+//app.use(function(req, res, next) {
+//	res.header('Access-Control-Allow-Origin', "*")
+//	res.header('Access-Control-Allow-Methods', GET, PUT, POST, DELETE);
+//	res.header('Access-Control-Allow-Headers', 'Content-Type');
+//	next();
+//})
 /* JQuery PUT and DELETE Methods */
 $.put = function(url, data, callback, type){
  
@@ -41,10 +46,11 @@ $.delete = function(url, data, callback, type){
 
 
 //$.getJSON(url, query, callback)
-//.fail(function() {
-	//var result = '<p>No results found</p>';
-	//$('.CurrentPosts').html(result);
-//});
+//.fail(function() {	
+//	var result = '<p>No results found</p>';	
+//	$('.CurrentPosts').html(result);
+// });
+
 
 $(document).ready(function() {
 	$('.Page').hide();
@@ -83,6 +89,7 @@ $('.SignInButton').click(function(e) {
 //
 //  TO LOG IN
   $('.LogIn').click(function(e) {	
+ 		e.preventDefault(); 
  		console.log('Login click');
    $.post(LOGIN_URL, JSON.stringify({username: 'jane1', password: 'password'}),function (user) {
   	console.log('Successful post');
