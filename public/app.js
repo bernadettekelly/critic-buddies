@@ -91,26 +91,33 @@ $('.SignInButton').click(function(e) {
   $('.LogIn').click(function(e) {	
  		e.preventDefault(); 
  		console.log('Login click');
-   $.post(LOGIN_URL, JSON.stringify({username: 'jane1', password: 'password'}),function (user) {
-  	console.log('Successful post');
-  	if(!user) {
-   		alert('Sign in or sign up on the home page to view your profile.');
-   	}else{
-   		$('.Page').hide();
-    	$('.Page2').show();
-      	//$.get("/review-posts/", {}, function(data) {
-      	//	console.log(data);
-      	//	var result = '';
-      	//	for(var index = 0; index < data.length; index++){
-      	//		if (index in data.movieReviews) {
-      	//			result += '<p>' + data.movieReviews[index].text + '</p>';
-      	//		}
-      	//	}
-      	//	$('.Page2').html(result);
-      	//});
-       }
-    })
-   });
+    $.ajax({
+      type: "POST",
+      url: LOGIN_URL, 
+      data: JSON.stringify({username: 'jane1', password: 'password'}),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function (user) {
+        console.log('Successful post');
+        if(!user) {
+          alert('Sign in or sign up on the home page to view your profile.');
+        }else{
+          $('.Page').hide();
+          $('.Page2').show();
+      	  //$.get("/review-posts/", {}, function(data) {
+      	  //	console.log(data);
+      	  //	var result = '';
+      	  //	for(var index = 0; index < data.length; index++){
+      	  //		if (index in data.movieReviews) {
+      	  //			result += '<p>' + data.movieReviews[index].text + '</p>';
+      	  //		}
+      	  //	}
+      	  //	$('.Page2').html(result);
+      	  //});
+        }
+      }
+    });
+  });
 // TO SEARCH ON HOME PAGE
 
 // $('.submit').click(function(e) {
