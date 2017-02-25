@@ -80,20 +80,22 @@ $('.SignInButton').click(function(e) {
 
 //TO CREATE LOGIN
 
-//$('.SubmitSignUp').click(function(e) {
-//	$.ajax({
-//    type: "POST",
-//    url: USERS_URL, 
-//    data: JSON.stringify({username: 'jane1', password: 'password', firstName: 'Jane', lastName: 'Dashwood'}),
-//    contentType: "application/json; charset=utf-8",
-//    dataType: "json",
-//    success: function (user) {
-//      console.log('Successful new user')
-//      $('.Page').hide();
-//      $('.Page1').show();
-//    }
-//   })
-//  });
+$('.SubmitSignUp').click(function(e) {
+	e.preventDefault();
+	console.log('SignUp click');
+	$.ajax({
+    type: "POST",
+    url: USERS_URL, 
+    data: JSON.stringify({username: 'jane1', password: 'password', firstName: 'Jane', lastName: 'Dashwood'}),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (user) {
+      console.log('Successful new user')
+      $('.Page').hide();
+      $('.Page1').show();
+    }
+   })
+  });
 
   //TO LOG IN
   $('.LogIn').click(function(e) {	
@@ -112,51 +114,50 @@ $('.SignInButton').click(function(e) {
         }else{
           $('.Page').hide();
           $('.Page2').show();
-//      	// function displayPersonalMovieReviews(data) {
-//      	// 	var result = '';
-//      	// 	for(var index = 0; index < data.length; index++){
-//      	// 		if (index in data.movieReviews) {
-//      	// 			result += '<p>' + data.movieReviews[index].text + '</p>';
-//      	// 		}
-//      	// 	}
-//      	// 	$('.Page2').html(result);
-//      	// }
+      	 function displayPersonalMovieReviews(data) {
+      	 	e.preventDefault();
+      	 	var result = '';
+      	 	for(var index = 0; index < data.length; index++){
+      	 		if (index in data.movieReviews) {
+      	 			result += '<p>' + data.movieReviews[index].text + '</p>';
+      	 		}
+      	 	}
+      	 	$('.Page2').html(result);
+      	 }
         }
       }
     });
   });
 // TO SEARCH ON HOME PAGE
 
-// $('.submit').click(function(e) {
-// 	$.ajax({
-//      type: "GET",
-//      url: URL, 
-//      data: JSON.stringify({firstName: 'Jane', lastName: 'Dashwood', movieTitle: 'Sing Street'}),
-//      contentType: "application/json; charset=utf-8",
-//      dataType: "json",
-//      success: function (data) {
-//        console.log('Successful request');
-//       }
-// 	$.get("/review-posts", {}, function(response) {
-//	console.log(response)});
-// }
-// function displayMovieReviews(data) {
-//	var result = '';
-//  for(var index = 0; index < data.length; index++){ 
-//		if (index in data.movieReviews) {
-//		    result += '<p>' + data.movieReviews[index].text + '</p>';
-//	    }
-//  }
-//	else {
-//		result = '<p>No results found</p>';
-//	}
-//	$('.CurrentPosts').html(result);
-//  
-//  }) 
-// });
+ $('.submit').click(function(e) {
+	e.preventDefault();
+ 	$.ajax({
+      type: "GET",
+      url: URL, 
+      data: JSON.stringify({firstName: 'Jane', lastName: 'Dashwood', movieTitle: 'Sing Street'}),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function (data) {
+        console.log('Successful request');
+       }
+ })
+ function displayMovieReviews(data) {
+	var result = '';
+  for(var index = 0; index < data.length; index++){ 
+		if (index in data.movieReviews) {
+		    result += '<p>' + data.movieReviews[index].text + '</p>';
+	    }
+  }
+	$('.CurrentPosts').html(result);
+  
+  }
+ });
 // TO POST NEW REVIEWS
 
  $('.PostReviewButton').click(function(e) {
+ 	e.preventDefault();
+ 	console.log('Post click');
 	  $.ajax({
       type: "POST",
       url: URL, 
@@ -167,23 +168,24 @@ $('.SignInButton').click(function(e) {
         console.log('Successful new post');
     }
  })
-
-
-// function displayNewMovieReviews(data) {
-//	var result = '';
-//  for(var index = 0; index < data.length; index++){
-//		if (index in data.movieReviews) {
-//		result += '<p>' + data.movieReviews[index].text + '<p>';
-//      }
-//	}
-//    $('.CurrentPosts').html(result);
-//    $('.Page2').html(result);
-//    $('.Edit').show();
-//    $('.Delete').show();
-//    }
+ function displayNewMovieReviews(data) {
+ 	//e.preventDefault();
+	var result = '';
+  for(var index = 0; index < data.length; index++){
+		if (index in data.movieReviews) {
+		result += '<p>' + data.movieReviews[index].text + '<p>';
+      }
+	}
+    $('.CurrentPosts').html(result);
+    $('.Page2').html(result);
+    $('.Edit').show();
+    $('.Delete').show();
+    console.log('Successful display');
+    }
   });
 //EDIT POSTS
 //$('.Edit').click(function(e) {
+//	e.preventDefault();
 //	$.ajax({
 //      type: "PUT",
 //      url: URL, 
@@ -230,12 +232,11 @@ $('.SignInButton').click(function(e) {
 //
 //};
 // TO LOG OUT
-//$('.SignOut').click(function(e) {
-//	$.delete(LOGOUT_URL, function(){
-//  	$('.Page').hide();
-//      $('.Page1').show();
-//  });
-//
-
-//};
+$('.SignOut').click(function(e) {
+	$.delete(LOGOUT_URL, function(){
+	console.log('Successful logout');
+  	$('.Page').hide();
+      $('.Page1').show();
+  })
+});
 
