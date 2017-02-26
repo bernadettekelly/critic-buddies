@@ -169,7 +169,6 @@ $('.SubmitSignUp').click(function(e) {
     }
  })
  function displayNewMovieReviews(data) {
- 	//e.preventDefault();
 	var result = '';
   for(var index = 0; index < data.length; index++){
 		if (index in data.movieReviews) {
