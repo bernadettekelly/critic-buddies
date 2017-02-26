@@ -80,23 +80,23 @@ $('.SignInButton').click(function(e) {
 
 //TO CREATE LOGIN
 
-$('.SubmitSignUp').click(function(e) {
-	e.preventDefault();
-	console.log('SignUp click');
-	$.ajax({
-    type: "POST",
-    url: USERS_URL, 
-    data: JSON.stringify({username: 'jane1', password: 'password', firstName: 'Jane', lastName: 'Dashwood'}),
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    success: function (user) {
-      console.log('Successful new user')
-      $('.Page').hide();
-      $('.Page1').show();
-    }
-   })
-  });
-
+//$('.SubmitSignUp').click(function(e) {
+//	e.preventDefault();
+//	console.log('SignUp click');
+//	$.ajax({
+//    type: "POST",
+//    url: USERS_URL, 
+//    data: JSON.stringify({username: 'jane1', password: 'password', firstName: 'Jane', lastName: 'Dashwood'}),
+//    contentType: "application/json; charset=utf-8",
+//    dataType: "json",
+//    success: function (user) {
+//      console.log('Successful new user')
+//      $('.Page').hide();
+//      $('.Page1').show();
+//    }
+//   })
+//  });
+//
   //TO LOG IN
   $('.LogIn').click(function(e) {	
  		e.preventDefault(); 
@@ -104,30 +104,42 @@ $('.SubmitSignUp').click(function(e) {
     $.ajax({
       type: "POST",
       url: LOGIN_URL, 
-      data: JSON.stringify({username: 'jane1', password: 'password'}),
+      data: JSON.stringify({username: $('#username').val(), password: $('#password').val()}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function (user) {
         console.log('Successful post');
+        //displayPersonalMovieReviews(data);
         if(!user) {
           alert('Sign in or sign up on the home page to view your profile.');
         }else{
           $('.Page').hide();
           $('.Page2').show();
-      	 function displayPersonalMovieReviews(data) {
-      	 	e.preventDefault();
-      	 	var result = '';
-      	 	for(var index = 0; index < data.length; index++){
-      	 		if (index in data.movieReviews) {
-      	 			result += '<p>' + data.movieReviews[index].text + '</p>';
-      	 		}
-      	 	}
-      	 	$('.Page2').html(result);
-      	 }
+         
+        // displayPersonalMovieReviews(data);
+      	// function displayPersonalMovieReviews(data) {
+      	//	e.preventDefault();
+      	//	$.ajax({
+ 	 	//	type: "GET",
+ 	 	//	url: URL,
+ 	 	//	data: JSON.stringify({username: $('#username').val(), password: $('password').val()}),
+ 	 	//	contentType: "application/json; charset=utf-8",
+     	//	dataType: "json",
+     	//	success: function(data) {
+      	//	var result = '';
+      	//	for(var index = 0; index < data.reviewPosts.length; index++){
+      	//		if (index in data.reviewPosts) {
+      	//			result += '<p>' + data.reviewPosts[index].text + '</p>';
+      	//		}
+      	//	}
+      	//	console.log(result);
+      	//	$('.container_page2').html(result);
+      	//   
+          }
         }
-      }
+       });
     });
-  });
+  
 // TO SEARCH ON HOME PAGE
 
  $('.submit').click(function(e) {
@@ -135,25 +147,37 @@ $('.SubmitSignUp').click(function(e) {
  	$.ajax({
       type: "GET",
       url: URL, 
-      data: JSON.stringify({firstName: 'Jane', lastName: 'Dashwood', movieTitle: 'Sing Street'}),
+      data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(), lastName: $('#LastName_Search').val(), firstName: $('#FirstName_Search').val()}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function (data) {
         console.log('Successful request');
+        displayMovieReviews(data);
        }
  })
  function displayMovieReviews(data) {
+	e.preventDefault();
+	$.ajax({
+ 	 type: "GET",
+ 	 url: URL,
+ 	 data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(), lastName: $('#LastName_Search').val(), firstName: $('#FirstName_Search').val()}),
+ 	 contentType: "application/json; charset=utf-8",
+     dataType: "json",
+     success: function(data) {
+     	console.log('successful display');
 	var result = '';
-  for(var index = 0; index < data.length; index++){ 
-		if (index in data.movieReviews) {
-		    result += '<p>' + data.movieReviews[index].text + '</p>';
+  for(var index = 0; index < data.reviewPosts.length; index++){ 
+		if (index in data.reviewPosts) {
+		    result += '<p>' + data.reviewPosts[index].text + '</p>';
 	    }
   }
-	$('.CurrentPosts').html(result);
-  
+	$('.CurrentPosts').show();
+    $('.container_main').html(result);
+   }
+   })
   }
  });
-// TO POST NEW REVIEWS
+//// TO POST NEW REVIEWS
 
  $('.PostReviewButton').click(function(e) {
  	e.preventDefault();
@@ -161,26 +185,42 @@ $('.SubmitSignUp').click(function(e) {
 	  $.ajax({
       type: "POST",
       url: URL, 
-      data: JSON.stringify({username: 'jane1', password: 'password', firstName: 'Jane', lastName: 'Dashwood', text: 'abc', movieTitle: 'The Wizard of Oz'}),
+      data: JSON.stringify({firstName: $('#FirstName_NewPost').val(), lastName: $('#LastName_NewPost').val(), text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function (data) {
         console.log('Successful new post');
+        console.log(data);
+        displayNewMovieReviews(data);
     }
  })
  function displayNewMovieReviews(data) {
-	var result = '';
-  for(var index = 0; index < data.length; index++){
-		if (index in data.movieReviews) {
-		result += '<p>' + data.movieReviews[index].text + '<p>';
-      }
-	}
-    $('.CurrentPosts').html(result);
-    $('.Page2').html(result);
+ 	e.preventDefault();
+ 	$.ajax({
+ 	 type: "GET",
+ 	 url: URL,
+ 	 data: JSON.stringify({firstName: $('#FirstName_NewPost').val(), lastName: $('#LastName_NewPost').val(), text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
+ 	 contentType: "application/json; charset=utf-8",
+     dataType: "json",
+     success: function(data) {
+     	console.log(183, 'successful get', data);
+     	var result = '';
+		for(var index = 0; index < data.reviewPosts.length; index++){
+			if (index in data.reviewPosts) {
+				result += '<p>' + data.reviewPosts[index].text + '<a href="'+data.reviewPosts[index].id+'">Edit</a><p>';
+
+		    }
+		}
+	console.log(result);
+    $('.container_main').html(result);
+    $('.Page2').show();
+    $('.container_page2').html(result);
     $('.Edit').show();
     $('.Delete').show();
     console.log('Successful display');
     }
+    })
+    }  
   });
 //EDIT POSTS
 //$('.Edit').click(function(e) {
@@ -206,7 +246,7 @@ $('.SubmitSignUp').click(function(e) {
 //		result += '<p>' + data.movieReviews[index].text + '<p>');
 //      }
 //	}
-//	$('.CurrentPosts').html(result);
+//	$('.container_main').html(result);
 //  $('.Page2').html(result);
 //
 //};

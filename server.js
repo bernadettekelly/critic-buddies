@@ -68,7 +68,7 @@ function runServer(databaseURL=DATABASE_URL, port=PORT) {
 			});
 		});
 	});
-}
+}     
 
 function closeServer() {
 	return mongoose.disconnect().then(() => {
