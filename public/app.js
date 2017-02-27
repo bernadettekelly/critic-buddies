@@ -110,13 +110,14 @@ $('.SignInButton').click(function(e) {
       success: function (user) {
         console.log('Successful post');
         //displayPersonalMovieReviews(data);
+//    }
+//})
         if(!user) {
           alert('Sign in or sign up on the home page to view your profile.');
         }else{
           $('.Page').hide();
           $('.Page2').show();
-         
-        // displayPersonalMovieReviews(data);
+      	 
       	// function displayPersonalMovieReviews(data) {
       	//	e.preventDefault();
       	//	$.ajax({
@@ -134,7 +135,7 @@ $('.SignInButton').click(function(e) {
       	//	}
       	//	console.log(result);
       	//	$('.container_page2').html(result);
-      	//   
+      	//   }
           }
         }
        });
