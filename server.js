@@ -29,7 +29,7 @@ var sess = {
   cookie: { 
     path: '/',
     maxAge: 10000
-  }
+  } 
 };
 
 app.use(session(sess));

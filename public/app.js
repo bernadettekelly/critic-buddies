@@ -208,7 +208,7 @@ $('.SignInButton').click(function(e) {
      	var result = '';
 		for(var index = 0; index < data.reviewPosts.length; index++){
 			if (index in data.reviewPosts) {
-				result += '<p>' + data.reviewPosts[index].text + '<a href="'+data.reviewPosts[index].id+'">Edit</a><p>';
+				result += '<p>' + data.reviewPosts[index].text + '<a href="'+data.reviewPosts[index].id+'">Edit</a><p>' + '<a href="'+data.reviewPosts[index].id+'">Delete</a><p>';
 
 		    }
 		}
