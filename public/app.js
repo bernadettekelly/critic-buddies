@@ -2,7 +2,14 @@ var URL = "http://localhost:8080/review-posts"
 var USER_MR_URL = "http://localhost:8080/review-posts/"
 var LOGOUT_URL = "http://localhost:8080/users/logout"
 var LOGIN_URL = "http://localhost:8080/users/login"
+var USERID = "http://localhost:8080/review-posts/id"
 var USERS_URL = "http://localhost:8080/users/";
+
+var UserData = {
+  username: null,
+  firstName: null,
+  lastName: null
+}
 
 //app.use(function(req, res, next) {
 //	res.header('Access-Control-Allow-Origin', "*")
@@ -110,9 +117,11 @@ $('.SubmitSignUp').click(function(e) {
       dataType: "json",
       success: function (user) {
         console.log('Successful post', user);
-        displayPersonalMovieReviews(user.username);
-      
+        UserData.username = user.username;
+        UserData.firstName = user.firstName;
+        UserData.lastName = user.lastName;
 
+        displayPersonalMovieReviews(user.username);
         if(!user) {
           alert('Sign in or sign up on the home page to view your profile.');
         }else{
@@ -150,7 +159,7 @@ $('.submit').click(function(e) {
  	$.ajax({
   	type: "GET",
     url: URL, 
-    data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(), lastName: $('#LastName_Search').val(), firstName: $('#FirstName_Search').val()}),
+    data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(),firstName: UserData.firstName.val(), lastName: UserData.lastName.val(), username: UserData.username}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
@@ -164,8 +173,8 @@ function displayMovieReviews(data) {
 	//e.preventDefault();
 	$.ajax({
  		type: "GET",
- 		url: URL,
- 		data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(), lastName: $('#LastName_Search').val(), firstName: $('#FirstName_Search').val()}),
+ 		url: USER_MR_URL+username,
+ 		//data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(), lastName: $('#LastName_Search').val(), firstName: $('#FirstName_Search').val()}),
  		contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function(data) {
@@ -190,7 +199,7 @@ function displayMovieReviews(data) {
 	  $.ajax({
       type: "POST",
       url: URL, 
-      data: JSON.stringify({firstName: $('#FirstName_NewPost').val(), lastName: $('#LastName_NewPost').val(), text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
+      data: JSON.stringify({firstName: UserData.firstName.val(), lastName: UserData.lastName.val(), text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function (data) {
@@ -239,54 +248,63 @@ function displayMovieReviews(data) {
  	$('.Page5').show();
  	$('.Page').hide();
  	console.log('show page5');
- 	//$('#EditText').html();
+ 	$.ajax({
+ 		type: "GET",
+ 		url: USERID,
+ 		data: JSON.stringify({text: $('#EditText').val()}),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function (data) {
+        console.log('Successful get');
+ 	$('#EditText').html();
+  })
  });
 
-//$('.Edit').click(function(e) {
-//	e.preventDefault();
-//	$.ajax({
-//      type: "PUT",
-//      url: URL, 
-//      data: JSON.stringify({text: $('#EditText').val()}),
-//      contentType: "application/json; charset=utf-8",
-//      dataType: "json",
-//      success: function (data) {
-//        console.log('Successful edit');
-//        displayUpdatedMoviePosts(data);
-//      }
-//	})
-//function displayUpdatedMoviePosts(data) {
-//	$.ajax({
-//		type: "GET",
-//		url: USER_MR_URL,
-//		contentType: "application/json; charset=utf-8",
-//		dataType: "json",
-//		success: function (data) {
-//			console.log('Successful display')
-//	  var result = '';
-//	for(var index = 0; index < data.length; index++){
-//		if (index in data.movieReviews) {
-//		result += '<p>' + data.movieReviews[index].text + '<p>';
-//      }
-//	}
-//	$('.container_main').html(result);
-//	$('.container_page2').html(result);
-//  $('.Page2').show();
-//}
-//  })
-//  }
-//});
+$('.Edit').click(function(e) {
+	e.preventDefault();
+	$.ajax({
+      type: "PUT",
+      url: URL, 
+      data: JSON.stringify({text: $('#EditText').val()}),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function (data) {
+        console.log('Successful edit');
+        displayUpdatedMoviePosts(data);
+      }
+	})
+function displayUpdatedMoviePosts(data) {
+	$.ajax({
+		type: "GET",
+		url: USER_MR_URL+username,
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function (data) {
+			console.log('Successful display')
+	  var result = '';
+	for(var index = 0; index < data.length; index++){
+		if (index in data.movieReviews) {
+		result += '<p>' + data.movieReviews[index].text + '<p>';
+      }
+	}
+	$('.container_main').html(result);
+	$('.container_page2').html(result);
+  $('.Page2').show();
+}
+  })
+  }
+});
 // TO DELETE POSTS
 
-$('.delete_link').click(function(e) {
+$('.container_page2').on("click", '.delete_link', function(e) {
 	e.preventDefault();
-  $.delete(URL, function(){
+  $.delete(USERID, function(){
     	console.log('Successful delete')});
 })
 function dislplayMovieReviewsAfterDelete(data) {
 	$.ajax({
 		type: "GET",
-		url: USER_MR_URL,
+		url: USER_MR_URL+username,
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function (data) {

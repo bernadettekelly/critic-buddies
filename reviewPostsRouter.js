@@ -6,6 +6,7 @@ const {User} = require('./UsersModels');
 router.get('/', (req, res) => {
 	movieReviews
 	.find()
+    .sort('-publishedOn')
 	.exec()
 	.then(posts => {
 	res.status(200).json({reviewPosts:posts});
@@ -21,27 +22,28 @@ router.get('/:username', (req, res) => {
 		res.status(500).send();
     }
 	User.findOne({username: req.params.username}, function (err, user) {
-    		console.log(user, req.session);
-    		if(err) {
-    			console.log(err);
-    			return res.status(500).send();
-    		}
-    		if(!user) {
-    			return res.status(404).send();
-    		}
-    		if(req.session.userId != user._id) {
-    			return res.status(404).send();
-    		}
-    		movieReviews
+    	console.log(user, req.session);
+    	if(err) {
+    		return res.status(500).send(err);
+    	}
+    	if(!user) {
+    		return res.status(404).send('No user found');
+    	}
+    	if(req.session.userId != user._id) {
+            console.log(req.session, user._id);
+    		return res.status(404).json({error: "The session ID doesn't belongs to the searched user"});
+    	}
+    	movieReviews
         .find({
-        	firstName: user.firstName,
-        	lastName: user.lastName
-        	
-       })
+           firstName: user.firstName,
+           lastName: user.lastName
+        
+        })
+        .sort('-publishedOn')
         .then(movieReviews => res.status(201).json(movieReviews))
         .catch(err => {
-        	console.error(err);
-        	res.status(500).json({error: 'Something went wrong'});
+           console.error(err);
+           res.status(500).json({error: 'Something went wrong'});
         });
     });
 });

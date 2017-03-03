@@ -28,7 +28,11 @@ var sess = {
   saveUninitialized: true,
   cookie: { 
     path: '/',
+<<<<<<< HEAD
     maxAge: 300000
+=======
+    maxAge: 300000 //miliseconds
+>>>>>>> c395b329fa1673cf303f568c17cfc9a6813cca2f
   } 
 };
 
