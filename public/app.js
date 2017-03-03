@@ -4,6 +4,12 @@ var LOGOUT_URL = "http://localhost:8080/users/logout"
 var LOGIN_URL = "http://localhost:8080/users/login"
 var USERS_URL = "http://localhost:8080/users/";
 
+var UserData = {
+  username: null,
+  firstName: null,
+  lastName: null
+}
+
 //app.use(function(req, res, next) {
 //	res.header('Access-Control-Allow-Origin', "*")
 //	res.header('Access-Control-Allow-Methods', GET, PUT, POST, DELETE);
@@ -110,9 +116,11 @@ $('.SubmitSignUp').click(function(e) {
       dataType: "json",
       success: function (user) {
         console.log('Successful post', user);
-        displayPersonalMovieReviews(user.username);
-      
+        UserData.username = user.username;
+        UserData.firstName = user.firstName;
+        UserData.lastName = user.lastName;
 
+        displayPersonalMovieReviews(user.username);
         if(!user) {
           alert('Sign in or sign up on the home page to view your profile.');
         }else{
@@ -190,7 +198,7 @@ function displayMovieReviews(data) {
 	  $.ajax({
       type: "POST",
       url: URL, 
-      data: JSON.stringify({firstName: $('#FirstName_NewPost').val(), lastName: $('#LastName_NewPost').val(), text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
+      data: JSON.stringify({firstName: UserData.firstName, lastName: UserData.lastName, text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function (data) {

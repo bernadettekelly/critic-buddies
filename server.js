@@ -28,7 +28,7 @@ var sess = {
   saveUninitialized: true,
   cookie: { 
     path: '/',
-    maxAge: 10000
+    maxAge: 300000 //miliseconds
   } 
 };
 
