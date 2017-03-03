@@ -159,7 +159,7 @@ $('.submit').click(function(e) {
  	$.ajax({
   	type: "GET",
     url: URL, 
-    data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(),firstName: UserData.firstName.val(), lastName: UserData.lastName.val(), username: UserData.username}),
+    data: JSON.stringify({movieTitle: $('#MovieTitle_Search').val(), firstName: UserData.firstName.val(), lastName: UserData.lastName.val(), username: UserData.username}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
@@ -317,6 +317,7 @@ function dislplayMovieReviewsAfterDelete(data) {
 	}
   $('.container_main').html(result);
 	$('.container_page2').html(result);
+	$('.Page').hide();
   $('.Page2').show();
 }
     })
