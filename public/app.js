@@ -203,7 +203,7 @@ function displayMovieReviews(data) {
  	//e.preventDefault();
  	$.ajax({
  	 type: "GET",
- 	 url: USER_MR_URL,
+ 	 url: USER_MR_URL+username,
  	 //data: JSON.stringify({firstName: $('#FirstName_NewPost').val(), lastName: $('#LastName_NewPost').val(), text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
  	 contentType: "application/json; charset=utf-8",
      dataType: "json",
@@ -234,47 +234,48 @@ function displayMovieReviews(data) {
 
  //EDIT POSTS
 
- $('.edit_link').click(function(e) {
+ $('.container_page2').on("click", '.edit_link', function(e) {
  	e.preventDefault();
  	$('.Page5').show();
- 	console.log('show pag5');
- 	$('#EditText').html(result);
+ 	$('.Page').hide();
+ 	console.log('show page5');
+ 	//$('#EditText').html();
  });
 
-$('.Edit').click(function(e) {
-	e.preventDefault();
-	$.ajax({
-      type: "PUT",
-      url: URL, 
-      data: JSON.stringify({text: $('#EditText').val()}),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      success: function (data) {
-        console.log('Successful edit');
-        displayUpdatedMoviePosts(data);
-      }
-	})
-function displayUpdatedMoviePosts(data) {
-	$.ajax({
-		type: "GET",
-		url: USER_MR_URL,
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function (data) {
-			console.log('Successful display')
-	  var result = '';
-	for(var index = 0; index < data.length; index++){
-		if (index in data.movieReviews) {
-		result += '<p>' + data.movieReviews[index].text + '<p>';
-      }
-	}
-	$('.container_main').html(result);
-	$('.container_page2').html(result);
-  $('.Page2').show();
-}
-  })
-  }
-});
+//$('.Edit').click(function(e) {
+//	e.preventDefault();
+//	$.ajax({
+//      type: "PUT",
+//      url: URL, 
+//      data: JSON.stringify({text: $('#EditText').val()}),
+//      contentType: "application/json; charset=utf-8",
+//      dataType: "json",
+//      success: function (data) {
+//        console.log('Successful edit');
+//        displayUpdatedMoviePosts(data);
+//      }
+//	})
+//function displayUpdatedMoviePosts(data) {
+//	$.ajax({
+//		type: "GET",
+//		url: USER_MR_URL,
+//		contentType: "application/json; charset=utf-8",
+//		dataType: "json",
+//		success: function (data) {
+//			console.log('Successful display')
+//	  var result = '';
+//	for(var index = 0; index < data.length; index++){
+//		if (index in data.movieReviews) {
+//		result += '<p>' + data.movieReviews[index].text + '<p>';
+//      }
+//	}
+//	$('.container_main').html(result);
+//	$('.container_page2').html(result);
+//  $('.Page2').show();
+//}
+//  })
+//  }
+//});
 // TO DELETE POSTS
 
 $('.delete_link').click(function(e) {
