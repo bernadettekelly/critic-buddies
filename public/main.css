@@ -127,7 +127,7 @@ main {
 	font-size: 20px;
 }
 
-.Page2, .Page3, .Page4 {
+.Page2, .Page3, .Page4, .Page5 {
 	background-color: #DA70D6;
 }
 
@@ -135,9 +135,13 @@ main {
 	margin-top: 10px;
 }
 
-.container3, .container4, .container5 {
+.container3, .container4, .container5, .container6 {
 	text-align: center;
 	margin-top: 20px;
+}
+
+#MovieTitle_NewPost {
+	margin-bottom: 20px;
 }
 
 .PostReview {

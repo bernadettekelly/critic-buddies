@@ -2,7 +2,6 @@ var URL = "http://localhost:8080/review-posts"
 var USER_MR_URL = "http://localhost:8080/review-posts/"
 var LOGOUT_URL = "http://localhost:8080/users/logout"
 var LOGIN_URL = "http://localhost:8080/users/login"
-var USERID = "http://localhost:8080/review-posts/id"
 var USERS_URL = "http://localhost:8080/users/";
 
 var UserData = {
@@ -137,7 +136,7 @@ function displayPersonalMovieReviews(username) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index].id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index].id+'">Delete</a><p>';
+          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       console.log(result);
@@ -151,13 +150,13 @@ $('.submit').click(function(e) {
   e.preventDefault();
   $.ajax({
     type: "GET",
-    url: URL,
-    data: JSON.stringify({
+    url: USER_MR_URL+"search",
+    data: {
       movieTitle: $('#MovieTitle_Search').val(),
-      firstName: UserData.firstName.val(),
-      lastName: UserData.lastName.val(),
-      username: UserData.username
-    }),
+      //firstName: UserData.firstName.val(),
+      //lastName: UserData.lastName.val(),
+      //username: UserData.username
+    },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
@@ -168,22 +167,15 @@ $('.submit').click(function(e) {
 });
 
 function displayMovieReviews(data) {
-  $.ajax({
-    type: "GET",
-    url: USER_MR_URL+username,
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    success: function(data) {
       var result = '';
-      for(var index = 0; index < data.reviewPosts.length; index++){ 
-        if (index in data.reviewPosts) {
-          result += '<p>' + data.reviewPosts[index].text + '</p>';
+      for(var index = 0; index < data.length; index++){ 
+        if (index in data) {
+          result += '<p>' + data[index].text + '</p>';
         }
       }
-      $('.CurrentPosts').show();
+      //$('.CurrentPosts').show();
       $('.container_main').html(result);
-    }
-  });
+      console.log(result);
 };
 
 // TO POST NEW REVIEWS
@@ -193,7 +185,7 @@ $('.PostReviewButton').click(function(e) {
   $.ajax({
     type: "POST",
     url: URL, 
-    data: JSON.stringify({firstName: UserData.firstName.val(), lastName: UserData.lastName.val(), text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
+    data: JSON.stringify({firstName: UserData.firstName, lastName: UserData.lastName, text: $('#ReviewText').val(), movieTitle: $('#MovieTitle_NewPost').val()}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
@@ -207,15 +199,15 @@ $('.PostReviewButton').click(function(e) {
 function displayNewMovieReviews(data) {
   $.ajax({
     type: "GET",
-    url: USER_MR_URL+username,
+    url: USER_MR_URL+UserData.username,
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function(data) {
       console.log(183, 'successful get', data);
       var result = '';
-      for(var index = 0; index < data.reviewPosts.length; index++){
-        if (index in data.reviewPosts) {
-          result += '<p>' + data.reviewPosts[index].text + '<a class="edit_link" href="'+data.reviewPosts[index].id+'">Edit</a><p>' + '<a class="delete_link" href="'+data.reviewPosts[index].id+'">Delete</a><p>';
+      for(var index = 0; index < data.length; index++){
+        if (index in data) {
+          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
 		    }
       }
       console.log(result);
@@ -229,22 +221,20 @@ function displayNewMovieReviews(data) {
   });
 };
 
-$('.container_page2').on('click', 'a.edit', function(e){
-  e.preventDefault();
- });
+//$('.container_page2').on('click', 'a.edit', function(e){
+//  e.preventDefault();
+// });
 
  //EDIT POSTS
  $('.container_page2').on("click", '.edit_link', function(e) {
   e.preventDefault();
-  $('.Page5').show();
   $('.Page').hide();
+  $('.Page5').show();
   console.log('show page5');
   $.ajax({
     type: "GET",
-    url: USERID,
-    data: JSON.stringify({
-      text: $('#EditText').val()
-    }),
+    url: USER_MR_URL+$(this).attr('href'), 
+    data:({text: $('.container_page2').val()}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
@@ -274,19 +264,20 @@ $('.Edit').click(function(e) {
 function displayUpdatedMoviePosts(data) {
   $.ajax({
 		type: "GET",
-		url: USER_MR_URL+username,
+		url: USER_MR_URL+UserData.username,
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function (data) {
 			console.log('Successful display')
       var result = '';
       for(var index = 0; index < data.length; index++){
-        if (index in data.movieReviews) {
-          result += '<p>' + data.movieReviews[index].text + '<p>';
+        if (index in data) {
+          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       $('.container_main').html(result);
       $('.container_page2').html(result);
+      $('.Page').hide();
       $('.Page2').show();
     }
   });
@@ -295,23 +286,24 @@ function displayUpdatedMoviePosts(data) {
 // TO DELETE POSTS
 $('.container_page2').on("click", '.delete_link', function(e) {
   e.preventDefault();
-  $.delete(USERID, function(){
+  $.delete(USER_MR_URL+$(this).attr('href'), function(){
     console.log('Successful delete');
+    dislplayMovieReviewsAfterDelete();
   });
 });
 
 function dislplayMovieReviewsAfterDelete(data) {
   $.ajax({
     type: "GET",
-    url: USER_MR_URL+username,
+    url: USER_MR_URL+UserData.username,
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
       console.log('Successful display')
       var result = '';
       for(var index = 0; index < data.length; index++){
-        if (index in data.movieReviews) {
-          result += '<p>' + data.movieReviews[index].text + '<p>';
+        if (index in data) {
+          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       $('.container_main').html(result);

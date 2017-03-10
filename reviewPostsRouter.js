@@ -17,6 +17,23 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.get('/search', (req, res) => {
+    console.log(req.query);
+        movieReviews
+        .find({
+           movieTitle: req.query.movieTitle,
+           //username: req.query.username
+        
+        })
+        .sort('-publishedOn')
+        .then(movieReviews => res.status(201).json(movieReviews))
+        .catch(err => {
+           console.error(err);
+           res.status(500).json({error: 'Something went wrong'});
+        })
+    
+});
+
 router.get('/:username', (req, res) => {
     if(! req.session.userId) {
 		res.status(500).send();
@@ -29,10 +46,10 @@ router.get('/:username', (req, res) => {
     	if(!user) {
     		return res.status(404).send('No user found');
     	}
-    	if(req.session.userId != user._id) {
-            console.log(req.session, user._id);
-    		return res.status(404).json({error: "The session ID doesn't belongs to the searched user"});
-    	}
+    	//if(req.session.userId != user._id) {
+        //    console.log(req.session, user._id);
+    	//	return res.status(404).json({error: "The session ID doesn't belongs to the searched user"});
+    	//}
     	movieReviews
         .find({
            firstName: user.firstName,
