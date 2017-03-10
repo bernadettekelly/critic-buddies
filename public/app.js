@@ -230,19 +230,31 @@ function displayNewMovieReviews(data) {
   e.preventDefault();
   $('.Page').hide();
   $('.Page5').show();
+  $('.Edit').show();
   console.log('show page5');
   $.ajax({
     type: "GET",
     url: USER_MR_URL+$(this).attr('href'), 
-    data:({text: $('.container_page2').val()}),
+    //data:({text: $('.container_page2').val()}),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
       console.log('Successful get');
-      $('#EditText').html();
+      displayReviewforEdit(data);
     }
   });
 });
+
+ function displayReviewforEdit(data) {
+      var result = '';
+      for(var index = 0; index < data.length; index++){ 
+        if (index in data) {
+          result += '<p>' + data[index].text + '</p>';
+        }
+      }
+      $('#EditText').html(result);
+      console.log(result);
+};
 
 $('.Edit').click(function(e) {
   e.preventDefault();

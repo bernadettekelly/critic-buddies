@@ -11,8 +11,9 @@
 h1, .SignInTitle, .SignUpTitle {
 	font-family: 'Mr Bedfort', cursive;
 	color: white;
-	font-size: 40px;
+	font-size: 60px;
 	text-align: center;
+	padding-top: 90px;
 	background-color: none;
 }
 
@@ -20,7 +21,7 @@ header {
 	margin-top: 0;
 	margin-bottom: 0;
 	height: 250px;
-	background-image:url("https://c1.staticflickr.com/9/8152/7631995834_05257af933_b.jpg");
+	background-image:url("https://68.media.tumblr.com/0c700c27ad1daaa456fc15091a30df64/tumblr_o1j66lPT841qiis88o1_500.jpg");
 	text-align: center;
 	background-color: none;
 }
@@ -73,7 +74,7 @@ main {
 	font-size: 20px;
 }
 
-.MyProfile, .SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .Delete, .LogIn {
+.SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn {
 	width: 90px;
 	height: 30px;
 	border-radius: 5px;
@@ -96,17 +97,10 @@ main {
 	height: 30px;
 }
 
-.SignOutButton {
-	margin-top: 10px;
-}
 
 .SignInButton {
 	margin-top: 10px;
 	margin-bottom: 10px;
-}
-
-.MyProfile {
-	font-size: 15px;
 }
 
 .RecentPosts {
@@ -121,14 +115,14 @@ main {
 	font-size: 20px;
 }
 
-.Delete {
-	font-family: 'Mr Bedfort', cursive;
-	color: white;
-	font-size: 20px;
-}
+
 
 .Page2, .Page3, .Page4, .Page5 {
 	background-color: #DA70D6;
+}
+
+.Page2, .Page5 {
+	margin: 0;
 }
 
 #password {
@@ -186,7 +180,7 @@ main {
 	display: inline-block;
 }
 
-.container2 {
+.container2, .containerSearch {
 	width: 500px;
 }
 
