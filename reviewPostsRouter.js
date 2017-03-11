@@ -34,6 +34,19 @@ router.get('/search', (req, res) => {
     
 });
 
+router.get('/id/:id', (req, res) => {
+    console.log(req.query);
+        movieReviews
+        .findOne({
+            _id: req.params.id
+        })
+        .then(movieReview => res.status(201).json(movieReview))
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({error: 'Something went wrong'});
+        })
+});
+
 router.get('/:username', (req, res) => {
     if(! req.session.userId) {
 		res.status(500).send();
@@ -92,8 +105,8 @@ router.post('/', (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
-    const requiredFields = ['id', 'movieTitle', 'firstName', 'lastName', 'text'];
+router.put('/id/:id', (req, res) => {
+    const requiredFields = ['text'];
     for (let i=0; i<requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
@@ -102,20 +115,20 @@ router.put('/:id', (req, res) => {
             return res.status(400).send(message); 
         }
     }
-    if (req.params.id !== req.body.id) {
-        const message = (
-            `Request path id (${req.params.id}) and request body id `
-            `(${req.body.id}) must match`);
-        console.log(message);
-        return res.status(400).send(message);
-    }
+    //if (req.params.id !== req.body.id) {
+    //    const message = (
+    //        `Request path id (${req.params.id}) and request body id `
+    //        `(${req.body.id}) must match`);
+    //    console.log(message);
+    //    return res.status(400).send(message);
+    //}
     console.log(`Updating review post with id \`${req.params.id}\``);
     movieReviews
     .findByIdAndUpdate(req.params.id, {$set: {
-        movieTitle: req.body.movieTitle,
+        //movieTitle: req.body.movieTitle,
         text: req.body.text,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        //firstName: req.body.firstName,
+        //lastName: req.body.lastName,
         publishedOn: new Date()
         
     }})

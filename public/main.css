@@ -8,13 +8,18 @@
 	padding: 0;
 }
 
-h1, .SignInTitle, .SignUpTitle {
+h1, .SignInTitle, .SignUpTitle, .EditTitle {
 	font-family: 'Mr Bedfort', cursive;
 	color: white;
 	font-size: 60px;
 	text-align: center;
 	padding-top: 90px;
 	background-color: none;
+
+}
+
+.EditTitle {
+	font-size: 50px;
 }
 
 header {
@@ -28,6 +33,7 @@ header {
 
 body {
 	font-family: 'Quicksand', sans-serif;
+	background-color: #DA70D6;
 }
 
 main {
@@ -63,15 +69,20 @@ main {
 }
 
 .SubmitSignUp {
-	width: 70px;
-	height: 30px;
+	width: 120px;
+	height: 40px;
 	border-radius: 5px;
+	margin-top: 25px;
 	margin-bottom: 20px;
 	background-color: gray;
 	margin-top: 10px;
 	font-family: 'Mr Bedfort', cursive;
 	color: white;
-	font-size: 20px;
+	font-size: 23px;
+}
+
+#password_SignUp {
+	margin-bottom: 20px;
 }
 
 .SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn {
@@ -93,10 +104,14 @@ main {
 .LogIn {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	width: 70px;
-	height: 30px;
+	width: 120px;
+	height: 40px;
+	font-size: 23px;
 }
 
+#password {
+	margin-bottom: 20px;
+}
 
 .SignInButton {
 	margin-top: 10px;
@@ -113,12 +128,13 @@ main {
 	font-family: 'Mr Bedfort', cursive;
 	color: white;
 	font-size: 20px;
+	margin-top: 20px;
 }
 
 
-
-.Page2, .Page3, .Page4, .Page5 {
+.Page1, .Page2, .Page3, .Page4, .Page5 {
 	background-color: #DA70D6;
+	min-height: 100%;
 }
 
 .Page2, .Page5 {
@@ -132,22 +148,26 @@ main {
 .container3, .container4, .container5, .container6 {
 	text-align: center;
 	margin-top: 20px;
+	background-color: #DA70D6;
+	min-height: 100%;
 }
 
 #MovieTitle_NewPost {
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
 .PostReview {
 	font-family: 'Mr Bedfort', cursive;
 	color: white;
-	font-size: 30px;
+	font-size: 40px;
 }
 
 .PreviousPosts {
 	font-family: 'Mr Bedfort', cursive;
 	color: white;
 	font-size: 30px;
+	margin-top: 20px;
 }
 
 .PostReviewButton, .submit, .LogIn {
@@ -155,6 +175,12 @@ main {
 	color: white;
 	background-color: gray;
 	font-size: 20px;
+}
+
+.PostReviewButton {
+     width: 120px;
+     height: 40px;
+     font-size: 22px;
 }
 
 #MovieTitle {
@@ -176,12 +202,24 @@ main {
 	height: 180px;
 }
 
+#FirstName_SignUp, #LastName_SignUp, #username_SignUp {
+	margin-bottom: 10px;
+}
+
 .container {
 	display: inline-block;
 }
 
 .container2, .containerSearch {
 	width: 500px;
+}
+
+.delete_link {
+	margin-bottom: 20px;
+}
+
+.title {
+	margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 1280px) {

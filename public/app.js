@@ -2,12 +2,14 @@ var URL = "http://localhost:8080/review-posts"
 var USER_MR_URL = "http://localhost:8080/review-posts/"
 var LOGOUT_URL = "http://localhost:8080/users/logout"
 var LOGIN_URL = "http://localhost:8080/users/login"
+var ID_URL = "http://localhost:8080/review-posts/id/"
 var USERS_URL = "http://localhost:8080/users/";
 
 var UserData = {
   username: null,
   firstName: null,
-  lastName: null
+  lastName: null,
+  review_post_id: null
 }
 
 /* JQuery PUT and DELETE Methods */
@@ -136,7 +138,7 @@ function displayPersonalMovieReviews(username) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       console.log(result);
@@ -170,7 +172,7 @@ function displayMovieReviews(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){ 
         if (index in data) {
-          result += '<p>' + data[index].text + '</p>';
+          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '</p>';
         }
       }
       //$('.CurrentPosts').show();
@@ -207,7 +209,7 @@ function displayNewMovieReviews(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
 		    }
       }
       console.log(result);
@@ -232,35 +234,29 @@ function displayNewMovieReviews(data) {
   $('.Page5').show();
   $('.Edit').show();
   console.log('show page5');
+  UserData.review_post_id = $(this).attr('href')
   $.ajax({
     type: "GET",
-    url: USER_MR_URL+$(this).attr('href'), 
-    //data:({text: $('.container_page2').val()}),
+    url: ID_URL+$(this).attr('href'), 
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
       console.log('Successful get');
       displayReviewforEdit(data);
+      console.log(data);
     }
   });
 });
 
  function displayReviewforEdit(data) {
-      var result = '';
-      for(var index = 0; index < data.length; index++){ 
-        if (index in data) {
-          result += '<p>' + data[index].text + '</p>';
-        }
-      }
-      $('#EditText').html(result);
-      console.log(result);
+      $('#EditText').val(data.text);
 };
 
 $('.Edit').click(function(e) {
   e.preventDefault();
   $.ajax({
     type: "PUT",
-    url: URL, 
+    url: ID_URL+UserData.review_post_id, 
     data: JSON.stringify({
       text: $('#EditText').val()
     }),
@@ -284,7 +280,7 @@ function displayUpdatedMoviePosts(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       $('.container_main').html(result);
@@ -315,7 +311,7 @@ function dislplayMovieReviewsAfterDelete(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].text + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       $('.container_main').html(result);
