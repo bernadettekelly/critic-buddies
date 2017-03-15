@@ -1,0 +1,24 @@
+App Name: Critic Buddies
+
+Summary: This app allows users to post movie reviews for their friends to read, as well as read the reviews their friends
+write. When users log in, they are able to see their past reviews and are able to edit and delete them if they wish. To
+view their friends views, they can search on the homepage. 
+For new users, they can easily create an account by creating a username and password.
+The idea behind the app is to create a platform that allows users to learn their friends' opinions, which they may find more
+useful than those of strangers.
+
+Documentation of API: This app has six URL enpoints used to access data.
+URL - stores all movie reviews by every user.
+USER-MR-URL - stores movie reviews for a particular user.
+LOGOUT_URL - used to end a user's session.
+LOGIN_URL - used for a user to lgin and begin a new session.
+ID_URL - stores reviews posts by ID.
+USERS_URL - stores user data once a new user is created.
+
+Technology used: For this app, Node.js was used to write the API, using Express as the web framework. NPM was used as the
+package manager, and MongoDB for the database manager. For testing, I used the Mocha framework with the chai library and 
+Mongoose schemas to express expected value types.
+For my frontend code, I used HTML to create the structure, CSS for styling, and JavaScript to make the app functional for
+the user.
+
+Page Images: https://github.com/bernadettekelly/critic-buddies/issues/1
