@@ -68,7 +68,6 @@ router.post('/', (req, res) => {
     	var username = req.body.username;
     	var password = req.body.password;
     	console.log(username, password);
-    	//var userId = req.session.userId;
     	User.findOne({username: username}, function (err, user) {
     		console.log(user);
     		if(err) {
@@ -101,9 +100,8 @@ router.post('/', (req, res) => {
     	}
     }); 
 
-//	passport.use(login);
-//router.use(passport.initialize());
+
 
 module.exports = router;
 
-    //log in and log out?
+   

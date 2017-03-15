@@ -39,14 +39,6 @@ describe('review posts API resource', function() {
 		return runServer();
 	});
 
-	///beforeEach(function() {
-		///return runServer();
-	///});
-
-	////afterEach(function() {
-		///return tearDownDb();
-	///});
-
 	after(function() {
 		return closeServer();
 	});
@@ -91,7 +83,7 @@ describe('review posts API resource', function() {
 			});
 		});
 
-		///200 {reviewPost: []}
+	
 	    it('should return posts with right fields', function() {
 			return chai.request(app)
 			.get('/review-posts')
@@ -113,7 +105,6 @@ describe('review posts API resource', function() {
    			const updateData = {
    			  movieTitle: 'Sing Street',
    			  text: 'abc',
-   			  //publishedOn: new Date(),
    			  firstName: 'Jay',
    			  lastName: 'Peters'
    			};
@@ -145,7 +136,6 @@ describe('review posts API resource', function() {
     	     	post.text.should.equal(updateData.text);
     	     	post.firstName.should.equal(updateData.firstName);
     	     	post.lastName.should.equal(updateData.lastName);
-    	     	//post.publishedOn.should.equal(updateData.publishedOn);
     	   	});
     	});
  	})

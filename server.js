@@ -44,10 +44,6 @@ app.use('/users', UsersRouter);
 
 app.use(express.static('public'));
 
-///app.listen(process.env.PORT || 8080);
-
-//exports.app = app
-
 let server;
 console.log(DATABASE_URL, PORT);
 

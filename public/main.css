@@ -85,7 +85,7 @@ main {
 	margin-bottom: 20px;
 }
 
-.SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn {
+.SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn, .Home {
 	width: 90px;
 	height: 30px;
 	border-radius: 5px;
@@ -101,6 +101,10 @@ main {
 	margin-bottom: 10px;
 }
 
+.Home {
+	margin-top: 15px;
+	font-size: 20px;
+}
 .LogIn {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -214,15 +218,56 @@ main {
 	width: 500px;
 }
 
-.delete_link {
+.container_page2 {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.movieTitle {
+	margin-top: 30px;
+	font-size: 20px;
+}
+
+.publishedOn {
 	margin-bottom: 20px;
 }
 
-.title {
+.delete_link, .edit_link {
 	margin-bottom: 20px;
+	color: white;
+}
+
+
+/*Screen 320*/
+/*
+ * @media only screen and (max-width: 640px)
+ * @media only screen and (max-width: 960px)
+ */
+@media only screen and (max-width: 960px) {
+	.container2 {
+		width: 400px;
+		margin: auto;
+	}
+	.containerSearch {
+		width: 200px;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.container2 {
+		width: 100%;
+		margin: auto;
+	}
+	.containerSearch {
+		width: 300px;
+	}
 }
 
 @media only screen and (min-width: 1280px) {
+
+	.container_main {
+		text-align: center;
+	}
 	.MovieTitle {
 		width: 100%;
 	}

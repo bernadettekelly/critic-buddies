@@ -22,7 +22,6 @@ router.get('/search', (req, res) => {
         movieReviews
         .find({
            movieTitle: req.query.movieTitle,
-           //username: req.query.username
         
         })
         .sort('-publishedOn')
@@ -59,10 +58,7 @@ router.get('/:username', (req, res) => {
     	if(!user) {
     		return res.status(404).send('No user found');
     	}
-    	//if(req.session.userId != user._id) {
-        //    console.log(req.session, user._id);
-    	//	return res.status(404).json({error: "The session ID doesn't belongs to the searched user"});
-    	//}
+    	
     	movieReviews
         .find({
            firstName: user.firstName,
@@ -115,20 +111,12 @@ router.put('/id/:id', (req, res) => {
             return res.status(400).send(message); 
         }
     }
-    //if (req.params.id !== req.body.id) {
-    //    const message = (
-    //        `Request path id (${req.params.id}) and request body id `
-    //        `(${req.body.id}) must match`);
-    //    console.log(message);
-    //    return res.status(400).send(message);
-    //}
+     res.status(400).send(message);
+    
     console.log(`Updating review post with id \`${req.params.id}\``);
     movieReviews
     .findByIdAndUpdate(req.params.id, {$set: {
-        //movieTitle: req.body.movieTitle,
         text: req.body.text,
-        //firstName: req.body.firstName,
-        //lastName: req.body.lastName,
         publishedOn: new Date()
         
     }})
@@ -138,9 +126,6 @@ router.put('/id/:id', (req, res) => {
     	   		 .exec()
     	   		 .then(movieReview => res.status(201).json(movieReview.apiRepr()))
     	  )
-
-    //.exec()
-    //.then(movieReviews => res.status(201).json(movieReviews.apiRepr()))
   .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 

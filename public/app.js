@@ -52,6 +52,7 @@ $(document).ready(function() {
 	$('.Edit').hide();
 	$('.Delete').hide();
 	$('.Page1').show();
+	$('.SignOutButton').hide();
 });
 
 $('.MyProfile').click(function(e) {
@@ -70,6 +71,12 @@ $('.SignInButton').click(function(e) {
 	e.preventDefault();
 	$('.Page').hide();
 	$('.Page4').show();
+});
+
+$('.Home').click(function(e) {
+	e.preventDefault();
+	$('.Page').hide();
+	$('.Page1').show();
 });
 
 
@@ -122,6 +129,7 @@ $('.LogIn').click(function(e) {
       }else{
         $('.Page').hide();
         $('.Page2').show();
+        $('.SignOutButton').show();
       }
     }
   });
@@ -138,7 +146,7 @@ function displayPersonalMovieReviews(username) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       console.log(result);
@@ -155,9 +163,6 @@ $('.submit').click(function(e) {
     url: USER_MR_URL+"search",
     data: {
       movieTitle: $('#MovieTitle_Search').val(),
-      //firstName: UserData.firstName.val(),
-      //lastName: UserData.lastName.val(),
-      //username: UserData.username
     },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
@@ -172,10 +177,9 @@ function displayMovieReviews(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){ 
         if (index in data) {
-          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '</p>';
+          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '</p>';
         }
       }
-      //$('.CurrentPosts').show();
       $('.container_main').html(result);
       console.log(result);
 };
@@ -209,7 +213,7 @@ function displayNewMovieReviews(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
 		    }
       }
       console.log(result);
@@ -222,10 +226,6 @@ function displayNewMovieReviews(data) {
     }
   });
 };
-
-//$('.container_page2').on('click', 'a.edit', function(e){
-//  e.preventDefault();
-// });
 
  //EDIT POSTS
  $('.container_page2').on("click", '.edit_link', function(e) {
@@ -280,7 +280,7 @@ function displayUpdatedMoviePosts(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       $('.container_main').html(result);
@@ -311,7 +311,7 @@ function dislplayMovieReviewsAfterDelete(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
-          result += '<p>' + data[index].movieTitle + '</p>' + '<p>' + data[index].firstName + " " + data[index].lastName +'</p>' + '<p>' + data[index].publishedOn + '</p>' + '<p>' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       $('.container_main').html(result);
