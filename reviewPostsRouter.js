@@ -111,7 +111,7 @@ router.put('/id/:id', (req, res) => {
             return res.status(400).send(message); 
         }
     }
-     res.status(400).send(message);
+     //res.status(400).send(message);
     
     console.log(`Updating review post with id \`${req.params.id}\``);
     movieReviews
