@@ -100,7 +100,7 @@ describe('review posts API resource', function() {
 	    });
 	});
 	
-  	describe('PUT endpoint', function() {
+  	describe('PUT endpoint!', function() {
     	it('should update fields you send over', function() {
    			const updateData = {
    			  movieTitle: 'Sing Street',
@@ -108,21 +108,25 @@ describe('review posts API resource', function() {
    			  firstName: 'Jay',
    			  lastName: 'Peters'
    			};
+   			console.log("Hello World");
     	
     	 	return movieReviews
     	   	.findOne()
     	   	.exec()
     	   	.then(post => {
+    	   		console.log(post);
     	     	updateData.id = post.id
     	     	return chai.request(app)
     	       	.put(`/review-posts/${post.id}`)
     	       	.send(updateData);
     	   	})
     	   	.then(res => {
+    	   		console.log("success");
     	     	res.should.have.status(201);
     	     	res.should.be.json;
     	     	res.body.should.be.a('object');
-    	     	console.log(updateData);
+    	     	console.log("updateData", updateData);
+    	     	console.log("res.body", res.body);
     	     	res.body.movieTitle.should.equal(updateData.movieTitle);
     	     	res.body.name.should.equal(
     	       `${updateData.firstName} ${updateData.lastName}`);
@@ -136,7 +140,7 @@ describe('review posts API resource', function() {
     	     	post.text.should.equal(updateData.text);
     	     	post.firstName.should.equal(updateData.firstName);
     	     	post.lastName.should.equal(updateData.lastName);
-    	   	});
+    	   	}).catch(err => {console.log(err)});
     	});
  	})
   describe('DELETE endpoint', function() {
