@@ -1,6 +1,5 @@
 language: node_js
 node_js: node
-web: node index.js
 services: 
 - mongodb
 deploy:
