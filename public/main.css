@@ -26,19 +26,19 @@ header {
 	margin-top: 0;
 	margin-bottom: 0;
 	height: 250px;
-	background-image:url("https://68.media.tumblr.com/0c700c27ad1daaa456fc15091a30df64/tumblr_o1j66lPT841qiis88o1_500.jpg");
+	background-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Phoenix_dactylifera100_4209.JPG/1200px-Phoenix_dactylifera100_4209.JPG");
 	text-align: center;
 	background-color: none;
 }
 
 body {
 	font-family: 'Quicksand', sans-serif;
-	background-color: #DA70D6;
+	background-color: #FFB6C1;
 }
 
 main {
 	margin-top: 0px;
-	background-color: #DA70D6;
+	background-color: #FFB6C1;
 }
 
 .CurrentPosts {
@@ -137,7 +137,7 @@ main {
 
 
 .Page1, .Page2, .Page3, .Page4, .Page5 {
-	background-color: #DA70D6;
+	background-color: #FFB6C1;
 	min-height: 100%;
 }
 
@@ -152,7 +152,7 @@ main {
 .container3, .container4, .container5, .container6 {
 	text-align: center;
 	margin-top: 20px;
-	background-color: #DA70D6;
+	background-color: #FFB6C1;
 	min-height: 100%;
 }
 
