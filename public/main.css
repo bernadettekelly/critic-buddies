@@ -8,8 +8,17 @@
 	padding: 0;
 }
 
-h1, .SignInTitle, .SignUpTitle, .EditTitle {
+h1 {
 	font-family: 'Mr Bedfort', cursive;
+	color: white;
+	font-size: 60px;
+	text-align: center;
+	padding-top: 90px;
+	background-color: none;
+} 
+
+.SignInTitle, .SignUpTitle, .EditTitle {
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 60px;
 	text-align: center;
@@ -27,6 +36,7 @@ header {
 	margin-bottom: 0;
 	height: 250px;
 	background-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Phoenix_dactylifera100_4209.JPG/1200px-Phoenix_dactylifera100_4209.JPG");
+	background-size: cover;
 	text-align: center;
 	background-color: none;
 }
@@ -76,7 +86,7 @@ main {
 	margin-bottom: 20px;
 	background-color: gray;
 	margin-top: 10px;
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 23px;
 }
@@ -90,7 +100,7 @@ main {
 	height: 30px;
 	border-radius: 5px;
 	color: white;
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Quicksand', sans-serif;
 	font-size: 20px;
 	background-color: gray;
 }
@@ -123,13 +133,13 @@ main {
 }
 
 .RecentPosts {
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 30px;
 }
 
 .Edit {
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 20px;
 	margin-top: 20px;
@@ -162,20 +172,20 @@ main {
 }
 
 .PostReview {
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 40px;
 }
 
 .PreviousPosts {
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 30px;
 	margin-top: 20px;
 }
 
 .PostReviewButton, .submit, .LogIn {
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	background-color: gray;
 	font-size: 20px;
