@@ -1,9 +1,9 @@
-var URL = "https://localhost:8080/review-posts"
-var USER_MR_URL = "https://localhost:8080/review-posts/"
-var LOGOUT_URL = "https://localhost:8080/users/logout"
-var LOGIN_URL = "https://localhost:8080/users/login"
-var ID_URL = "https://localhost:8080/review-posts/id/"
-var USERS_URL = "https://localhost:8080/users/";
+var URL = "https://critic-buddies.herokuapp.com/review-posts"
+var USER_MR_URL = "https://critic-buddies.herokuapp.com/review-posts/"
+var LOGOUT_URL = "https://critic-buddies.herokuapp.com/users/logout"
+var LOGIN_URL = "https://critic-buddies.herokuapp.com/users/login"
+var ID_URL = "https://critic-buddies.herokuapp.com/review-posts/id/"
+var USERS_URL = "https://critic-buddies.herokuapp.com/users/";
 
 var UserData = {
   username: null,
