@@ -1,9 +1,9 @@
-var URL = "http://localhost:8080/review-posts"
-var USER_MR_URL = "http://localhost:8080/review-posts/"
-var LOGOUT_URL = "http://localhost:8080/users/logout"
-var LOGIN_URL = "http://localhost:8080/users/login"
-var ID_URL = "http://localhost:8080/review-posts/id/"
-var USERS_URL = "http://localhost:8080/users/";
+var URL = "https://localhost:8080/review-posts"
+var USER_MR_URL = "https://localhost:8080/review-posts/"
+var LOGOUT_URL = "https://localhost:8080/users/logout"
+var LOGIN_URL = "https://localhost:8080/users/login"
+var ID_URL = "https://localhost:8080/review-posts/id/"
+var USERS_URL = "https://localhost:8080/users/";
 
 var UserData = {
   username: null,
