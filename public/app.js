@@ -79,6 +79,10 @@ $('.Home').click(function(e) {
 	$('.Page1').show();
 });
 
+$('.close').click(function(e) {
+	e.preventDefault();
+	$('.modal').hide();
+});
 
 //TO CREATE LOGIN
 $('.SubmitSignUp').click(function(e) {
