@@ -231,6 +231,10 @@ main {
 	display: inline-block;
 }
 
+.container, .container3, .containerPrevious {
+	display: inline-block;
+}
+
 .container2, .containerSearch {
 	width: 500px;
 }
