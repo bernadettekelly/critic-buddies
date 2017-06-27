@@ -1,4 +1,4 @@
-var BASE_URL = "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/"
+var BASE_URL = "http://localhost:8080/"; //"https://critic-buddies.herokuapp.com/";
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";
@@ -184,7 +184,7 @@ function displayMovieReviews(data) {
       var result = '';
       for(var index = 0; index < data.length; index++){ 
         if (index in data) {
-          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '</p>';
+          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + (data[index].name ? data[index].name : data[index].firstName + " " + data[index].lastName) + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '</p>';
         }
       }
       $('.container_main').html(result);
