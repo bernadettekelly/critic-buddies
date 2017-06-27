@@ -1,9 +1,10 @@
-var URL = "https://critic-buddies.herokuapp.com/review-posts"
-var USER_MR_URL = "https://critic-buddies.herokuapp.com/review-posts/"
-var LOGOUT_URL = "https://critic-buddies.herokuapp.com/users/logout"
-var LOGIN_URL = "https://critic-buddies.herokuapp.com/users/login"
-var ID_URL = "https://critic-buddies.herokuapp.com/review-posts/id/"
-var USERS_URL = "https://critic-buddies.herokuapp.com/users/";
+var BASE_URL = "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/"
+var URL = BASE_URL + "review-posts";
+var USER_MR_URL = BASE_URL + "review-posts/";
+var LOGOUT_URL = BASE_URL + "users/logout";
+var LOGIN_URL = BASE_URL + "users/login";
+var ID_URL = BASE_URL + "review-posts/id/";
+var USERS_URL = BASE_URL + "users/";
 
 var UserData = {
   username: null,
@@ -167,12 +168,14 @@ $('.submit').click(function(e) {
     url: USER_MR_URL+"search",
     data: {
       movieTitle: $('#MovieTitle_Search').val(),
+      username: $('#Username_Search').val()
     },
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (data) {
       console.log('Successful request');
       displayMovieReviews(data);
+    $('.CurrentPosts').hide();
     }
 	});
 });

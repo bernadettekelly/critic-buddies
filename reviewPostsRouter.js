@@ -19,11 +19,12 @@ router.get('/', (req, res) => {
 
 router.get('/search', (req, res) => {
     console.log(req.query);
+    let search = {};
+    if(req.query.movieTitle) search = Object.assign({}, search, {movieTitle: req.query.movieTitle}); //{movieTitle: 'abcd'}
+    if(req.query.username) search = Object.assign({}, search, {name: {$regex:req.query.username}}); //{movieTitle: 'abcd', username: 'asd'}
+    console.log(search);
         movieReviews
-        .find({
-           movieTitle: req.query.movieTitle,
-        
-        })
+        .find(search)
         .sort('-publishedOn')
         .then(movieReviews => res.status(201).json(movieReviews))
         .catch(err => {

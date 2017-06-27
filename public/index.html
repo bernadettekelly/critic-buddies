@@ -9,32 +9,8 @@
 </head>
 <body>
 <div class="Page Page1">
-<header><h1>Critic Buddies</h1></header>
-<main>
-
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    Welcome to Critic Buddies! On this page, search your friends' posts below by entering a movie title and a friend's username. For example, test it out with username: jane1 and the movie: Beauty and the Beast. Feel free to sign up as a new user or sign in with username: jane1 and password: password to view your pal Jane's profile, where you can see her previous posts, edit, and create new ones. Thanks for stopping by!</p>
-  </div>
-
-</div>
-<div class="container containerSearch">
-<form id="Post-Search"><form action="#" method="post">
-	<div class="Search">
-		<section class="MovieTitle">
-			<label for="MovieTitle-entry">Movie Title</label>
-			<input type="text" name="MovieTitle-entry" id="MovieTitle_Search">
-		</section>
-		<section class="UsernameSearch">
-			<label for="Username-entry">Username</label>
-			<input type="text" name="Username-entry" id="Username_Search">
-		</section>
-		<section class="SearchSubmit">
-		<button type="submit" class="submit">Search</button>
-		</section>
-	</div>
-	<div class="HomeButtons">
+<header><h1>Critic Buddies</h1>
+		<h2>	<div class="HomeButtons">
 		<div class="SignUp">
 			<button type="button" class="SignUpButton">Sign Up</button>
 		</div>
@@ -45,23 +21,52 @@
 			<button type="button" class="SignOutButton">Sign Out</button>
 		</div>
 	</div>
-	</div>
-</form>
-	<div class="container container2">
-	<div class="CurrentPosts">
-	    <p><div class="RecentPosts">Recent Posts</div></p>
-	    <p class="RWindow">Rear Window</p> 
- 	   	Nora Kelly
- 	   	<br>12/13/16</br><br>
-         Rear Window is my favorite Hitchcock film. It's a prime example of his 50s style and builds suspense
-          within a very limted setting. Jimmy Stewart is the ideal every man hero, and Grace Kelly is the classic
-          Hitchcock herione - a cool, beautiful blonde on the outside, and fiery on the inside.</br>
- 		</p>
+	</h2>
+</header>
+<main>
 
-		<div class="container_main">
-			
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    Welcome to Critic Buddies! On this page, search your friends' posts below by entering a movie title and a friend's username. For example, test it out with username: jane1 and the movie: Beauty and the Beast. Feel free to sign up as a new user or sign in with username: jane1 and password: password to view your pal Jane's profile, where you can see her previous posts, edit, and create new ones. Thanks for stopping by!</p>
+  </div>
+
+</div>
+<div class="mainDiv">
+	<div class="container containerSearch">
+	<form id="Post-Search"><form action="#" method="post">
+		<div class="Search">
+			<section class="MovieTitle">
+				<p class="searchTitle1">Search by title:</p>
+				<label for="MovieTitle-entry">Movie Title</label>
+				<input type="text" name="MovieTitle-entry" id="MovieTitle_Search">
+			</section>
+			<section class="UsernameSearch">
+			<p class="searchTitle2">or name:</p>
+				<label for="Username-entry">name</label>
+				<input type="text" name="Username-entry" id="Username_Search">
+			</section>
+			<section class="SearchSubmit">
+			<button type="submit" class="submit">Search</button>
+			</section>
 		</div>
+	
 	</div>
+	</form>
+		<div class="container container2">
+		<div class="CurrentPosts">
+	    	<p><div class="RecentPosts">Recent Posts</div></p>
+	    	<p class="RWindow">Rear Window</p> 
+ 	   		Nora Kelly
+ 	   		<br>12/13/16</br><br>
+        	 Rear Window is my favorite Hitchcock film. It's a prime example of his 50s style and builds suspense
+          	 within a very limted setting. Jimmy Stewart is the ideal every man hero, and Grace Kelly is the classic
+          	 Hitchcock herione - a cool, beautiful blonde on the outside, and fiery on the inside.</br>
+ 			</p>
+ 		</div>
+			<div class="container_main">	
+			</div>
+		</div>
 	</div>
 </div>
 <div class="Page Page2">
@@ -69,9 +74,9 @@
 <div class="HomeButtonSection"><button type="button" class="Home">Home</button></div>
 </nav>
 	<div class="columnCreate">
-		<form class="container container3" action="#" method="post">
+		<form class="create-post-container container container3" action="#" method="post">
 			<ul>
-				<li><div class="PostReview">Post Your Movie Review</div></li>
+				<li><div class="PostReview">Post New Movie Review</div></li>
 				<li><label for="MovieTitle" required>Movie Title</label>
 				<input type="Title" name="Title" id="MovieTitle_NewPost" /></li>
 				<li><div class="ReviewTextLabel"><label for="ReviewText" required>Your Movie Review</label></div>
@@ -81,7 +86,7 @@
 				<button type="submit" class="PostReviewButton">
 				<span class="button-label">Post Review</span></button>
 		</form>
-			<div class="container containerPrevious">
+			<div class="posts-list-container container containerPrevious">
 				<div class="PreviousPosts">Previous Posts</div>
 				<div class="container_page2"></div>
 			

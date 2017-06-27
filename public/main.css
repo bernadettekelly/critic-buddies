@@ -51,6 +51,9 @@ main {
 	background-color: #FFB6C1;
 }
 
+p {
+	text-align: left;
+}
 
 .CurrentPosts {
 	text-align: left;
@@ -95,6 +98,7 @@ main {
 
 #password_SignUp {
 	margin-bottom: 20px;
+	padding: 2px 2em;
 }
 
 .SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn, .Home {
@@ -113,14 +117,28 @@ main {
 
 
 .HomeButtons {
-	margin-left: 10px;
-	margin-top: 10px;
 	margin-bottom: 10px;
+	position: absolute;
+	top: 0%;
+	right: 2%;
 }
 
 .Home {
 	margin-top: 15px;
 	font-size: 20px;
+}
+
+.searchTitle1 {
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.searchTitle2 {
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 25px;
 }
 .LogIn {
 	margin-top: 10px;
@@ -166,6 +184,10 @@ main {
 	margin-top: 10px;
 }
 
+#MovieTitle_Search, #Username_Search, #username, #password {
+	padding: 2px;
+} 
+
 .container3, .container4, .container5, .container6 {
 	text-align: center;
 	margin-top: 20px;
@@ -176,18 +198,19 @@ main {
 #MovieTitle_NewPost {
 	margin-top: 20px;
 	margin-bottom: 20px;
+	padding: 3px;
 }
 
 .PostReview {
 	font-family: 'Quicksand', sans-serif;
 	color: white;
-	font-size: 40px;
+	font-size: 35px;
 }
 
 .PreviousPosts {
 	font-family: 'Quicksand', sans-serif;
 	color: white;
-	font-size: 30px;
+	font-size: 35px;
 	margin-top: 20px;
 }
 
@@ -221,10 +244,17 @@ main {
 	margin-bottom: 10px;
 	width: 200px;
 	height: 180px;
+	margin-top: 10px;
+}
+
+.mainDiv {
+	margin: 0 auto;
+	width: 75%;
 }
 
 #FirstName_SignUp, #LastName_SignUp, #username_SignUp {
 	margin-bottom: 10px;
+	padding: 2px 2em;
 }
 
 .container {
@@ -237,11 +267,26 @@ main {
 
 .container2, .containerSearch {
 	width: 500px;
+	float: left;
 }
 
-.container_page2 {
-    padding-left: 80px;
-    padding-right: 80px;
+.columnCreate {
+	display: flex;
+}
+
+.create-post-container{
+	flex: 0 40%;
+	box-sizing: border-box;
+}
+
+.posts-list-container{
+	flex: 0 60%;
+	box-sizing: border-box;
+	padding-left: 90px;
+}
+
+.container_main {
+	text-align: left;
 }
 
 .HomeButtonSection {
@@ -252,10 +297,6 @@ main {
 .movieTitle {
 	margin-top: 30px;
 	font-size: 20px;
-}
-
-.columnCreate {
-	column-count: 2;
 }
 
 .RWindow {
@@ -331,6 +372,13 @@ main {
 	}
 	.containerSearch {
 		width: 300px;
+	}
+	.PostReview {
+		margin-top: 20px;
+	}
+
+	.PreviousPosts {
+		margin-top: 40px;
 	}
 }
 
