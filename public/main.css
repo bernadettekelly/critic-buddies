@@ -99,6 +99,7 @@ p {
 #password_SignUp {
 	margin-bottom: 20px;
 	padding: 2px 2em;
+	margin-left: 5px;
 }
 
 .SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn, .Home {
@@ -268,6 +269,10 @@ p {
 .container2, .containerSearch {
 	width: 500px;
 	float: left;
+}
+
+.container4 {
+	margin-top: 10%;
 }
 
 .columnCreate {
