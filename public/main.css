@@ -325,6 +325,10 @@ p {
 	padding: 5px;
 }
 
+#password {
+	margin-left: 5px;
+}
+
 .modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
