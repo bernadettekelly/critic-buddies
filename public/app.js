@@ -85,6 +85,12 @@ $('.close').click(function(e) {
 	$('.modal').hide();
 });
 
+$('.back').click(function(e) {
+	e.preventDefault();
+	$('.Page').hide();
+	$('.Page2').show();
+});
+
 //TO CREATE LOGIN
 $('.SubmitSignUp').click(function(e) {
   e.preventDefault();

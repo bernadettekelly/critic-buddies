@@ -298,7 +298,7 @@ p {
 	text-align: left;
 }
 
-.HomeButtonSection {
+.HomeButtonSection, .EditButtonSection {
 	float: right;
 	margin-right: 15px;
 }
