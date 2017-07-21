@@ -1,4 +1,4 @@
-var BASE_URL = "https://critic-buddies.herokuapp.com/" //"http://localhost:8080/"; 
+var BASE_URL = "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/"; 
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";
@@ -188,11 +188,16 @@ $('.submit').click(function(e) {
 
 function displayMovieReviews(data) {
       var result = '';
-      for(var index = 0; index < data.length; index++){ 
-        if (index in data) {
-          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + (data[index].name ? data[index].name : data[index].firstName + " " + data[index].lastName) + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '</p>';
-        }
-      }
+      if(data.length > 0){
+	      for(var index = 0; index < data.length; index++){ 
+	        if (index in data) {
+	          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + (data[index].name ? data[index].name : data[index].firstName + " " + data[index].lastName) + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '</p>';
+	        }
+	      }
+    	}
+    	else {
+    		result = "No results to display."
+    	}
       $('.container_main').html(result);
       console.log(result);
 };

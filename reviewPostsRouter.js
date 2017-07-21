@@ -20,8 +20,8 @@ router.get('/', (req, res) => {
 router.get('/search', (req, res) => {
     console.log(req.query);
     let search = {};
-    if(req.query.movieTitle) search = Object.assign({}, search, {movieTitle: req.query.movieTitle}); //{movieTitle: 'abcd'}
-    if(req.query.username) search = Object.assign({}, search, {name: {$regex:req.query.username}}); //{movieTitle: 'abcd', username: 'asd'}
+    if(req.query.movieTitle) search = Object.assign({}, search, {$text: {$search: req.query.movieTitle}}); //{movieTitle: 'abcd'}
+    if(req.query.username) search = Object.assign({}, search, {name: {$regex: req.query.username, $options: 'i'}}); //{movieTitle: 'abcd', username: 'asd'}
     console.log(search);
         movieReviews
         .find(search)
