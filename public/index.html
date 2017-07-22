@@ -73,6 +73,15 @@
 <nav>
 <div class="HomeButtonSection"><button type="button" class="Home">Home</button></div>
 </nav>
+<div id="myModal" class="editModal">
+  <div class="modal-contentEdit">
+    <span class="editClose">&times;</span>
+   Are you sure you want to delete this post?</p>
+   		<button type="submit" class="modalDeleteButton">
+			<span class="button-label">Yes</span></button>
+  </div>
+
+</div>
 	<div class="columnCreate">
 		<form class="create-post-container container container3" action="#" method="post">
 			<ul>
@@ -130,6 +139,8 @@
 	</nav>
 	<form class="container6" method="post">
 		<ul>
+			<li><label for="editTitle"></label>
+			<input type="text" name="editTitle" id="editTitle" /></li>
 			<li><textarea name="EditText" id="EditText" 
 			   rows="20" cols="90"></textarea></li>
 			<li><button type="submit" class="Edit">Edit</button></li>

@@ -118,6 +118,7 @@ router.put('/id/:id', (req, res) => {
     movieReviews
     .findByIdAndUpdate(req.params.id, {$set: {
         text: req.body.text,
+        movieTitle: req.body.movieTitle,
         publishedOn: new Date()
         
     }})

@@ -102,7 +102,7 @@ p {
 	margin-left: 5px;
 }
 
-.SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn, .Home, .back {
+.SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn, .Home, .back, .modalDeleteButton {
 	width: 90px;
 	height: 30px;
 	border-radius: 5px;
@@ -110,6 +110,10 @@ p {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 20px;
 	background-color: gray;
+}
+
+.modalDeleteButton {
+	margin-top: 10px;
 }
 
 .SignUpButton {
@@ -127,6 +131,8 @@ p {
 .Home, .back {
 	margin-top: 15px;
 	font-size: 20px;
+	float: right;
+	margin-right: 10px;
 }
 
 .searchTitle1 {
@@ -298,7 +304,7 @@ p {
 	text-align: left;
 }
 
-.HomeButtonSection, .EditButtonSection {
+.HomeButtonSection, .EditButtonSection, {
 	float: right;
 	margin-right: 15px;
 }
@@ -329,7 +335,13 @@ p {
 	margin-left: 5px;
 }
 
-.modal {
+#editTitle {
+	margin-bottom: 10px;
+	padding: 3px;
+	width: 200px;
+}
+
+.modal, .editModal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -350,12 +362,26 @@ p {
     width: 50%; /* Could be more or less, depending on screen size */
 }
 
+.modal-contentEdit {
+	background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; 
+}
+
 /* The Close Button */
-.close {
+.close, .editClose {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.editClose {
+	font-size: 38px;
+	color: black;
 }
 
 .close:hover,

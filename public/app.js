@@ -1,4 +1,4 @@
-var BASE_URL = "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/"; 
+var BASE_URL =  "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/";
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";
@@ -54,6 +54,7 @@ $(document).ready(function() {
 	$('.Delete').hide();
 	$('.Page1').show();
 	$('.SignOutButton').hide();
+	$('.editModal').hide();
 });
 
 $('.MyProfile').click(function(e) {
@@ -83,6 +84,16 @@ $('.Home').click(function(e) {
 $('.close').click(function(e) {
 	e.preventDefault();
 	$('.modal').hide();
+});
+
+$('.delete_link').click(function(e) {
+	e.preventDefault();
+	$('.editModal').show();
+});
+
+$('.editClose').click(function(e) {
+	e.preventDefault();
+	$('.editModal').hide();
 });
 
 $('.back').click(function(e) {
@@ -268,6 +279,8 @@ function displayNewMovieReviews(data) {
 
  function displayReviewforEdit(data) {
       $('#EditText').val(data.text);
+      $('#editTitle').val(data.movieTitle);
+      
 };
 
 $('.Edit').click(function(e) {
@@ -276,7 +289,8 @@ $('.Edit').click(function(e) {
     type: "PUT",
     url: ID_URL+UserData.review_post_id, 
     data: JSON.stringify({
-      text: $('#EditText').val()
+      text: $('#EditText').val(),
+      movieTitle: $('#editTitle').val()
     }),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
@@ -310,10 +324,19 @@ function displayUpdatedMoviePosts(data) {
 }
 
 // TO DELETE POSTS
+var deletePostId;
+
 $('.container_page2').on("click", '.delete_link', function(e) {
   e.preventDefault();
-  $.delete(USER_MR_URL+$(this).attr('href'), function(){
+  deletePostId = $(this).attr('href');
+  $('.editModal').show();
+});
+$('.editModal').on("click", '.modalDeleteButton', function(e) {
+	e.preventDefault();
+  $.delete(USER_MR_URL+deletePostId, function(){
     console.log('Successful delete');
+    deletePostId = null;
+    $('.editModal').hide();
     dislplayMovieReviewsAfterDelete();
   });
 });
