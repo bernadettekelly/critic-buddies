@@ -193,7 +193,21 @@ p {
 
 #MovieTitle_Search, #Username_Search, #username, #password {
 	padding: 2px;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 30%;
+    min-height: 25px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
 } 
+
+#username, #password {
+	width: 16%;
+	min-height: 27px;
+}
 
 .container3, .container4, .container5, .container6 {
 	text-align: center;
@@ -259,9 +273,18 @@ p {
 	width: 75%;
 }
 
-#FirstName_SignUp, #LastName_SignUp, #username_SignUp {
+#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
 	margin-bottom: 10px;
 	padding: 2px 2em;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 18%;
+    min-height: 30px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
 }
 
 .container {
@@ -423,6 +446,46 @@ p {
 	.PreviousPosts {
 		margin-top: 40px;
 	}
+
+	#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
+	margin-bottom: 10px;
+	padding: 2px 2em;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 60%;
+    min-height: 30px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
+	}
+
+	#FirstName_SignUp {
+		margin-top: 20px;
+	}
+
+	h1 {
+		padding-top: 80px;
+	}
+
+	#MovieTitle_Search, #Username_Search, #username, #password {
+	padding: 2px;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 50%;
+    min-height: 25px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
+} 
+
+#username, #password {
+	width: 50%;
+	min-height: 27px;
+}
 }
 
 @media only screen and (min-width: 1280px) {
@@ -438,5 +501,8 @@ p {
     }
     .LastName {
     	width: 100%;
+    }
+    h1 {
+    	padding-top: 90px;
     }
 }
