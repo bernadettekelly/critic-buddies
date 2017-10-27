@@ -17,10 +17,10 @@ h1 {
 	background-color: none;
 } 
 
-.SignInTitle, .SignUpTitle, .EditTitle {
+.SignInTitle, .SignUpTitle, .EditTitle, .SignUpTitle {
 	font-family: 'Quicksand', sans-serif;
-	color: #FFB6C1;
-	font-size: 60px;
+	color: white;
+	font-size: 40px;
 	text-align: center;
 	padding-top: 90px;
 	background-color: none;
@@ -35,7 +35,6 @@ header {
 	margin-top: 0;
 	margin-bottom: 0;
 	height: 250px;
-	background-image:url("http://farm5.staticflickr.com/4111/5044921464_5df8e8688d_b.jpg");
 	background-size: cover;
 	text-align: center;
 	background-color: none;
@@ -43,7 +42,13 @@ header {
 
 body {
 	font-family: 'Quicksand', sans-serif;
-	background-color: #FFB6C1;
+	background: linear-gradient(175deg,#D66D75, #E29587, #267871);
+    height: 100%;
+}
+
+html {
+	background: linear-gradient(175deg,#D66D75, #E29587, #267871);
+    height: 100%;
 }
 
 main {
@@ -94,6 +99,7 @@ p {
 	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 23px;
+	border: none;
 }
 
 #password_SignUp {
@@ -110,6 +116,7 @@ p {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 20px;
 	background-color: gray;
+	border: none;
 }
 
 .modalDeleteButton {
@@ -177,12 +184,6 @@ p {
 	margin-top: 20px;
 }
 
-
-.Page1, .Page2, .Page3, .Page4, .Page5 {
-	background-color: #FFB6C1;
-	min-height: 100%;
-}
-
 .Page2, .Page5 {
 	margin: 0;
 }
@@ -212,7 +213,6 @@ p {
 .container3, .container4, .container5, .container6 {
 	text-align: center;
 	margin-top: 20px;
-	background-color: #FFB6C1;
 	min-height: 100%;
 }
 
@@ -301,11 +301,15 @@ p {
 }
 
 .container4 {
-	margin-top: 10%;
+	margin-top: 40px;
 }
 
 .container6 {
 	margin-top: 10%;
+}
+
+.container5 {
+	margin-top: 40px;
 }
 
 .columnCreate {
@@ -380,9 +384,10 @@ p {
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    padding: 25px;
     border: 1px solid #888;
     width: 50%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
 }
 
 .modal-contentEdit {
@@ -412,6 +417,11 @@ p {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.login {
+	font-weight: bolder;
+	color: red;
 }
 
 
