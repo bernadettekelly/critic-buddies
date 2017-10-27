@@ -435,6 +435,10 @@ p {
 		width: 80%;
 		margin-top: 0 auto;
 	}
+
+	.Home {
+		margin-top: 0px;
+	}
 }
 
 @media only screen and (max-width: 640px) {
