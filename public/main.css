@@ -27,10 +27,6 @@ h1 {
 
 }
 
-.EditTitle {
-	font-size: 50px;
-}
-
 header {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -43,7 +39,7 @@ header {
 body {
 	font-family: 'Quicksand', sans-serif;
 	background: linear-gradient(175deg,#D66D75, #E29587, #267871);
-    height: 100%;
+    min-height: 100%;
 }
 
 html {
@@ -240,6 +236,7 @@ p {
 	color: white;
 	background-color: gray;
 	font-size: 20px;
+	border: none;
 }
 
 .PostReviewButton {
@@ -287,13 +284,9 @@ p {
     -webkit-appearance: none;
 }
 
-.container {
-	display: inline-block;
-}
 
-.container, .container3, .containerPrevious {
-	display: inline-block;
-}
+
+
 
 .container2, .containerSearch {
 	width: 500px;
@@ -419,7 +412,7 @@ p {
     cursor: pointer;
 }
 
-.login {
+.login, .login2 {
 	font-weight: bolder;
 	color: red;
 }
@@ -431,13 +424,16 @@ p {
  * @media only screen and (max-width: 640px)
  * @media only screen and (max-width: 960px)
  */
-@media only screen and (max-width: 960px) {
-	.container2 {
-		width: 400px;
-		margin: auto;
+
+
+
+@media only screen and (min-width: 320px) {
+	.columnCreate {
+		display: block;
 	}
-	.containerSearch {
-		width: 200px;
+	.PostReview {
+		width: 80%;
+		margin-top: 0 auto;
 	}
 }
 
@@ -448,9 +444,6 @@ p {
 	}
 	.containerSearch {
 		width: 300px;
-	}
-	.PostReview {
-		margin-top: 20px;
 	}
 
 	.PreviousPosts {
@@ -496,6 +489,25 @@ p {
 	width: 50%;
 	min-height: 27px;
 }
+}
+
+@media only screen and (min-width: 768px) {
+	.columnCreate {
+		display: flex;
+	}
+	.container, .container3, .containerPrevious {
+	display: inline-block;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	.container2 {
+		width: 400px;
+		margin: auto;
+	}
+	.containerSearch {
+		width: 200px;
+	}
 }
 
 @media only screen and (min-width: 1280px) {
