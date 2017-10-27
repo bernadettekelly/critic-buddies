@@ -383,6 +383,7 @@ p {
     border: 1px solid #888;
     width: 50%; /* Could be more or less, depending on screen size */
     line-height: 1.6;
+    border-radius: 5px;
 }
 
 .modal-contentEdit {
