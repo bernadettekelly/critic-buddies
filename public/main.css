@@ -24,7 +24,10 @@ h1 {
 	text-align: center;
 	padding-top: 90px;
 	background-color: none;
+}
 
+.EditTitle {
+	padding-top: 60px;
 }
 
 header {
@@ -298,7 +301,7 @@ p {
 }
 
 .container6 {
-	margin-top: 10%;
+	margin-top: 5%;
 }
 
 .container5 {
@@ -439,6 +442,9 @@ p {
 	.Home {
 		margin-top: 0px;
 	}
+	body {
+		min-height: 125%;
+	}
 }
 
 @media only screen and (max-width: 640px) {
@@ -501,6 +507,9 @@ p {
 	}
 	.container, .container3, .containerPrevious {
 	display: inline-block;
+	}
+	body {
+		min-height: 100%;
 	}
 }
 
