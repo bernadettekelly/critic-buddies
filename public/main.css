@@ -292,7 +292,6 @@ p {
 
 
 .container2, .containerSearch {
-	width: 500px;
 	float: left;
 }
 
@@ -443,7 +442,7 @@ p {
 		margin-top: 15px;
 	}
 	body {
-		min-height: 125%;
+		min-height: 135%;
 	}
 	#EditText {
 		width: 90%;
@@ -595,6 +594,9 @@ p {
 		padding-top: 0px;
 	}
 	.container2 {
+		width: 500px;
+	}
+	.containerSearch {
 		width: 500px;
 	}
 }
