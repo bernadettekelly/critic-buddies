@@ -152,6 +152,7 @@ $('.LogIn').click(function(e) {
         $('.Page').hide();
         $('.Page2').show();
         $('.SignOutButton').show();
+        $('.SignInButton').hide();
       }
     }
   });
@@ -369,5 +370,6 @@ $('.SignOut').click(function(e) {
     console.log('Successful logout');
     $('.Page').hide();
     $('.Page1').show();
+    $('.SignInButton').show();
   });
 });
