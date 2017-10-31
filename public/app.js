@@ -71,6 +71,12 @@ $('.MyProfile').click(function(e) {
 	$('.Page2').show();
 });
 
+$('.ProfileButton').click(function(e) {
+	e.preventDefault();
+	$('.Page').hide();
+	$('.Page2').show();
+});
+
 $('.SignUpButton').click(function(e) {
 	e.preventDefault();
 	$('.Page').hide();
