@@ -1,4 +1,4 @@
-var BASE_URL =  "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/";
+var BASE_URL = "https://critic-buddies.herokuapp.com/"; //"http:localhost:8080/";
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";
@@ -11,6 +11,13 @@ var UserData = {
   firstName: null,
   lastName: null,
   review_post_id: null
+}
+
+function populateStorage() {
+	localStorage.setItem('.checkbox', '.click')
+	if('.click = true'){
+		$('.checkSection').hide();
+	}
 }
 
 /* JQuery PUT and DELETE Methods */
@@ -55,6 +62,7 @@ $(document).ready(function() {
 	$('.Page1').show();
 	$('.SignOutButton').hide();
 	$('.editModal').hide();
+	$('.ProfileButton').hide();
 });
 
 $('.MyProfile').click(function(e) {
@@ -152,6 +160,7 @@ $('.LogIn').click(function(e) {
         $('.Page').hide();
         $('.Page2').show();
         $('.SignOutButton').show();
+        $('.ProfileButton').show();
         $('.SignInButton').hide();
       }
     }
