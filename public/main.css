@@ -230,7 +230,8 @@ p {
 #MovieTitle_NewPost {
 	margin-top: 20px;
 	margin-bottom: 20px;
-	padding: 3px;
+	padding: 4px;
+	border-radius: 3px;
 }
 
 .PostReview {
@@ -280,6 +281,8 @@ p {
 	width: 200px;
 	height: 180px;
 	margin-top: 10px;
+	border-radius: 3px;
+	border: white;
 }
 
 .mainDiv {
@@ -361,6 +364,8 @@ p {
 
 #EditText {
 	padding: 5px;
+	border: white;
+	border-radius: 3px;
 }
 
 #password {
@@ -369,8 +374,9 @@ p {
 
 #editTitle {
 	margin-bottom: 10px;
-	padding: 3px;
+	padding: 4px;
 	width: 200px;
+	border-radius: 3px;
 }
 
 .modal, .editModal {
@@ -479,6 +485,10 @@ p {
 
 .SignIn, .SignOut, .SignUp, .Profile {
 	display: inline-block;
+}
+
+.SignOutButton {
+	margin-left: 4px;
 }
 
 
@@ -684,6 +694,11 @@ p {
     border-radius: 3px;
     -webkit-appearance: none;
 	}
+
+	#username, #password {
+    width: 15%;
+    min-height: 27px;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
@@ -719,6 +734,10 @@ p {
 		width: 500px;
 		margin: 0 auto;
 		padding-bottom: 20px;
+	}
+	#username, #password {
+    width: 15%;
+    min-height: 27px;
 	}
 }
 
