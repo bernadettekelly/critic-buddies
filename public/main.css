@@ -52,11 +52,14 @@ html {
 
 main {
 	margin-top: 0px;
-	background-color: #FFB6C1;
 }
 
 p {
 	text-align: left;
+}
+
+.container {
+	color: white;
 }
 
 .CurrentPosts {
@@ -81,6 +84,7 @@ p {
 	margin-bottom: 10px;
 	margin-top: 10px;
 	margin-left: 10px;
+	cursor: pointer;
 }
 
 .Post {
@@ -99,6 +103,7 @@ p {
 	color: white;
 	font-size: 23px;
 	border: none;
+	cursor: pointer;
 }
 
 #password_SignUp {
@@ -116,14 +121,17 @@ p {
 	font-size: 20px;
 	background-color: #716f6f;
 	border: none;
+	cursor: pointer;
 }
 
 .modalDeleteButton {
 	margin-top: 10px;
+	cursor: pointer;
 }
 
 .SignUpButton {
 	margin-top: 20px;
+	cursor: pointer;
 }
 
 
@@ -139,6 +147,7 @@ p {
 	font-size: 20px;
 	float: right;
 	margin-right: 10px;
+	cursor: pointer;
 }
 
 .searchTitle1 {
@@ -168,6 +177,7 @@ p {
 .SignInButton {
 	margin-top: 10px;
 	margin-bottom: 10px;
+	cursor: pointer;
 }
 
 .RecentPosts {
@@ -181,6 +191,7 @@ p {
 	color: white;
 	font-size: 20px;
 	margin-top: 20px;
+	cursor: pointer;
 }
 
 .Page2, .Page5 {
@@ -213,6 +224,7 @@ p {
 	text-align: center;
 	margin-top: 20px;
 	min-height: 100%;
+	color: white;
 }
 
 #MovieTitle_NewPost {
@@ -240,12 +252,14 @@ p {
 	background-color: #716f6f;
 	font-size: 20px;
 	border: none;
+	cursor: pointer;
 }
 
 .PostReviewButton {
      width: 120px;
      height: 40px;
      font-size: 17px;
+     cursor: pointer;
 }
 
 #MovieTitle {
@@ -288,23 +302,19 @@ p {
 }
 
 
-
-
-
-.container2, .containerSearch {
-	float: left;
-}
-
 .container4 {
 	margin-top: 40px;
+	color: white;
 }
 
 .container6 {
 	margin-top: 5%;
+	color: white;
 }
 
 .container5 {
 	margin-top: 40px;
+	color: white;
 }
 
 .columnCreate {
@@ -417,7 +427,7 @@ p {
 
 .checkbox {
 	width: 25px;
-	top: 46%;
+	top: 49%;
 	right: 55%;
 	position: absolute;
 }
@@ -467,6 +477,11 @@ p {
 	color: red;
 }
 
+.SignIn, .SignOut, .SignUp, .Profile {
+	display: inline-block;
+}
+
+
 
 
 /*Screen 320*/
@@ -497,9 +512,10 @@ p {
 	}
 	h1 {
 		padding-top: 95px;
+		font-size: 50px;
 	}
 	.Search {
-		margin-top: 30px;
+		margin-top: 50px;
 	}
 	.container_main {
 		width: 50%;
@@ -508,6 +524,31 @@ p {
 		top: 107%;
 		right: 34%;
 	}
+	.mainDiv {
+    margin: 0 auto;
+    width: 70%;
+	}
+	.container2 {
+		width: 250px;
+	}
+	header {
+		height: 180px;
+	}
+	.HomeButtons {
+		right: 10%;
+	}
+	#MovieTitle_Search, #Username_Search, #username, #password {
+	padding: 3px;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 50%;
+    min-height: 25px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+    -webkit-appearance: none;
+	} 
 }
 
 @media only screen and (min-width: 375px) {
@@ -521,6 +562,13 @@ p {
 		top:81%;
 		right: 45%;
 	}
+	.mainDiv {
+    margin: 0 auto;
+    width: 70%;
+	}
+	.container2 {
+		width: 250px;
+	}
 }
 
 @media only screen and (min-width: 414px) {
@@ -528,9 +576,22 @@ p {
 		top: 71%;
 		right: 50%;
 	}
+	.container2 {
+		width: 300px;
+	}
+	.HomeButtons {
+		right: 23%;
+	}
+	.mainDiv {
+    margin: 0 auto;
+    width: 70%;
+	}
+	.container2 {
+		width: 250px;
+	}
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (min-width: 640px) {
 	.container2 {
 		width: 100%;
 		margin: auto;
@@ -543,42 +604,35 @@ p {
 		margin-top: 40px;
 	}
 
-	#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
-	margin-bottom: 10px;
-	padding: 2px 2em;
-	border: 1px solid #bdc4c9;
-    font-size: 16px;
-    width: 60%;
-    min-height: 30px;
-    line-height: normal;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-radius: 3px;
-    -webkit-appearance: none;
-	}
-
 	#FirstName_SignUp {
 		margin-top: 20px;
 	}
 
 
 	#MovieTitle_Search, #Username_Search, #username, #password {
-	padding: 2px;
+	padding: 3px;
 	border: 1px solid #bdc4c9;
     font-size: 16px;
-    width: 50%;
+    width: 30%;
     min-height: 25px;
     line-height: normal;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    border-radius: 3px;
+    border-radius: 4px;
     -webkit-appearance: none;
-} 
+	} 
 
-#username, #password {
+	#username, #password {
 	width: 50%;
 	min-height: 27px;
-}
+	}
+	.mainDiv {
+    margin: 0 auto;
+    width: 70%;
+	}
+	.container2 {
+		width: 250px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -594,26 +648,45 @@ p {
 	#EditText {
 		width: 55%;
 	}
-	}
 	h1 {
 		padding-top: 90px;
 	}
-	.Search {
-		margin-top: 10px;
-	}
-	.container_main {
-		width: 50%;
+	.containerSearch {
+		width: 500px;
+		margin: 0 auto;
+		padding-bottom: 20px;
 	}
 	.container2 {
-		width: 300px;
+		width: 500px;
+		margin: 0 auto;
 	}
 	.checkbox {
 		top: 34%;
 		right: 37%;
 	}
+	.HomeButtons {
+		right: 2%;
+	}
+	.mainDiv {
+    margin: 0 auto;
+    width: 51%;
+	}
+	#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
+	margin-bottom: 10px;
+	padding: 2px 2em;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 60%;
+    min-height: 30px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
+	}
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (min-width: 1024px) {
 	.container2 {
 		width: 400px;
 		margin: auto;
@@ -632,11 +705,20 @@ p {
 		margin-top: 10px;
 	}
 	.container2 {
-		width: 300px;
+		width: 500px;
 	}
 	.checkbox {
 		top: 25%;
 		right: 47%;
+	}
+	.mainDiv {
+    margin: 0 auto;
+    width: 30%;
+	}
+	.containerSearch {
+		width: 500px;
+		margin: 0 auto;
+		padding-bottom: 20px;
 	}
 }
 
@@ -655,7 +737,8 @@ p {
     	width: 100%;
     }
     h1 {
-    	padding-top: 90px;
+    	padding-top: 80px;
+    	font-size: 60px;
     }
     .Home {
 		margin-top: 15px;
@@ -669,11 +752,27 @@ p {
 	}
 	.containerSearch {
 		width: 500px;
+		margin: 0 auto;
+		padding-bottom: 20px;
+	}
+	.container2 {
+		width: 500px;
+		margin: 0 auto;
 	}
 	.checkbox {
 	width: 25px;
-	top: 46%;
+	top: 49%;
 	right: 55%;
 	position: absolute;
+	}
+	.mainDiv {
+    margin: 0 auto;
+    width: 21%;
+	}
+	header {
+		height: 220px;
+	}
+	.Search {
+		margin-top: 10px;
 	}
 }
