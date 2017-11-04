@@ -124,6 +124,10 @@ p {
 	cursor: pointer;
 }
 
+.SignUpButton, .SignOutButton, .ProfileButton {
+	padding-bottom: 2px;
+}
+
 .modalDeleteButton {
 	margin-top: 10px;
 	cursor: pointer;
@@ -178,6 +182,7 @@ p {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	cursor: pointer;
+	padding-bottom: 2px;
 }
 
 .RecentPosts {
