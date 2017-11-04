@@ -124,7 +124,7 @@ p {
 	cursor: pointer;
 }
 
-.SignUpButton, .SignOutButton, .ProfileButton, .Home {
+.SignUpButton, .SignOutButton, .ProfileButton, .Home, .submit {
 	padding-bottom: 2px;
 	height: 35px;
 }
@@ -184,6 +184,7 @@ p {
 	margin-bottom: 10px;
 	cursor: pointer;
 	padding-bottom: 2px;
+	height: 35px;
 }
 
 .RecentPosts {
