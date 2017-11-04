@@ -71,6 +71,24 @@ $(document).ready(function() {
 	$('.editModal').hide();
 	$('.ProfileButton').hide();
 	showModal();
+	$.ajax({
+		type: "GET",
+		url: URL,
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function (data) {
+			console.log('Successful display')
+      var result = '';
+      for(var index = 0; index < data.length; index++){
+        if (index in data) {
+          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
+        }
+      }
+      $('.container_main').html(result);
+      $('.Page').hide();
+      $('.Page2').show();
+    }
+  });
 });
 
 $('.MyProfile').click(function(e) {
