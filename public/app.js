@@ -372,7 +372,7 @@ function displayUpdatedMoviePosts(data) {
 function displayUpdatedMoviePosts(data) {
   $.ajax({
 		type: "GET",
-		url: ID_URL+UserData.review_post_id,
+		url: USER_MR_URL,
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function (data) {
