@@ -279,29 +279,6 @@ function displayNewMovieReviews(data) {
   });
 };
 
-function displayNewMovieReviews(data) {
-  $.ajax({
-    type: "GET",
-    url: ID_URL+UserData.review_post_id,
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    success: function(data) {
-      console.log(183, 'successful get', data);
-      var result = '';
-      for(var index = 0; index < data.length; index++){
-        if (index in data) {
-          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
-		    }
-      }
-      console.log(result);
-      $('.container_main').html(result);
-      $('.Page2').show();
-      $('.Edit').show();
-      $('.Delete').show();
-      console.log('Successful display');
-    }
-  });
-};
 
  //EDIT POSTS
  $('.container_page2').on("click", '.edit_link', function(e) {
@@ -363,27 +340,6 @@ function displayUpdatedMoviePosts(data) {
         }
       }
       $('.container_page2').html(result);
-      $('.Page').hide();
-      $('.Page2').show();
-    }
-  });
-}
-
-function displayUpdatedMoviePosts(data) {
-  $.ajax({
-		type: "GET",
-		url: ID_URL+UserData.review_post_id,
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function (data) {
-			console.log('Successful display')
-      var result = '';
-      for(var index = 0; index < data.length; index++){
-        if (index in data) {
-          result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
-        }
-      }
-      $('.container_main').html(result);
       $('.Page').hide();
       $('.Page2').show();
     }
