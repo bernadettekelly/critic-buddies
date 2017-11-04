@@ -124,8 +124,9 @@ p {
 	cursor: pointer;
 }
 
-.SignUpButton, .SignOutButton, .ProfileButton {
+.SignUpButton, .SignOutButton, .ProfileButton, .Home {
 	padding-bottom: 2px;
+	height: 35px;
 }
 
 .modalDeleteButton {
