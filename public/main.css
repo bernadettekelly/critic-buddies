@@ -17,6 +17,13 @@ h1 {
 	background-color: none;
 } 
 
+.description {
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+}
+
 .SignInTitle, .SignUpTitle, .EditTitle, .SignUpTitle {
 	font-family: 'Quicksand', sans-serif;
 	color: white;
@@ -43,6 +50,7 @@ body {
 	font-family: 'Quicksand', sans-serif;
 	background: linear-gradient(175deg,#D66D75, #E29587, #267871);
     min-height: 100%;
+    padding-bottom: 20px;
 }
 
 html {
@@ -221,6 +229,13 @@ p {
     border-radius: 3px;
     -webkit-appearance: none;
 } 
+
+#MovieTitle_Search, #Username_Search {
+	padding: 5px;
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 
 #username, #password {
 	width: 16%;
@@ -649,6 +664,9 @@ p {
 	.container2 {
 		width: 250px;
 	}
+	#MovieTitle_Search, #Username_Search {
+		margin-top: 5px;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -799,5 +817,10 @@ p {
 	}
 	.Search {
 		margin-top: 10px;
+	}
+	#MovieTitle_Search, #Username_Search {
+	padding: 5px;
+	width: 50%;
+	padding-bottom: 5px;
 	}
 }

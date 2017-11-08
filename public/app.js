@@ -1,4 +1,4 @@
-var BASE_URL =  "https://critic-buddies.herokuapp.com/"; //"http:localhost:8080/";
+var BASE_URL =  "http://localhost:8080/";    //"https://critic-buddies.herokuapp.com/";
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";
@@ -264,6 +264,7 @@ function displayNewMovieReviews(data) {
     success: function(data) {
       console.log(183, 'successful get', data);
       var result = '';
+      var mainResult = '<p class="movieTitle">' + data[0].movieTitle + '</p>' + '<p class="firstName">' + data[0].firstName + " " + data[0].lastName + '</p>' + '<p class="publishedOn">' + data[0].publishedOn + '</p>' + '<p class="text">' + data[0].text + '<p>' + '<a class="edit_link" href="'+data[0]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[0]._id+'">Delete</a><p>';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
           result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
@@ -272,6 +273,8 @@ function displayNewMovieReviews(data) {
       console.log(result);
       $('.Page2').show();
       $('.container_page2').html(result);
+      $('.container_main').html(mainResult);
+      $('.CurrentPosts').hide();
       $('.Edit').show();
       $('.Delete').show();
       console.log('Successful display');
@@ -334,12 +337,15 @@ function displayUpdatedMoviePosts(data) {
 		success: function (data) {
 			console.log('Successful display')
       var result = '';
+      var mainResult = '<p class="movieTitle">' + data[0].movieTitle + '</p>' + '<p class="firstName">' + data[0].firstName + " " + data[0].lastName + '</p>' + '<p class="publishedOn">' + data[0].publishedOn + '</p>' + '<p class="text">' + data[0].text + '<p>' + '<a class="edit_link" href="'+data[0]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[0]._id+'">Delete</a><p>';
       for(var index = 0; index < data.length; index++){
         if (index in data) {
           result += '<p class="movieTitle">' + data[index].movieTitle + '</p>' + '<p class="firstName">' + data[index].firstName + " " + data[index].lastName + '</p>' + '<p class="publishedOn">' + data[index].publishedOn + '</p>' + '<p class="text">' + data[index].text + '<p>' + '<a class="edit_link" href="'+data[index]._id+'">Edit</a><p>' + '<a class="delete_link" href="'+data[index]._id+'">Delete</a><p>';
         }
       }
       $('.container_page2').html(result);
+      $('.container_main').html(mainResult);
+      $('.CurrentPosts').hide();
       $('.Page').hide();
       $('.Page2').show();
     }
