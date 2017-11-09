@@ -546,7 +546,7 @@ p {
 		font-size: 50px;
 	}
 	.Search {
-		margin-top: 50px;
+		margin-top: 70px;
 	}
 	.container_main {
 		width: 50%;
@@ -580,6 +580,13 @@ p {
     border-radius: 4px;
     -webkit-appearance: none;
 	} 
+	#MovieTitle_Search, #Username_Search {
+		width: 100%;
+	}
+
+	.submit {
+		width: 100%;
+	}
 }
 
 @media only screen and (min-width: 375px) {
@@ -599,6 +606,9 @@ p {
 	}
 	.container2 {
 		width: 250px;
+	}
+	.Search {
+		margin-top: 80px;
 	}
 }
 
@@ -652,6 +662,10 @@ p {
     border-radius: 4px;
     -webkit-appearance: none;
 	} 
+
+	#MovieTitle_Search, #Username_Search {
+		width: 50%;
+	}
 
 	#username, #password {
 	width: 50%;
@@ -722,6 +736,9 @@ p {
 	#username, #password {
     width: 15%;
     min-height: 27px;
+	}
+	.submit {
+		width: 30%;
 	}
 }
 
@@ -820,7 +837,7 @@ p {
 	}
 	#MovieTitle_Search, #Username_Search {
 	padding: 5px;
-	width: 50%;
+	width: 70%;
 	padding-bottom: 5px;
 	}
 }

@@ -1,4 +1,4 @@
-var BASE_URL = "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/"; 
+var BASE_URL =  "https://critic-buddies.herokuapp.com/";  //"http://localhost:8080/";
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";

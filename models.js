@@ -6,7 +6,7 @@ const movieReviewsSchema = mongoose.Schema({
 	publishedOn: {type: Date, default: Date.now},
 	//firstName: String,
 	//lastName: String,
-	username: String
+	username: String,
 	user: {type: mongoose.Schema.Types.ObjectId, ref: 'UserSchema'}
 });
 
