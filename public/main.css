@@ -552,8 +552,9 @@ p {
 		width: 50%;
 	}
 	.checkbox {
+		position: relative;
 		top: 107%;
-		right: 34%;
+		right: 0%;
 	}
 	.mainDiv {
     margin: 0 auto;
@@ -597,8 +598,9 @@ p {
 		padding-top: 120px;
 	}
 	.checkbox {
+		position: relative;
 		top:81%;
-		right: 45%;
+		right: 0%;
 	}
 	.mainDiv {
     margin: 0 auto;
@@ -614,8 +616,9 @@ p {
 
 @media only screen and (min-width: 414px) {
 	.checkbox {
+		position: relative;
 		top: 71%;
-		right: 50%;
+		right: 0%;
 	}
 	.container2 {
 		width: 300px;
@@ -709,6 +712,7 @@ p {
 		margin: 0 auto;
 	}
 	.checkbox {
+		position: absolute;
 		top: 34%;
 		right: 37%;
 	}
