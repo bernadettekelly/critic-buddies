@@ -59,7 +59,7 @@ describe('review posts API resource', function() {
 	        	res.should.be.json;
 	        	res.body.should.be.a('object');
 	        	res.body.should.include.keys(
-	        		'id', 'movieTitle', 'text', 'name', 'publishedOn');
+	        		'_id', 'movieTitle', 'text', 'firstName', 'lastName' 'publishedOn');
 	        	res.body.movieTitle.should.equal(newPost.movieTitle);
 	        	res.body.id.should.not.be.null;
 	        	res.body.name.should.equal(
