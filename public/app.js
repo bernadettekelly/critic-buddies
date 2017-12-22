@@ -1,4 +1,4 @@
-var BASE_URL =  "https://critic-buddies.herokuapp.com/";  //"http://localhost:8080/";
+var BASE_URL = "https://critic-buddies.herokuapp.com/";  //"http://localhost:8080/";
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";
@@ -26,6 +26,13 @@ function showModal() {
 			$('.modal').hide();
 		}
 }
+
+$(function() {
+  $('a').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, window.innerHeight, 'linear');
+  });
+});
 
 /* JQuery PUT and DELETE Methods */
 $.put = function(url, data, callback, type){
@@ -70,6 +77,10 @@ $(document).ready(function() {
 	$('.SignOutButton').hide();
 	$('.editModal').hide();
 	$('.ProfileButton').hide();
+	$('.SignInModalClass').hide();
+	$('.EditModalClass').hide();
+	$('.columnCreate').hide();
+	$('.container2').css("min-height", window.innerHeight);
 	showModal();
 });
 
@@ -77,12 +88,15 @@ $('.MyProfile').click(function(e) {
 	e.preventDefault();
 	$('.Page').hide();
 	$('.Page2').show();
+	$('.Page2Body').show();
 });
 
 $('.ProfileButton').click(function(e) {
 	e.preventDefault();
 	$('.Page').hide();
 	$('.Page2').show();
+	$('.HomeButtonSection').show();
+	$('.columnCreate').show();
 });
 
 $('.SignUpButton').click(function(e) {
@@ -93,19 +107,29 @@ $('.SignUpButton').click(function(e) {
 
 $('.SignInButton').click(function(e) {
 	e.preventDefault();
-	$('.Page').hide();
-	$('.Page4').show();
+	$('.SignInModalClass').show();
 });
 
 $('.Home').click(function(e) {
 	e.preventDefault();
 	$('.Page').hide();
+	$('.columnCreate').hide();
 	$('.Page1').show();
 });
 
 $('.close').click(function(e) {
 	e.preventDefault();
 	$('.modal').hide();
+});
+
+$('.SignInclose').click(function(e) {
+	e.preventDefault();
+	$('.SignInModalClass').hide();
+});
+
+$('.Editclose').click(function(e) {
+	e.preventDefault();
+	$('.EditModalClass').hide();
 });
 
 $('.delete_link').click(function(e) {
@@ -176,6 +200,9 @@ $('.LogIn').click(function(e) {
         $('.SignOutButton').show();
         $('.ProfileButton').show();
         $('.SignInButton').hide();
+        $('.SignUpButton').hide();
+        $('.SignInModalClass').hide();
+        $('.columnCreate').show();
       }
     }
   });
@@ -217,6 +244,7 @@ $('.submit').click(function(e) {
       console.log('Successful request');
       displayMovieReviews(data);
     $('.CurrentPosts').hide();
+    $('html, body').animate({ scrollTop: $('.container2').offset().top}, window.innerHeight, 'linear');
     }
 	});
 });
@@ -286,8 +314,7 @@ function displayNewMovieReviews(data) {
  //EDIT POSTS
  $('.container_page2').on("click", '.edit_link', function(e) {
   e.preventDefault();
-  $('.Page').hide();
-  $('.Page5').show();
+  $('.EditModalClass').show();
   $('.Edit').show();
   console.log('show page5');
   UserData.review_post_id = $(this).attr('href')
@@ -346,6 +373,7 @@ function displayUpdatedMoviePosts(data) {
       $('.container_page2').html(result);
       $('.container_main').html(mainResult);
       $('.CurrentPosts').hide();
+      $('.EditModalClass').hide();
       $('.Page').hide();
       $('.Page2').show();
     }
@@ -399,5 +427,6 @@ $('.SignOut').click(function(e) {
     $('.Page').hide();
     $('.Page1').show();
     $('.SignInButton').show();
+    $('.SignOutButton').hide();
   });
 });

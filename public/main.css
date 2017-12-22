@@ -17,26 +17,6 @@ h1 {
 	background-color: none;
 } 
 
-.description {
-	color: white;
-	font-size: 20px;
-	text-align: center;
-	font-family: 'Quicksand', sans-serif;
-}
-
-.SignInTitle, .SignUpTitle, .EditTitle, .SignUpTitle {
-	font-family: 'Quicksand', sans-serif;
-	color: white;
-	font-size: 40px;
-	text-align: center;
-	padding-top: 90px;
-	background-color: none;
-}
-
-.EditTitle {
-	padding-top: 60px;
-}
-
 header {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -65,6 +45,57 @@ main {
 p {
 	text-align: left;
 }
+
+ul {
+	list-style: none;
+}
+
+li {
+	padding-bottom: 10px;
+}
+
+img {
+	margin-left: 26%;
+	margin-top: 25%;
+}
+
+img:hover {
+	background-image: url('Arrow2.png');
+}
+
+.description {
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.SignInTitle, .SignUpTitle, .EditTitle, .SignUpTitle {
+	font-family: 'Quicksand', sans-serif;
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	padding-top: 90px;
+	background-color: none;
+}
+
+.EditTitle {
+	padding-top: 60px;
+	color: black;
+}
+
+.MovieTitle-entry {
+	margin-left: 25%;
+	padding-bottom: 20px;
+	padding-bottom: 5px;
+}
+
+.Username-entry {
+	margin-left: 28%;
+	padding-bottom: 20px;
+	padding: 5px;
+}
+
 
 .container {
 	color: white;
@@ -114,12 +145,6 @@ p {
 	cursor: pointer;
 }
 
-#password_SignUp {
-	margin-bottom: 20px;
-	padding: 2px 2em;
-	margin-left: 5px;
-}
-
 .SignInButton, .SignUpButton, .submit, .SignOutButton, .Edit, .LogIn, .Home, .back, .modalDeleteButton, .ProfileButton {
 	width: 90px;
 	height: 30px;
@@ -130,6 +155,11 @@ p {
 	background-color: #716f6f;
 	border: none;
 	cursor: pointer;
+}
+
+.submit {
+	margin-left: 20%;
+	margin-top: 10px;
 }
 
 .SignUpButton, .SignOutButton, .ProfileButton, .Home, .submit {
@@ -151,7 +181,7 @@ p {
 .HomeButtons {
 	margin-bottom: 10px;
 	position: absolute;
-	top: 0%;
+	top: 1%;
 	right: 2%;
 }
 
@@ -162,6 +192,12 @@ p {
 	margin-right: 10px;
 	cursor: pointer;
 }
+
+.mainDiv {
+	margin: 0 auto;
+	width: 75%;
+}
+
 
 .searchTitle1 {
 	margin-bottom: 10px;
@@ -183,10 +219,6 @@ p {
 	font-size: 23px;
 }
 
-#password {
-	margin-bottom: 20px;
-}
-
 .SignInButton {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -199,6 +231,8 @@ p {
 	font-family: 'Quicksand', sans-serif;
 	color: white;
 	font-size: 30px;
+	width: 64%;
+	margin: 0 auto;
 }
 
 .Edit {
@@ -213,48 +247,39 @@ p {
 	margin: 0;
 }
 
-#password {
-	margin-top: 10px;
+.container3 {
+	text-align: center;
+	margin-top: 20px;
+	min-height: 100%;
+	color: white;
+	width: 130px;
 }
 
-#MovieTitle_Search, #Username_Search, #username, #password {
-	padding: 2px;
-	border: 1px solid #bdc4c9;
-    font-size: 16px;
-    width: 30%;
-    min-height: 25px;
-    line-height: normal;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-radius: 3px;
-    -webkit-appearance: none;
-} 
-
-#MovieTitle_Search, #Username_Search {
-	padding: 5px;
-	width: 50%;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-#username, #password {
-	width: 16%;
-	min-height: 27px;
-}
-
-.container3, .container4, .container5, .container6 {
+.container4 {
 	text-align: center;
 	margin-top: 20px;
 	min-height: 100%;
 	color: white;
 }
 
-#MovieTitle_NewPost {
+.container6 {
+	text-align: center;
 	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 4px;
-	border-radius: 3px;
+	min-height: 100%;
+	color: white;
 }
+
+.container5 {
+	text-align: center;
+	margin-top: 20px;
+	min-height: 100%;
+	color: white;
+}
+
+.container5 {
+	color: black;
+}
+
 
 .PostReview {
 	font-family: 'Quicksand', sans-serif;
@@ -285,48 +310,6 @@ p {
      cursor: pointer;
 }
 
-#MovieTitle {
-	margin-bottom: 10px;
-}
-
-#FirstName {
-	margin-bottom: 10px;
-}
-
-#LastName {
-	margin-bottom: 10px;
-}
-
-#ReviewText {
-	box-sizing: border-box;
-	margin-bottom: 10px;
-	width: 200px;
-	height: 180px;
-	margin-top: 10px;
-	border-radius: 3px;
-	border: white;
-}
-
-.mainDiv {
-	margin: 0 auto;
-	width: 75%;
-}
-
-#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
-	margin-bottom: 10px;
-	padding: 2px 2em;
-	border: 1px solid #bdc4c9;
-    font-size: 16px;
-    width: 18%;
-    min-height: 30px;
-    line-height: normal;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-radius: 3px;
-    -webkit-appearance: none;
-}
-
-
 .container4 {
 	margin-top: 40px;
 	color: white;
@@ -339,7 +322,7 @@ p {
 
 .container5 {
 	margin-top: 40px;
-	color: white;
+	color: black;
 }
 
 .columnCreate {
@@ -373,6 +356,17 @@ p {
 
 .RWindow {
 	font-size: 20px;
+	width: 55%;
+	margin: 0 auto;
+}
+
+.text {
+	width: 95%;
+	margin: 0 auto;
+}
+.nameDate {
+	width: 55%;
+	margin: 0 auto;
 }
 
 .publishedOn {
@@ -384,21 +378,69 @@ p {
 	color: white;
 }
 
-#EditText {
-	padding: 5px;
-	border: white;
-	border-radius: 3px;
+.SignInTitle {
+	font-size: 20px;
 }
 
-#password {
-	margin-left: 5px;
+.EditModalClass {
+	position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6);
 }
 
-#editTitle {
-	margin-bottom: 10px;
-	padding: 4px;
-	width: 200px;
-	border-radius: 3px;
+.Editmodal-content {
+	background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
+    border-radius: 5px;
+    padding-top: 2px;
+}
+
+.SignInModalClass {
+	position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6);
+}
+
+.SignInmodal-content {
+	background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
+    border-radius: 5px;
+}
+
+.Editclose {
+	color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.SignInclose {
+	color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .modal, .editModal {
@@ -412,6 +454,7 @@ p {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 }
+
 
 /* Modal Content/Box */
 .modal-content {
@@ -513,6 +556,108 @@ p {
 	margin-left: 4px;
 }
 
+#password_SignUp {
+	margin-bottom: 20px;
+	padding: 2px 2em;
+	margin-left: 5px;
+}
+
+
+#MovieTitle {
+	margin-bottom: 10px;
+}
+
+#FirstName {
+	margin-bottom: 10px;
+}
+
+#LastName {
+	margin-bottom: 10px;
+}
+
+#MovieTitle_NewPost {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 7px;
+	border-radius: 3px;
+	width: 150px;
+}
+
+#MovieTitle_Search, #Username_Search, #username, #password {
+	padding: 2px;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 30%;
+    min-height: 25px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
+} 
+
+#MovieTitle_Search, #Username_Search {
+	padding: 5px;
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#username, #password {
+	width: 25%;
+	min-height: 27px;
+	padding-bottom: 7px;
+}
+
+#ReviewText {
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	width: 350px;
+	height: 250px;
+	margin-top: 10px;
+	border-radius: 3px;
+	border: white;
+}
+
+
+#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
+	margin-bottom: 15px;
+	padding: 2px 2em;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 65%;
+    min-height: 30px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
+}
+
+#password {
+	margin-bottom: 20px;
+	margin-top: 10px;
+	width: 25%;
+}
+
+
+#EditText {
+	padding: 7px;
+	border-radius: 3px;
+	border: solid black 1px;
+	font-size: 14px;
+}
+
+#editTitle {
+	margin-bottom: 10px;
+	padding: 6px;
+	width: 200px;
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+
+
 
 
 /*Screen 320*/
@@ -528,7 +673,7 @@ p {
 		display: block;
 	}
 	.PostReview {
-		width: 80%;
+		width: 90%;
 		padding-top: 50px;
 	}
 
@@ -586,13 +731,58 @@ p {
 	}
 
 	.submit {
-		width: 100%;
+		width: 60%;
+	}
+	.Username-entry {
+		margin-left: 33%;
+		padding: 5px;
+	}
+	.MovieTitle-entry {
+		padding: 5px;
+	}
+	.RecentPosts {
+		width: 80%;
+	}
+	.SignInmodal-content {
+	background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
+    border-radius: 5px;
+	}
+	.SignInTitle {
+	font-size: 16px;
+	}
+	.Editmodal-content {
+	background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
+    border-radius: 5px;
+    padding-top: 2px;
+	}
+	img {
+	margin-left: 27%;
+	margin-top: 19%;
+	margin-bottom: 5px;
+	}
+	.container3 {
+		width: 235px;
+		margin: 0 auto;
+	}
+	#ReviewText {
+		width: 240px;
 	}
 }
 
 @media only screen and (min-width: 375px) {
 	.container_main {
-		width: 90%;
+		width: 60%;
+		margin: 0 auto;
 	}
 	h1 {
 		padding-top: 120px;
@@ -611,6 +801,30 @@ p {
 	}
 	.Search {
 		margin-top: 80px;
+	}
+	img {
+	margin-left: 29%;
+	margin-top: 46%;
+	margin-bottom: 23px;
+	}
+	#MovieTitle_Search, #Username_Search {
+	padding: 4px;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 100%;
+    min-height: 25px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+    -webkit-appearance: none;
+	} 
+	.container3 {
+		width: 235px;
+		margin: 0 auto;
+	}
+	#ReviewText {
+		width: 240px;
 	}
 }
 
@@ -632,6 +846,37 @@ p {
 	}
 	.container2 {
 		width: 250px;
+	}
+	.Username-entry {
+		margin-left: 37%;
+	}
+	.MovieTitle-entry {
+		margin-left: 30%
+	}
+	.submit{
+		margin-top: 20px;
+	}
+	.CurrentPosts {
+		margin-top: 59px;
+	}
+	#MovieTitle_Search, #Username_Search {
+	padding: 5px;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 100%;
+    min-height: 25px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+    -webkit-appearance: none;
+	} 
+	.container3 {
+		width: 270px;
+		margin: 0 auto;
+	}
+	#ReviewText {
+		width: 280px;
 	}
 }
 
@@ -700,6 +945,9 @@ p {
 		width: 55%;
 	}
 	h1 {
+		padding-top: 150px;
+	}
+	main {
 		padding-top: 90px;
 	}
 	.containerSearch {
@@ -724,11 +972,11 @@ p {
     width: 51%;
 	}
 	#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	padding: 2px 2em;
 	border: 1px solid #bdc4c9;
     font-size: 16px;
-    width: 60%;
+    width: 40%;
     min-height: 30px;
     line-height: normal;
     -webkit-box-sizing: border-box;
@@ -738,34 +986,77 @@ p {
 	}
 
 	#username, #password {
-    width: 15%;
+    width: 35%;
     min-height: 27px;
 	}
 	.submit {
 		width: 30%;
+		margin-left: 24%;
+	}
+	#MovieTitle_Search, #Username_Search {
+		width: 80%;
+		padding: 5px;
+	}
+	.Username-entry {
+		margin-left: 34%;
+	}
+	.SignInmodal-content {
+	background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
+    border-radius: 5px;
+	}
+	img {
+		margin-top: 10%;
+	}
+	.CurrentPosts {
+		top: 200%;
+	}
+	.container3 {
+	text-align: center;
+	margin-top: 20px;
+	min-height: 100%;
+	color: white;
+	width: 130px;
+	margin: 0 auto;
+	margin-left: 10px;
+	}
+	#ReviewText {
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	width: 275px;
+	height: 250px;
+	margin-top: 10px;
+	border-radius: 3px;
+	border: white;
+	}
+	.container2 {
+		margin-top: 250px;
 	}
 }
 
 @media only screen and (min-width: 1024px) {
-	.container2 {
-		width: 400px;
-		margin: auto;
-	}
 	#EditText {
-		width: 45%;
+		width: 70%;
 	}
 	.PostReview {
 		width: 100%;
 		padding-top: 0px;
 	}
-	h1 {
-		padding-top: 90px;
+
+	li {
+		padding-bottom: 7px;
 	}
 	.Search {
 		margin-top: 10px;
 	}
 	.container2 {
 		width: 500px;
+		margin: auto;
+		margin-top: 470px;
 	}
 	.checkbox {
 		top: 25%;
@@ -773,16 +1064,35 @@ p {
 	}
 	.mainDiv {
     margin: 0 auto;
-    width: 30%;
+    width: 40%;
 	}
 	.containerSearch {
 		width: 500px;
 		margin: 0 auto;
 		padding-bottom: 20px;
+		margin-top: 50px;
 	}
 	#username, #password {
-    width: 15%;
+    width: 50%;
     min-height: 27px;
+    padding: 7px;
+	}
+	.RecentPosts {
+		margin-top: 40px;
+	}
+	.submit {
+		height: 40px;
+		width: 35%;
+	}
+	img {
+		margin-left: 31%;
+		margin-top: 30%;
+	}
+	h1 {
+		padding-top: 150px;
+	}
+	main {
+		padding-top: 90px;
 	}
 }
 
@@ -809,10 +1119,11 @@ p {
 	}
 	.PostReview {
 		width: 100%;
-		padding-top: 0px;
+		margin-top: 18px;
 	}
 	.container2 {
 		width: 500px;
+		margin-bottom: 0px;
 	}
 	.containerSearch {
 		width: 500px;
@@ -822,6 +1133,7 @@ p {
 	.container2 {
 		width: 500px;
 		margin: 0 auto;
+		padding-top: 25%;
 	}
 	.checkbox {
 	width: 25px;
@@ -831,7 +1143,7 @@ p {
 	}
 	.mainDiv {
     margin: 0 auto;
-    width: 21%;
+    width: 24%;
 	}
 	header {
 		height: 220px;
@@ -840,8 +1152,110 @@ p {
 		margin-top: 10px;
 	}
 	#MovieTitle_Search, #Username_Search {
-	padding: 5px;
 	width: 70%;
 	padding-bottom: 5px;
+	padding: 6px;
+	margin-bottom: 10px;
+	}
+	#FirstName_SignUp, #LastName_SignUp, #username_SignUp, #password_SignUp {
+	margin-bottom: 20px;
+	padding: 2px;
+	border: 1px solid #bdc4c9;
+    font-size: 16px;
+    width: 30%;
+    min-height: 30px;
+    line-height: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-appearance: none;
+	}
+	.MovieTitle-entry {
+	margin-left: 25%;
+	padding-bottom: 20px;
+	}
+	.Username-entry {
+	margin-left: 28%;
+	padding-bottom: 20px;
+	}
+	.RWindow {
+		width: 79%;
+	}
+	.nameDate {
+		width: 79%;
+	} 
+	.SignInmodal-content {
+	background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
+    border-radius: 5px;
+	}
+	.SignInTitle {
+	font-size: 20px;
+	}
+	.Editmodal-content {
+	background-color: #fefefe;
+    margin: auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    line-height: 1.6;
+    border-radius: 5px;
+    padding-top: 2px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 660px;
+    position: absolute;
+	}
+	img {
+	margin-left: 26%;
+	margin-top: 25%;
+	margin-bottom: 0px;
+	}
+	.CurrentPosts {
+	text-align: left;
+	margin-top: 0;
+	}
+	#username, #password {
+	width: 30%;
+	min-height: 27px;
+	padding-bottom: 7px;
+	}
+	.submit {
+	margin-left: 16%;
+	margin-top: 10px;
+	}
+	.container3 {
+	text-align: center;
+	margin-top: 20px;
+	min-height: 100%;
+	color: white;
+	width: 130px;
+	}
+	#ReviewText {
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	width: 350px;
+	height: 250px;
+	margin-top: 10px;
+	border-radius: 3px;
+	border: white;
+	}
+	main {
+		padding-top: 0px;
+	}
+	.PostReviewButton {
+		position: fixed;
+		top: 66%;
+		left: 14%;
+	}
+	.newPost {
+		position: fixed;
+		left: 5%;
 	}
 }

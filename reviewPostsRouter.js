@@ -67,7 +67,10 @@ router.get('/:username', (req, res) => {
         
         })
         .sort('-publishedOn')
-        .then(movieReviews => res.status(201).json(movieReviews))
+        .then(movieReviews => {
+            const movieReviewsRepr = movieReviews.map(movieReview => movieReview.apiRepr());
+            res.status(201).json(movieReviewsRepr);
+        })
         .catch(err => {
            console.error(err);
            res.status(500).json({error: 'Something went wrong'});

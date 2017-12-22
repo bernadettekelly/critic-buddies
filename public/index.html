@@ -11,20 +11,38 @@
 <div class="Page Page1">
 <header><h1>Critic Buddies</h1>
 	<p class="description">Search your friends' movie reviews and post your own</p>
-		<h2>	<div class="HomeButtons">
-		<div class="SignUp">
-			<button type="button" class="SignUpButton">Sign Up</button>
+		<h2>	
+		<div class="HomeButtons">
+			<div class="SignUp">
+				<button type="button" class="SignUpButton">Sign Up</button>
+			</div>
+			<div class="SignIn">
+				<button type="button" class="SignInButton">Sign In</button>
+			</div>
+			<div class="Profile">
+				<button type="button" class="ProfileButton">Profile</button>
+			</div>
+			<div class="SignOut">
+				<button type="button" class="SignOutButton">Sign Out</button>
+			</div>
+			<div class="SignInTitle">
+				<div id="SignInModal" class="SignInModalClass">
+  					<div class="SignInmodal-content">
+    					<span class="SignInclose">&times;</span>
+						<form class="container5" method="post">
+							<ul>
+								<li><label for="username" required>Username</label>
+								<input type="username" name="username" id="username" /></li>
+								<li><label for="password" required>Password</label>
+								<input type="password" name="username" id="password" /></li>
+							</ul>
+							<button type="submit" class="LogIn">
+							<span class="button-label">Sign In</span></button>
+						</form>
+					</div>
+  				</div>
+			</div>
 		</div>
-		<div class="SignIn">
-			<button type="button" class="SignInButton">Sign In</button>
-		</div>
-		<div class="Profile">
-			<button type="button" class="ProfileButton">Profile</button>
-		</div>
-		<div class="SignOut">
-			<button type="button" class="SignOutButton">Sign Out</button>
-		</div>
-	</div>
 	</h2>
 </header>
 <main>
@@ -49,27 +67,28 @@
 		<div class="Search">
 			<section class="MovieTitle">
 				
-				<label for="MovieTitle-entry">Movie Title</label><br>
+				<label class="MovieTitle-entry">Movie Title</label><br>
 				<input type="text" name="MovieTitle-entry" id="MovieTitle_Search"></br>
 			</section>
 			<section class="UsernameSearch">
 			
-				<label for="Username-entry">Name</label><br>
+				<label class="Username-entry">Name</label><br>
 				<input type="text" name="Username-entry" id="Username_Search"></br>
 			</section>
 			<section class="SearchSubmit">
 			<button type="submit" class="submit">Search</button>
 			</section>
+			<a href=".container2"><img src="ArrowInCircle.png"></a>
 		</div>
-	
-	</div>
 	</form>
+	</div>
 		<div class="container container2">
 		<div class="CurrentPosts">
 	    	<p><div class="RecentPosts">Recent Posts</div></p>
-	    	<p class="RWindow">Rear Window</p> 
+	    	<p class="RWindow">Rear Window</p>
+	    	<p class="nameDate"> 
  	   		Nora Kelly
- 	   		<br>12/13/16</br><br>
+ 	   		<br>12/13/17</p></br><br><p class="text"> 
         	 Rear Window is my favorite Hitchcock film. It's a prime example of his 50s style and builds suspense
           	 within a very limted setting. Jimmy Stewart is the ideal every man hero, and Grace Kelly is the classic
           	 Hitchcock herione - a cool, beautiful blonde on the outside, and fiery on the inside.</br>
@@ -81,39 +100,56 @@
 	</div>
 </div>
 <div class="Page Page2">
-<nav>
-<div class="HomeButtonSection"><button type="button" class="Home">Home</button></div>
-</nav>
-<div id="myModal" class="editModal">
-  <div class="modal-contentEdit">
-    <span class="editClose">&times;</span>
-   Are you sure you want to delete this post?</p>
-   		<button type="submit" class="modalDeleteButton">
+	<nav>
+	<div class="HomeButtonSection"><button type="button" class="Home">Home</button></div>
+	</nav>
+	<div id="myModal" class="editModal">
+  		<div class="modal-contentEdit">
+    		<span class="editClose">&times;</span>
+   			Are you sure you want to delete this post?</p>
+   			<button type="submit" class="modalDeleteButton">
 			<span class="button-label">Yes</span></button>
-  </div>
-
-</div>
+		</div>
+  	</div>
 	<div class="columnCreate">
-		<form class="create-post-container container container3" action="#" method="post">
-			<ul>
-				<li><div class="PostReview">Post New Movie Review</div></li>
-				<li><label for="MovieTitle" required>Movie Title</label>
-				<input type="Title" name="Title" id="MovieTitle_NewPost" /></li>
-				<li><div class="ReviewTextLabel"><label for="ReviewText" required>Your Movie Review</label></div>
-				<textarea name="ReviewText" id="ReviewText" 
-			   rows="40" cols="90"></textarea></li>
-			</ul>
+			<form class="create-post-container container container3" action="#" method="post">
+				<ul class="newPost">
+					<li><div class="PostReview">Post New Movie Review</div></li>
+					<li><label for="MovieTitle" required>Movie Title</label>
+					<input type="Title" name="Title" id="MovieTitle_NewPost" /></li>
+					<li><div class="ReviewTextLabel"><label for="ReviewText" required>Your Movie Review</label></div>
+					<textarea name="ReviewText" id="ReviewText" 
+			   		rows="40" cols="90"></textarea></li>
+				</ul>
 				<button type="submit" class="PostReviewButton">
 				<span class="button-label">Post Review</span></button>
-		</form>
+			</form>
 			<div class="posts-list-container container containerPrevious">
 				<div class="PreviousPosts">Previous Posts</div>
 				<div class="container_page2"></div>
-			
 			</div>
+	</div>
+ 	<div id="EditModal" class="EditModalClass">
+  		<div class="Editmodal-content">
+  			<span class="Editclose">&times;</span>
+				<div class="EditTitle">Edit Your Post</div>
+					<form class="container6" method="post">
+						<ul>
+							<li><label for="editTitle"></label>
+							<input type="text" name="editTitle" id="editTitle" /></li>
+							<li><textarea name="EditText" id="EditText" 
+			   				rows="20" cols="90"></textarea></li>
+							<li><button type="submit" class="Edit">Edit</button></li>
+						</ul>
+					</form>
+				</div>
+  		</div>
 	</div>
 </div>
 <div class="Page Page3">
+	<nav>
+		<div class="HomeButtonSection"><button type="button" class="Home">Home</button></div>
+	</nav>
 	<div class="SignUpTitle">Sign Up</div>
 	<form class="container4" action="#" method="post">
 		<ul>
@@ -128,34 +164,6 @@
 		</ul>
 		<button type="submit" class="SubmitSignUp">
 		<span class="button-label">Submit</span></button>
-	</form>
-</div>
-<div class="Page Page4">
-<div class="SignInTitle">Sign In</div>
-	<form class="container5" method="post">
-		<ul>
-			<li><label for="username" required>Username</label>
-			<input type="username" name="username" id="username" /></li>
-			<li><label for="password" required>Password</label>
-			<input type="password" name="username" id="password" /></li>
-		</ul>
-		<button type="submit" class="LogIn">
-		<span class="button-label">Sign In</span></button>
-	</form>
-</div>
-<div class="Page Page5">
-	<div class="HomeButtonSection"><button type="button" class="Home">Home</button></div>
-		<div class="EditTitle">Edit Your Post</div>
-	
-	<form class="container6" method="post">
-		<ul>
-			<li><label for="editTitle"></label>
-			<input type="text" name="editTitle" id="editTitle" /></li>
-			<li><textarea name="EditText" id="EditText" 
-			   rows="20" cols="90"></textarea></li>
-			<li><button type="submit" class="Edit">Edit</button></li>
-		</ul>
-			   
 	</form>
 </div>
 

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+var moment = require('moment');
+moment().format();
 
 const movieReviewsSchema = mongoose.Schema({
 	movieTitle: {type: String},
@@ -17,10 +19,11 @@ movieReviewsSchema.virtual('fullName').get(function() {
 movieReviewsSchema.methods.apiRepr = function() {
 	return {
 		movieTitle: this.movieTitle,
-		id: this._id,
-		name: this.fullName,
+		_id: this._id,
+		firstName: this.firstName,
+		lastName: this.lastName,
 		text: this.text,
-		publishedOn: this.publishedOn
+		publishedOn: moment(this.publishedOn).format('MMM Do YY')
 	};
 }
 

@@ -20,6 +20,9 @@ const bodyParser = require('body-parser');
 
 var MongoStore = require('connect-mongo')(session);
 
+var moment = require('moment');
+moment().format();
+
 var sess = {
   store: new MongoStore({ url: DATABASE_URL }),
   secret: '12345abcde',
