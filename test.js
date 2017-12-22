@@ -61,7 +61,7 @@ describe('review posts API resource', function() {
 	        	res.body.should.include.keys(
 	        		'_id', 'movieTitle', 'text', 'firstName', 'lastName', 'publishedOn');
 	        	res.body.movieTitle.should.equal(newPost.movieTitle);
-	        	res.body.id.should.not.be.null;
+	        	res.body._id.should.not.be.null;
 	        	res.body.name.should.equal(
 	        		`${newPost.firstName} ${newPost.lastName}`);
 	        	res.body.text.should.equal(newPost.text);
