@@ -1,4 +1,4 @@
-var BASE_URL = "https://critic-buddies.herokuapp.com/";  //"http://localhost:8080/";
+var BASE_URL =    "https://critic-buddies.herokuapp.com/"; //"http://localhost:8080/";
 var URL = BASE_URL + "review-posts";
 var USER_MR_URL = BASE_URL + "review-posts/";
 var LOGOUT_URL = BASE_URL + "users/logout";
@@ -80,7 +80,7 @@ $(document).ready(function() {
 	$('.SignInModalClass').hide();
 	$('.EditModalClass').hide();
 	$('.columnCreate').hide();
-	$('.container2').css("min-height", window.innerHeight);
+	$('.container2').css("min-height", window.innerHeight + 110);
 	showModal();
 });
 
