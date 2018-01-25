@@ -167,6 +167,10 @@ img:hover {
 	height: 35px;
 }
 
+.SignOutButton, .ProfileButton {
+	margin-top: 10px;
+}
+
 .modalDeleteButton {
 	margin-top: 10px;
 	cursor: pointer;
