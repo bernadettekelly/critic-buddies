@@ -167,17 +167,12 @@ img:hover {
 	height: 35px;
 }
 
-.SignOutButton, .ProfileButton {
-	margin-top: 10px;
-}
-
 .modalDeleteButton {
 	margin-top: 10px;
 	cursor: pointer;
 }
 
 .SignUpButton {
-	margin-top: 20px;
 	cursor: pointer;
 }
 
@@ -185,7 +180,7 @@ img:hover {
 .HomeButtons {
 	margin-bottom: 10px;
 	position: absolute;
-	top: 1%;
+	top: 3%;
 	right: 2%;
 }
 
@@ -193,7 +188,7 @@ img:hover {
 	margin-top: 15px;
 	font-size: 20px;
 	float: right;
-	margin-right: 10px;
+	margin-right: 2%;
 	cursor: pointer;
 }
 
@@ -224,7 +219,6 @@ img:hover {
 }
 
 .SignInButton {
-	margin-top: 10px;
 	margin-bottom: 10px;
 	cursor: pointer;
 	padding-bottom: 2px;
