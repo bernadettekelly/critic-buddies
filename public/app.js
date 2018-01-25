@@ -427,6 +427,8 @@ $('.SignOut').click(function(e) {
     $('.Page').hide();
     $('.Page1').show();
     $('.SignInButton').show();
+    $('.SignUpButton').show();
+    $('.ProfileButton').hide();
     $('.SignOutButton').hide();
   });
 });
